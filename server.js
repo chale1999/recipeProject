@@ -7,22 +7,22 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/test';
+const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/recipeDB';
 
 const client = new MongoClient(url);
 client.connect();
 
-app.use((req, res, next) => 
+app.use((req, res, next) =>
 {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
         'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept, Authorization'  
-    );  
-    res.setHeader(    
-        'Access-Control-Allow-Methods',    
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    res.setHeader(
+        'Access-Control-Allow-Methods',
         'GET, POST, PATCH, DELETE, OPTIONS' //Edit this when adding/editing API endpoints
-    );  
+    );
     next();
 });
 
