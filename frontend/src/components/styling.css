@@ -89,6 +89,7 @@
     outline: none;
     border-radius: 4px;
     color: #000;
+    background-color: #F3BA55;
 }
 
 .button:hover {
@@ -136,13 +137,11 @@
 
 #loginButton {
     width: 65%;
-    background:#f3834e;
     text-align: center;
     padding-top: 20px;
     margin: 0 auto;
     margin-top: 10px;
     padding: 10px 10px;
-    color: White;
 }
 
 #loginDiv {
@@ -151,7 +150,6 @@
     justify-content: center;
     border-style: solid;
     border-width: 2px;
-
 }
 
 #forgot {
@@ -176,4 +174,41 @@
 
 #loginAll {
     background-img: url(./imgs/food.jpg);
+}
+
+#registerDiv {
+    width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#signUpForm {
+    max-width: 500px;
+    max-height: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#signUpForm .form-control{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    height: 25px;
+    text-align: left;
+    border-radius: 5px;
+    border-color: LightGray;
+    margin-top: 5px;
+}
+
+#signUpButton {
+    width: 65%;
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-/*
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from 'react-router-dom';
-*/
+
 import './styling.css';
 import AppStoreLink from './AppStoreLink.js';
 import logo from './imgs/sample_logo.png';
@@ -38,7 +38,7 @@ function Login()
         </div>
         <br/>
         <div class="center" id="signUp">
-            <p id = "signUpText">Not a MegaBiter?<em>Sign Up</em></p>
+            <p id = "signUpText">Not a MegaBiter?</p><Link to="./pages/Register.js"><em>Sign Up</em></Link>
         </div>
         <br/>
         <div id="createAccount">
