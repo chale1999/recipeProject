@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.navbar {
+    background: #f3834e;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0 50px; 
+    white-space: nowrap;
+}
+
+#navbar__logo {
+    background-color:rgb(4, 93, 122);
+    background-image: linear-gradient(to top, rgb(255, 0, 0) 0%, rgb(247, 137, 137) 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 40px;
+}
+
+.navbar__links {
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar__links:hover{
+    color:rgb(167, 167, 167);
+    transition: all 0.3s ease;
+}
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: #000;
+}
+
+.button:hover {
+    background:rgb(250, 67, 0);
+    transition: all 0.3s ease;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.center {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#loginForm {
+    max-width: 500px;
+    max-height: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#loginForm .form-control{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    height: 25px;
+    text-align: left;
+    border-radius: 5px;
+    border-color: LightGray;
+    margin-top: 5px;
+}
+
+#loginButton {
+    width: 65%;
+    background:#f3834e;
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 10px;
+    color: White;
+}
+
+#loginDiv {
+    width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+
+}
+
+#forgot {
+    padding-bottom: 20px;
+}
+
+
+#signUp {
+    width: 300px;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#signUpText {
+    padding: 10px;
+}
+
+#appDiv {
+    background-img: url(./imgs/food.jpg);
+}
+
+#loginAll {
+    background-img: url(./imgs/food.jpg);
+}
