@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, /*Redirect,*/ Switch } from 'react-rout
 
 import LoginPage from './pages/LoginPage';
 import NewPage from './pages/NewPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
             </Route>
             <Route path="/pages/NewPage.js" exact>
               <NewPage />
+            </Route>
+            <Route path="/RegisterPage.js" exact>
+                <RegisterPage/>
             </Route>
           </Switch>  
         </Router>

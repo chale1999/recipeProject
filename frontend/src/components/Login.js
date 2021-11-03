@@ -1,7 +1,14 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 import './styling.css';
 import AppStoreLink from './AppStoreLink.js';
 import logo from './imgs/sample_logo.png';
+import RegisterPage from '../pages/RegisterPage';
 function Login()
 {    
     
@@ -9,9 +16,7 @@ function Login()
     {        
         event.preventDefault();        
         alert('doIt()');    
-    };
- 
-    
+    };   
     return(
     <div id="loginAll">  
         <div id="loginDiv">  
@@ -32,7 +37,8 @@ function Login()
         </div>
         <br/>
         <div class="center" id="signUp">
-            <p id = "signUpText">Not a MegaBiter? <a href = "/"><em>Sign up</em></a></p>
+            <p id = "signUpText">Not a MegaBiter?</p>
+            <Link to="/RegisterPage"><em>Sign Up</em></Link>
         </div>
         <br/>
         <div id="createAccount">
