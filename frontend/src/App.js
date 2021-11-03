@@ -17,9 +17,6 @@ function App() {
             <Route path="/pages/NewPage.js" exact>
               <NewPage />
             </Route>
-            <Route path="/RegisterPage.js" exact>
-                <RegisterPage/>
-            </Route>
           </Switch>  
         </Router>
        </div>
