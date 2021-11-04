@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, /*Redirect,*/ Switch } from 'react-rout
 import LoginPage from './pages/LoginPage';
 import NewPage from './pages/NewPage';
 import RegisterPage from './pages/RegisterPage';
+import EmailValidationPage from './pages/EmailValidationPage';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/pages/Register.js" exact>
               <RegisterPage/>
+            </Route>
+            <Route path="/pages/EmailValidationPage.js" exact>
+              <EmailValidationPage/>
             </Route>
           </Switch>  
         </Router>

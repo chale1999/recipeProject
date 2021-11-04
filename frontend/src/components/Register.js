@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
 import AppStoreLink from './AppStoreLink.js';
 import logo from './imgs/sample_logo.png';
@@ -14,7 +15,8 @@ function Register()
 	const doRegister = async event =>
 	{
 		event.preventDefault();        
-        alert('Registered!');   
+        alert('Registered!');
+		<Redirect to="./pages/EmailValidationPage.js"/>
 	}
 
 	return(
