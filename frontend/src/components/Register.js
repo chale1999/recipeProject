@@ -15,8 +15,7 @@ function Register()
 	const doRegister = async event =>
 	{
 		event.preventDefault();        
-        alert('Registered!');
-		<Redirect to="./pages/EmailValidationPage.js"/>
+        alert('Registered!');		
 	}
 
 	return(

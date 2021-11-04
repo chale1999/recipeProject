@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, /*Redirect,*/ Switch } from 'react-router-dom';
+import bgImg from './components/imgs/food.jpg';
 //import './App.css';
 
 import LoginPage from './pages/LoginPage';
@@ -9,6 +10,12 @@ import EmailValidationPage from './pages/EmailValidationPage';
 
 function App() {
   return (
+    <div id="background" style={{  
+      backgroundImage: `url(${bgImg})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      height: '100vh'
+       }}>
       <div id="appDiv">
         <Router>
           <Switch>
@@ -26,6 +33,7 @@ function App() {
             </Route>
           </Switch>  
         </Router>
+       </div>
        </div>
   );
 }

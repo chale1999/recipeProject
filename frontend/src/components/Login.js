@@ -21,7 +21,7 @@ function Login()
     };   
 
     return(
-    <div id="loginAll">  
+    <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))` }}>  
         <div id="loginDiv">  
             <div class="container">
                 <img class="center" alt="Mega Bites Logo" src={logo} width="250px" height="50px"/>
@@ -38,7 +38,7 @@ function Login()
         </div>
         <br/>
         <div class="center" id="signUp">
-            <p id = "signUpText">Not a MegaBiter?</p><Link to="./pages/Register.js"><em>Sign Up</em></Link>
+            <p id = "signUpText">Not a MegaBiter?</p><Link to="/pages/Register.js"><em>Sign Up</em></Link>
         </div>
         <br/>
         <div id="createAccount">
