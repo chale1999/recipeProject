@@ -2,16 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+// make sure to install mongoose!
+// do so by in the main project directory typing 'npm install mongoose --save'
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/recipeDB';
-
+// const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/recipeDB';
+const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/recipeDB?retryWrites=true&w=majority';
 const client = new MongoClient(url);
 client.connect();
 
+app.use('/api', require('./routes/api'));
+/*
 app.use((req, res, next) =>
 {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -25,8 +30,12 @@ app.use((req, res, next) =>
     );
     next();
 });
+*/
 
-app.listen(5000); // start Node + Express server on port 5000
+app.listen(process.env.port || 5000, function(){
+    console.log('now listening for requests');
+}); // start Node + Express server on port 5000
+
 
 var user =
 {
