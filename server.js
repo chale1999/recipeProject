@@ -33,6 +33,7 @@ app.use((req, res, next) =>
     );
     next();
 });
+//mongodb+srv://chale:<password>@cluster0.f6rtb.mongodb.net/recipeDB?retryWrites=true&w=majority
 */
 app.listen(PORT, () => 
 {
