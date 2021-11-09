@@ -1,17 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');           
+const PORT = process.env.PORT || 5000;  
 
-// make sure to install mongoose!
-// do so by in the main project directory typing 'npm install mongoose --save'
 
 const app = express();
+
+app.set('PORT', (process.env.PORT || 5000));
+
 app.use(cors());
 app.use(bodyParser.json());
 
-const MongoClient = require('mongodb').MongoClient;
-// const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/recipeDB';
-const url = 'mongodb+srv://chale:yQ7WVuBw0ZEWtJDK@cluster0.f6rtb.mongodb.net/recipeDB?retryWrites=true&w=majority';
+require('dotenv').config();
+const url = process.env.MONGODB_URI;
+const MongoClient = require('mongodb').MongoClient; 
 const client = new MongoClient(url);
 client.connect();
 
@@ -31,11 +34,23 @@ app.use((req, res, next) =>
     next();
 });
 */
+app.listen(PORT, () => 
+{
+  console.log('Server listening on port ' + PORT);
+});
 
-app.listen(process.env.port || 5000, function(){
-    console.log('now listening for requests');
-}); // start Node + Express server on port 5000
-
+///////////////////////////////////////////////////
+// For Heroku deployment
+// Server static assets if in production
+if (process.env.NODE_ENV === 'production') 
+{
+  // Set static folder
+  app.use(express.static('frontend/build'));
+  app.get('*', (req, res) => 
+ {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
 
 var user =
 {
