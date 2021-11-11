@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import NewPage from './pages/NewPage';
 import RegisterPage from './pages/RegisterPage';
 import EmailValidationPage from './pages/EmailValidationPage';
+import Profile from './pages/ProfilePage';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route path="/EmailValidationPage" exact>
               <EmailValidationPage/>
+            </Route>
+            <Route path="/profile" exact>
+              <Profile/>
             </Route>
           </Switch>  
         </Router>
