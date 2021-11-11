@@ -1,6 +1,6 @@
 #navbar {
     background: #f3834e;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
 }
 
 #navBarMiddle {
-    flex: 5;
+    flex: 4;
     height: 30px;
     width: 70%;
     display: flex;
@@ -101,13 +101,23 @@
 }
 
 #navBarRight {
-    flex: 3;
+    flex: 4;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .navLink {
     margin-right: 10px;
     font-size: 14px;
+}
+
+#notifCount {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -10px;
 }
