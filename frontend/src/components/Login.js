@@ -83,7 +83,7 @@ function Login()
         </div>
         <br/>
         <div class="center" id="signUp">
-            <p id = "signUpText">Not a MegaBiter?</p><Link to="/pages/Register.js"><em>Sign Up</em></Link>
+            <p id = "signUpText">Not a MegaBiter?</p><Link to="/register"><em>Sign Up</em></Link>
         </div>
         <br/>
         <div id="createAccount">

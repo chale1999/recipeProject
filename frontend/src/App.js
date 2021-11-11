@@ -22,13 +22,13 @@ function App() {
             <Route path="/" exact>
               <LoginPage />
             </Route>
-            <Route path="/pages/NewPage.js" exact>
+            <Route path="/NewPage" exact>
               <NewPage />
             </Route>
-            <Route path="/pages/Register.js" exact>
+            <Route path="/register" exact>
               <RegisterPage/>
             </Route>
-            <Route path="/pages/EmailValidationPage.js" exact>
+            <Route path="/EmailValidationPage" exact>
               <EmailValidationPage/>
             </Route>
           </Switch>  
