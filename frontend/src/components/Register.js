@@ -19,7 +19,7 @@ function Register()
 	const doRegister = async event =>
 	{
 		event.preventDefault();
-		let path = `/pages/EmailValidationPage.js`        
+		let path = `/EmailValidationPage`        
         alert('Registered!');		
 		history.push(path);
 	}
