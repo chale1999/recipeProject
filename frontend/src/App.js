@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import NewPage from './pages/NewPage';
 import RegisterPage from './pages/RegisterPage';
 import EmailValidationPage from './pages/EmailValidationPage';
+import Profile from './pages/ProfilePage';
 
 function App() {
   return (
@@ -22,14 +23,17 @@ function App() {
             <Route path="/" exact>
               <LoginPage />
             </Route>
-            <Route path="/pages/NewPage.js" exact>
+            <Route path="/NewPage" exact>
               <NewPage />
             </Route>
-            <Route path="/pages/Register.js" exact>
+            <Route path="/register" exact>
               <RegisterPage/>
             </Route>
-            <Route path="/pages/EmailValidationPage.js" exact>
+            <Route path="/EmailValidationPage" exact>
               <EmailValidationPage/>
+            </Route>
+            <Route path="/profile" exact>
+              <Profile/>
             </Route>
           </Switch>  
         </Router>

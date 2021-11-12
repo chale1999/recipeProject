@@ -1,5 +1,5 @@
 import React from 'react';
-import PageNavbar from '../components/PageNavbar';
+import PageNavbar from '../components/navbar/PageNavbar';
 import NewPageBody from '../components/NewPageBody';
 
 
