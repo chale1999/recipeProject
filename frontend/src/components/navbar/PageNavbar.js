@@ -1,6 +1,7 @@
 import React from 'react';
 import './PageNavbar.css';
 import { Search, Notifications, AccountCircle} from '@mui/icons-material';
+import pfp from '../imgs/person.jpg';
 function PageNavbar()
 {   
     /*const mystyle = {
@@ -31,13 +32,14 @@ function PageNavbar()
 
             <div id="navBarRight">
                 <span class="navLink">Feed</span>
+                <span class="navLink">Bookmarks</span>
                 <span class="navLink">My Profile</span>
-                <div>
-                  <Notifications/>
+                <div class="navItem">
+                  <Notifications fontSize="large"/>
                   <span id="notifCount">1</span>
                 </div>
-                <AccountCircle/>
             </div>
+            <img src={pfp} alt="Your profile picture!" id="profilePicture"/>
         </div> 
     </div>
     );
