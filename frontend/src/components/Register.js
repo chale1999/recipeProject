@@ -8,14 +8,20 @@ import {
 } from 'react-router-dom';
 import AppStoreLink from './AppStoreLink.js';
 import logo from './imgs/sample_logo.png';
+import { useHistory } from "react-router-dom";
 import './styling.css';
 
 function Register()
 {
+
+	const history = useHistory();
+
 	const doRegister = async event =>
 	{
-		event.preventDefault();        
+		event.preventDefault();
+		let path = `/EmailValidationPage`        
         alert('Registered!');		
+		history.push(path);
 	}
 
 	return(
