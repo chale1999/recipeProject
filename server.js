@@ -1,24 +1,50 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require("dotenv");
+const helmet = require("helmet");
+const morgan = require("morgan");
 const path = require('path');           
-const PORT = process.env.PORT || 5000;  
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 
 const app = express();
-
+const PORT = process.env.PORT || 5000;  
+dotenv.config();
 app.set('PORT', (process.env.PORT || 5000));
 
-app.use(cors());
-app.use(bodyParser.json());
+ 
+app.use('/api', require('./routes/api'));
 
+mongoose.connect(process.env.TEST_DB_URI, {
+    useNewURLParser : true,
+    useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () =>{
+    console.log('Mongoose is connected!!!');
+});
+
+
+// middlewares 
+ //app.use(cors());
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
+app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
+/*
 //require('dotenv').config();
 const url = process.env.MONGODB_URI;
+if(url === undefined){throw new Error("My ATLAS_URI is undefined");}
 const MongoClient = require('mongodb').MongoClient; 
 const client = new MongoClient(url);
 client.connect();
 
-app.use('/api', require('./routes/api'));
+*/
 /*
 app.use((req, res, next) =>
 {
@@ -33,7 +59,6 @@ app.use((req, res, next) =>
     );
     next();
 });
-//mongodb+srv://chale:<password>@cluster0.f6rtb.mongodb.net/recipeDB?retryWrites=true&w=majority
 */
 app.listen(PORT, () => 
 {
