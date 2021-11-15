@@ -32,6 +32,7 @@ function PageNavbar()
 
             <div id="navBarRight">
                 <span class="navLink">Feed</span>
+                <span class="navLink">Bookmarks</span>
                 <span class="navLink">My Profile</span>
                 <div class="navItem">
                   <Notifications fontSize="large"/>

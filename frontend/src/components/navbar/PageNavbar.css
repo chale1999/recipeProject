@@ -118,15 +118,14 @@
 }
 
 #notifCount {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
     color: white;
     background-color: red;
     border-radius: 50%;
-    margin-right: -5px;
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -2px;
+    right: -3px;
     display: flex;
     align-items: center;
     justify-content: center;
