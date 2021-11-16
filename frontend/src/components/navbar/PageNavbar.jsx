@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './PageNavbar.css';
 import { Bookmark, FoodBank, Search, Notifications} from '@mui/icons-material';
 import pfp from '../imgs/person.jpg';
@@ -32,17 +33,19 @@ function PageNavbar()
 
             <div id="navBarRight">
                 <div class="navItem">
-                    <FoodBank fontSize="large"/>
+                    <Link to="/home"><FoodBank fontSize="large"/></Link>
                 </div>
                 <div class="navItem">
-                    <Bookmark fontSize="large"/> 
+                    <Link to="/bookmarks"><Bookmark fontSize="large"/></Link>
                 </div>
                 <div class="navItem">
                   <Notifications fontSize="large"/>
                   <span id="notifCount">1</span>
                 </div>
+                <div class="navItem">
+                  <Link to="/profile"><img src={pfp} alt="Your profile picture" id="profilePicture"/></Link>
+                </div>
             </div>
-            <img src={pfp} alt="Your profile picture" id="profilePicture"/>
         </div> 
     </div>
     );
