@@ -1,5 +1,5 @@
 import React from 'react';
-import EmailValidationComponent from '../components/EmailValidationComponent';
+import EmailVerify from '../components/emailverify/EmailVerify';
 
 
 const EmailValidationPage = () =>
@@ -7,7 +7,7 @@ const EmailValidationPage = () =>
     
     return(      
     <div>          
-        <EmailValidationComponent/>   
+        <EmailVerify/>   
     </div>
     );
 };

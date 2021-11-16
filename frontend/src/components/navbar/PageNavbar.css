@@ -46,16 +46,20 @@
     flex: 4;
     height: 30px;
     width: 70%;
+    min-width: 115px;
     display: flex;
     align-items: center;
     background-color: white;
     border-radius: 15px;
+
 }
 
 #searchbar {
     border: none;
     width: 70%;
     margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
 }
 
 #searchbar:focus{ 
@@ -137,4 +141,5 @@
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
+    outline: 1px solid white;
 }

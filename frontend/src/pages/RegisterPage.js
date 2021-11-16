@@ -1,6 +1,6 @@
 import React from 'react';
-import Register from '../components/Register';
-import '../components/styling.css'
+import Register from '../components/register/Register';
+
 const RegisterPage = () =>
 {    
     return(      
