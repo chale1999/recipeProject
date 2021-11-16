@@ -6,7 +6,7 @@ import {
   Link,
   Redirect
 } from 'react-router-dom';
-import AppStoreLink from '../../components/AppStoreLink.js';
+import AppStoreLink from '../../components/AppStoreLink.jsx';
 import logo from '../../components/imgs/sample_logo.png';
 import { useHistory } from "react-router-dom";
 import './Register.css';

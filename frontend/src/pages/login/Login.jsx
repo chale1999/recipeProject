@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 
 import './Login.css';
-import AppStoreLink from '../../components/AppStoreLink.js';
-import logo from '../../components/imgs/sample_logo.png';
+import AppStoreLink from '../../components/AppStoreLink';
+import logo from '../../components/imgs/sample_logo';
 
 const Login = () =>
 {    /*
