@@ -5,14 +5,12 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import PageHead from '../../components/PageHeader';
 import NavBar from '../../components/navbar/PageNavbar';
 
 const Profile = () =>
 {
 	return(
 		<div id="profilePage">
-		  <PageHead/>
 		  <NavBar/>
 		</div>
 	);
