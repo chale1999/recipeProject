@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, /*Redirect,*/ Switch } from 'react-rout
 import bgImg from './components/imgs/food.jpg';
 //import './App.css';
 
-import LoginPage from './pages/LoginPage';
-import NewPage from './pages/NewPage';
-import RegisterPage from './pages/RegisterPage';
-import EmailValidationPage from './pages/EmailValidationPage';
-import Profile from './pages/ProfilePage';
-import Home from './components/home/Home'
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+import EmailVerify from './pages/emailverify/EmailVerify';
+import Profile from './pages/profile/Profile';
+import Home from './pages/home/Home';
+import Bookmarks from './pages/bookmarks/Bookmarks';
 
 function App() {
   return (
@@ -22,22 +22,22 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" exact>
-              <LoginPage />
-            </Route>
-            <Route path="/NewPage" exact>
-              <NewPage />
+              <Login />
             </Route>
             <Route path="/register" exact>
-              <RegisterPage/>
+              <Register/>
             </Route>
-            <Route path="/EmailValidationPage" exact>
-              <EmailValidationPage/>
+            <Route path="/verify-email" exact>
+              <EmailVerify/>
             </Route>
             <Route path="/profile" exact>
               <Profile/>
             </Route>
             <Route path="/home" exact>
               <Home/>
+            </Route>
+            <Route path="/bookmarks">
+              <Bookmarks/>
             </Route>
           </Switch>  
         </Router>

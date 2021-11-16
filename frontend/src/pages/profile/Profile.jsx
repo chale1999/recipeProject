@@ -5,8 +5,8 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import PageHead from '../components/PageHeader';
-import NavBar from '../components/navbar/PageNavbar';
+import PageHead from '../../components/PageHeader';
+import NavBar from '../../components/navbar/PageNavbar';
 
 const Profile = () =>
 {

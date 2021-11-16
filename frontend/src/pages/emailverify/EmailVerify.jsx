@@ -1,8 +1,8 @@
 import React from 'react';
 import './EmailVerify.css';
-import '../bootstrap.min.css';
+import '../../components/bootstrap.min.css';
 
-function EmailVerify()
+const EmailVerify = () =>
 {
 
 	return(

@@ -7,11 +7,10 @@ import {
 } from 'react-router-dom';
 
 import './Login.css';
-import AppStoreLink from '../AppStoreLink.js';
-import logo from '../imgs/sample_logo.png';
-import RegisterPage from '../../pages/RegisterPage';
+import AppStoreLink from '../../components/AppStoreLink.js';
+import logo from '../../components/imgs/sample_logo.png';
 
-function Login()
+const Login = () =>
 {    /*
     var loginName;
     var loginPassword;
@@ -69,7 +68,7 @@ function Login()
     <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))` }}>  
         <div id="loginDiv">  
             <div class="container">
-                <img class="center" alt="Mega Bites Logo" src={logo} width="250px" height="50px"/>
+                <img class="center" alt="Mega Bites Logo" src={logo}/>
                 <form id="loginForm" class="form-control" onSubmit={doLogin}>
                     <input type="text" id="loginName" class="form-control" placeholder="Username" required/><br/>
                     <input type="password" id="loginPassword" class="form-control" placeholder="Password" required/><br/> 

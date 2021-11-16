@@ -6,24 +6,22 @@ import {
   Link,
   Redirect
 } from 'react-router-dom';
-import AppStoreLink from '../AppStoreLink.js';
-import logo from '../imgs/sample_logo.png';
+import AppStoreLink from '../../components/AppStoreLink.js';
+import logo from '../../components/imgs/sample_logo.png';
 import { useHistory } from "react-router-dom";
 import './Register.css';
 
-function Register()
+const Register = () =>
 {
-
 	const history = useHistory();
 
 	const doRegister = async event =>
 	{
 		event.preventDefault();
-		let path = `/EmailValidationPage`        
+		let path = `/verify-email`        
         alert('Registered!');		
 		history.push(path);
 	}
-
 	return(
 	<>
 		<div id="registerMessage">
