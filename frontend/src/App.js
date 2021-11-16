@@ -8,6 +8,7 @@ import NewPage from './pages/NewPage';
 import RegisterPage from './pages/RegisterPage';
 import EmailValidationPage from './pages/EmailValidationPage';
 import Profile from './pages/ProfilePage';
+import Home from './components/home/Home'
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/profile" exact>
               <Profile/>
+            </Route>
+            <Route path="/home" exact>
+              <Home/>
             </Route>
           </Switch>  
         </Router>
