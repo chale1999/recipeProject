@@ -1,6 +1,6 @@
 import React from 'react';
 import './PageNavbar.css';
-import { Bookmark, FoodBank, Search, Notifications, AccountCircle} from '@mui/icons-material';
+import { Bookmark, FoodBank, Search, Notifications} from '@mui/icons-material';
 import pfp from '../imgs/person.jpg';
 function PageNavbar()
 {   
@@ -42,7 +42,7 @@ function PageNavbar()
                   <span id="notifCount">1</span>
                 </div>
             </div>
-            <img src={pfp} alt="Your profile picture!" id="profilePicture"/>
+            <img src={pfp} alt="Your profile picture" id="profilePicture"/>
         </div> 
     </div>
     );
