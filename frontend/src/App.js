@@ -4,7 +4,6 @@ import bgImg from './components/imgs/food.jpg';
 //import './App.css';
 
 import LoginPage from './pages/LoginPage';
-import NewPage from './pages/NewPage';
 import RegisterPage from './pages/RegisterPage';
 import EmailValidationPage from './pages/EmailValidationPage';
 import Profile from './pages/ProfilePage';
@@ -23,9 +22,6 @@ function App() {
           <Switch>
             <Route path="/" exact>
               <LoginPage />
-            </Route>
-            <Route path="/NewPage" exact>
-              <NewPage />
             </Route>
             <Route path="/register" exact>
               <RegisterPage/>

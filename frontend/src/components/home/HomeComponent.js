@@ -5,6 +5,7 @@ function HomeComponent(){
 
     return(
     <div class="container"> 
+    <div class="feedRow">
         <div class="feedItem">
             <div class="itemContent">
                 <div class="itemPicture">
@@ -15,6 +16,7 @@ function HomeComponent(){
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     )
