@@ -27,6 +27,11 @@
     flex: 4;
 }
 
+#logoContainer a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #navbar__logo {
     background-color:rgb(4, 93, 122);
     background-image: linear-gradient(to top, rgb(255, 0, 0) 0%, rgb(247, 137, 137) 100%);
@@ -112,5 +117,5 @@
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
-    outline: 1px solid white;
+    outline: 1px solid rgb(64, 64, 64);
 }

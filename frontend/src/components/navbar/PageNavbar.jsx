@@ -17,7 +17,7 @@ function PageNavbar()
     <div id="navbar">
         <div class="navbar__container">
             <div id="logoContainer">
-                <span id="navbar__logo">MegaBites</span>
+                <Link to="/home"><span id="navbar__logo">MegaBites</span></Link>
             </div>
 
             <div class="navbar__toggle" id="mobile-menu">

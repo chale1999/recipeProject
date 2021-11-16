@@ -6,13 +6,24 @@ import {
   Link
 } from 'react-router-dom';
 import NavBar from '../../components/navbar/PageNavbar';
+import './Profile.css';
 
 const Profile = () =>
 {
 	return(
-		<div id="profilePage">
+		<>
 		  <NavBar/>
-		</div>
+		  <div class="profile">
+			<div class="profileTop">
+			cover photo and pfp
+			</div>
+			<div class="break">
+			</div>
+			<div class="tabs">
+			tabs like followers, my recipes, etc
+			</div>
+	      </div>
+		</>
 	);
 };
 
