@@ -44,60 +44,6 @@
     margin-bottom: 10px;
     text-align: center;
 }
-#loginForm {
-    max-width: 500px;
-    max-height: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#loginForm .form-control{
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    height: 25px;
-    text-align: left;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-#loginButton {
-    width: 65%;
-    text-align: center;
-    padding-top: 20px;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px 10px;
-}
-
-#loginDiv {
-    width: 300px;
-    margin: 0 auto;
-    justify-content: center;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-}
-
-#forgot {
-    padding-bottom: 20px;
-}
-
-
-#signUp {
-    width: 300px;
-    margin: 0 auto;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-}
-
-#signUpText {
-    padding: 10px;
-}
 
 #appDiv {
     background-img: url(./imgs/food.jpg);
@@ -107,42 +53,10 @@
     background-img: url(./imgs/food.jpg);
 }
 
-#registerDiv {
-    width: 300px;
-    margin: 0 auto;
-    justify-content: center;
-    border-style: solid;
-    border-width: 2px;
-    background-color: #FFFFFF
-}
-
-#signUpForm {
-    max-width: 500px;
-    max-height: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#signUpForm .form-control{
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    height: 25px;
-    text-align: left;
-    border-radius: 5px;
-    border-color: LightGray;
-    margin-top: 5px;
-}
-
-#signUpButton {
-    width: 65%;
-    text-align: center;
-    padding-top: 20px;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px 10px;
-    margin-bottom: 20px;
+#logo {
+    width: 134px;
+    height: 50px;
+    object-fit: scale-down;
 }
 
 #mainContainer {
@@ -150,38 +64,20 @@
 }
 
 #appLink {
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    width: 10vh;
-    margin: 0 auto;
-}
-
-.row{
-    padding: 3vh;
-    justify-content: center;
-}
-
-.col{
-    text-align: center;
+    display: flex;
     width: 300px;
-    border-style: solid;
-    border-radius: 4px;
-    border-width: 2px;
-    background-color: #ffffff;
-}
-
-.col-3{
-    width: 10px;
-    margin: 0;
-}
-
-.col-4{
-    width: auto;
-    margin: 0 auto;
-    border-style: solid;
-    border-width: 2px;
+    justify-content: center;
     border-radius: 10px;
-    background-color: #ffffff;
-    text-align: center;
-    font-size: 1.3vw;
+    margin: 0 auto;
+    height: 200px;
+}
+
+#appLinkText {
+    flex: 12;
+}
+
+.navItem:hover{
+    transition: all 0.3s ease;
+    color: #FFFFFF;
+    cursor: pointer;
 }

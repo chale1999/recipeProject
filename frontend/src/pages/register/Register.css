@@ -1,0 +1,57 @@
+#registerDiv {
+    width: 300px;
+    margin: 0 auto;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+    background-color: #FFFFFF
+}
+
+#signUpForm {
+    max-width: 500px;
+    max-height: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#signUpForm .form-control{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    height: 25px;
+    text-align: left;
+    border-radius: 5px;
+    border-color: LightGray;
+    margin-top: 5px;
+}
+
+#signUpButton {
+    width: 65%;
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+}
+
+.center {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}

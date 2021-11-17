@@ -8,15 +8,12 @@ const morgan = require("morgan");
 const path = require('path');           
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
-
+const postRoute = require("./routes/posts");
 
 const app = express();
 const PORT = process.env.PORT || 5000;  
 dotenv.config();
 app.set('PORT', (process.env.PORT || 5000));
-
- 
-app.use('/api', require('./routes/api'));
 
 mongoose.connect(process.env.TEST_DB_URI, {
     useNewURLParser : true,
@@ -36,6 +33,7 @@ app.use(morgan("common"));
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/posts", postRoute);
 /*
 //require('dotenv').config();
 const url = process.env.MONGODB_URI;

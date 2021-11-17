@@ -27,6 +27,11 @@
     flex: 4;
 }
 
+#logoContainer a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #navbar__logo {
     background-color:rgb(4, 93, 122);
     background-image: linear-gradient(to top, rgb(255, 0, 0) 0%, rgb(247, 137, 137) 100%);
@@ -46,6 +51,7 @@
     flex: 4;
     height: 30px;
     width: 70%;
+    min-width: 115px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -56,6 +62,8 @@
     border: none;
     width: 70%;
     margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
 }
 
 #searchbar:focus{ 
@@ -65,39 +73,6 @@
 #searchIcon {
     font-size: 20px !important;
     margin-left: 10px;
-}
-
-.navbar__menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-}
-
-.navbar__item {
-    height: 40px;
-}
-
-.navbar__links {
-    color: #000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-}
-
-.navbar__links:hover{
-    color:rgb(167, 167, 167);
-    transition: all 0.3s ease;
-}
-.navbar__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
 }
 
 #navBarRight {
@@ -110,6 +85,11 @@
 .navLink {
     margin-right: 10px;
     font-size: 14px;
+}
+
+.navItem a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .navItem {
@@ -137,4 +117,5 @@
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
+    outline: 1px solid rgb(64, 64, 64);
 }

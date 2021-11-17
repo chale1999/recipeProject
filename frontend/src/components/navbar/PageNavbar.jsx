@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './PageNavbar.css';
-import { Search, Notifications, AccountCircle} from '@mui/icons-material';
+import { Bookmark, FoodBank, Search, Notifications} from '@mui/icons-material';
 import pfp from '../imgs/person.jpg';
 function PageNavbar()
 {   
@@ -16,7 +17,7 @@ function PageNavbar()
     <div id="navbar">
         <div class="navbar__container">
             <div id="logoContainer">
-                <span id="navbar__logo">Recipe!</span>
+                <Link to="/home"><span id="navbar__logo">MegaBites</span></Link>
             </div>
 
             <div class="navbar__toggle" id="mobile-menu">
@@ -31,15 +32,20 @@ function PageNavbar()
             </div>
 
             <div id="navBarRight">
-                <span class="navLink">Feed</span>
-                <span class="navLink">Bookmarks</span>
-                <span class="navLink">My Profile</span>
+                <div class="navItem">
+                    <Link to="/home"><FoodBank fontSize="large"/></Link>
+                </div>
+                <div class="navItem">
+                    <Link to="/bookmarks"><Bookmark fontSize="large"/></Link>
+                </div>
                 <div class="navItem">
                   <Notifications fontSize="large"/>
                   <span id="notifCount">1</span>
                 </div>
+                <div class="navItem">
+                  <Link to="/profile"><img src={pfp} alt="Your profile picture" id="profilePicture"/></Link>
+                </div>
             </div>
-            <img src={pfp} alt="Your profile picture!" id="profilePicture"/>
         </div> 
     </div>
     );

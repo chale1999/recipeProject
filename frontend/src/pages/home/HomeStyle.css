@@ -1,0 +1,29 @@
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.feedItem{
+    display: flex;
+    width: 30%;
+    height: 170px;
+    margin: 20px;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+}
+
+.itemContent{
+    padding: 5px;
+}
