@@ -3,17 +3,17 @@ import { BrowserRouter as Router, Route, /*Redirect,*/ Switch } from 'react-rout
 import bgImg from './components/imgs/food.jpg';
 //import './App.css';
 
-import Login from './pages/login/Login';
-import Register from './pages/register/Register';
-import EmailVerify from './pages/emailverify/EmailVerify';
-import Profile from './pages/profile/Profile';
-import Home from './pages/home/Home';
-import Bookmarks from './pages/bookmarks/Bookmarks';
-import CreateRecipe from './pages/createrecipe/CreateRecipe';
-import EditProfile from './pages/editprofile/EditProfile';
-import Results from './pages/searchresults/Results';
-import Recipe from './pages/viewrecipe/ViewRecipe';
-import EditRecipe from './pages/editrecipe/EditRecipe';
+import Login from './pages/login/Login.jsx';
+import Register from './pages/register/Register.jsx';
+import EmailVerify from './pages/emailverify/EmailVerify.jsx';
+import Profile from './pages/profile/Profile.jsx';
+import Home from './pages/home/Home.jsx';
+import Bookmarks from './pages/bookmarks/Bookmarks.jsx';
+import CreateRecipe from './pages/createrecipe/CreateRecipe.jsx';
+import EditProfile from './pages/editprofile/EditProfile.jsx';
+import Results from './pages/searchresults/Results.jsx';
+import Recipe from './pages/viewrecipe/ViewRecipe.jsx';
+import EditRecipe from './pages/editrecipe/EditRecipe.jsx';
 
 function App() {
   return (
