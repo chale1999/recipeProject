@@ -71,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637113207669</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="attempting to add flutter">
+      <created>1637115978201</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1637115978201</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,7 +86,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -87,8 +106,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="attempting to add flutter" />
     <MESSAGE value="removed failed flutter attempt" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed failed flutter attempt" />
+    <MESSAGE value="attempting to add flutter" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempting to add flutter" />
   </component>
 </project>
