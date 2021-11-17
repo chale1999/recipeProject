@@ -92,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637116120100</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="attempting to add flutter">
+      <created>1637116200460</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1637116200460</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +127,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/flutter" />
+      <path value="$PROJECT_DIR$/frontend/flutter" />
+    </ignored-roots>
     <MESSAGE value="removed failed flutter attempt" />
     <MESSAGE value="attempting to add flutter" />
     <option name="LAST_COMMIT_MESSAGE" value="attempting to add flutter" />
