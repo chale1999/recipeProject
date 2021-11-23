@@ -75,9 +75,3 @@
 #appLinkText {
     flex: 12;
 }
-
-.navItem:hover{
-    transition: all 0.3s ease;
-    color: #FFFFFF;
-    cursor: pointer;
-}
