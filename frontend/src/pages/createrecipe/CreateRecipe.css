@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     background-color: #ffe1a8 ;
+    height: 100vh;
 }
 
 .newRecipe{
