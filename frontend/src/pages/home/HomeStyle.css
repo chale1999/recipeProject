@@ -12,12 +12,33 @@
   margin-left: auto;
 }
 
+.homeScreen{
+    display: flex;
+    justify-content: left;
+    background-color: #ffe1a8 ;
+    height: 100vh;
+}
+
+.homeStuff1{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.feedArea{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .feedItem{
     display: flex;
-    width: 30%;
+    flex-direction: column;
+    width: 15vw;
     height: 170px;
     margin: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     border-radius: 10px;
     background-color: #FFFFFF;
     -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
@@ -27,5 +48,65 @@
 .itemContent{
     display: flex;
     padding: 5px;
-    
+}
+
+#itemImage{
+  width: 12vw;
+  height: 90px;
+  margin: 15px;
+  border-radius: 4px;
+}
+
+.newRecipeButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 60px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+}
+
+.newRecipeButton:hover{
+    cursor: pointer;
+    transition: 0.2s ease;
+    background-color: #c2c2c2;
+}
+
+#buttonText{
+    font-size: 24px;
+}
+
+.homeStuff2{
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  height: 66vh;
+  padding: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  width: 33vw;
+  -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+  box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+}
+
+.followedUser{
+  display: flex;
+  align-items: center;
+}
+
+#profilePicture {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 1px solid rgb(64, 64, 64);
+  margin-right: 15px;
 }
