@@ -21,6 +21,19 @@
     flex-direction: column;
 }
 
+.newRecipeImage{
+    display: flex;
+    flex-direction: column;
+}
+
+#image{
+    border-radius: 10px;
+}
+
+#image:hover{
+    cursor: pointer;
+}
+
 #recipeDesc{
     width: 33vw;
     height: 10vh;
@@ -36,4 +49,13 @@
 
 .timeField{
     width: 10vw;
+}
+
+.fieldLabel{
+    font-size: 14pt;
+}
+
+#uploadButton{
+    height: 10vh;
+    width: 10vh;
 }
