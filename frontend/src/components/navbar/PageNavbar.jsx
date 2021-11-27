@@ -1,7 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './PageNavbar.css';
-import { Bookmark, FoodBank, Search, Notifications} from '@mui/icons-material';
+import Bookmark from '@mui/icons-material/Bookmark';
+import FoodBank from '@mui/icons-material/FoodBank';
+import Search from '@mui/icons-material/Search';
+import Notifications from '@mui/icons-material/Notifications';
 import pfp from '../imgs/person.jpg';
 function PageNavbar()
 {   
@@ -15,15 +18,15 @@ function PageNavbar()
     };*/
     return(  
     <div id="navbar">
-        <div class="navbar__container">
+        <div className="navbar__container">
             <div id="logoContainer">
                 <Link to="/home"><span id="navbar__logo">MegaBites</span></Link>
             </div>
 
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div className="navbar__toggle" id="mobile-menu">
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
             </div>
 
             <div id="navBarMiddle">
@@ -32,18 +35,18 @@ function PageNavbar()
             </div>
 
             <div id="navBarRight">
-                <div class="navItem">
+                <div className="navItem">
                     <Link to="/home"><FoodBank fontSize="large"/></Link>
                 </div>
-                <div class="navItem">
+                <div className="navItem">
                     <Link to="/bookmarks"><Bookmark fontSize="large"/></Link>
                 </div>
-                <div class="navItem">
+                <div className="navItem">
                   <Notifications fontSize="large"/>
                   <span id="notifCount">1</span>
                 </div>
-                <div class="navItem">
-                  <Link to="/profile"><img src={pfp} alt="Your profile picture" id="profilePicture"/></Link>
+                <div className="navItem">
+                  <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
                 </div>
             </div>
         </div> 

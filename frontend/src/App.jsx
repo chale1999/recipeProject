@@ -5,6 +5,8 @@ import bgImg from './components/imgs/food.jpg';
 
 import Login from './pages/login/Login.jsx';
 import Register from './pages/register/Register.jsx';
+import ForgotPassword from './pages/forgotpassword/ForgotPassword';
+import ResetPasswordScreen from './pages/forgotpassword/ResetPassword'; 
 import EmailVerify from './pages/emailverify/EmailVerify.jsx';
 import Profile from './pages/profile/Profile.jsx';
 import Home from './pages/home/Home.jsx';
@@ -18,7 +20,7 @@ import EditRecipe from './pages/editrecipe/EditRecipe.jsx';
 function App() {
   return (
     <div id="background" style={{  
-      backgroundImage: `url(${bgImg})`,
+      backgroundImage: `url(${bgImg})`, // commented out for now due to errors I was getting
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       height: '100vh'
@@ -31,6 +33,12 @@ function App() {
             </Route>
             <Route path="/register" exact>
               <Register/>
+            </Route>
+            <Route path="/forgotpassword" exact>
+              <ForgotPassword/>
+            </Route>
+            <Route path="/passwordreset/:resetToken" exact>
+              <ResetPasswordScreen/>
             </Route>
             <Route path="/verify-email" exact>
               <EmailVerify/>
@@ -65,5 +73,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
