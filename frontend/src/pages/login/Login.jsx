@@ -70,7 +70,7 @@ const Login = () =>
                 </form> 
 
                 <div className="center" id="forgot">
-                    <a href="/forgotpasword">Forgot password?</a>
+                    <a href="/forgotpassword">Forgot password?</a>
                 </div>
             </div>           
         </div>
