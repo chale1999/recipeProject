@@ -30,9 +30,6 @@ const ForgotPassword = () => {
     } catch (error) {
       setError(error.response.data.error);
       setEmail("");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
     }
   };
 

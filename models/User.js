@@ -30,6 +30,10 @@ const UserSchema = new mongoose.Schema({
             "Please provide a valid email"
         ],
     },
+    isVerified:{
+        type: Boolean,
+        default: false,
+    },
     password:{
         type: String,
         required: [true, "Please choose a password"],
@@ -38,6 +42,7 @@ const UserSchema = new mongoose.Schema({
     },
     resetPasswordToken : String,
     resetPasswordExpire : Date,
+    verifyEmailToken: String,
     profilePicture:{
         type:String,
         default: ""
@@ -97,6 +102,14 @@ UserSchema.methods.getResetPasswordToken = function() {
     this.resetPasswordExpire = Date.now() + 20 * (60 * 1000); // this token expires in 20 mins
 
     return resetToken;
+}
+
+UserSchema.methods.getEmailVerifyToken = function() {
+    const verifyToken = crypto.randomBytes(20).toString("hex");
+
+    this.verifyEmailToken = crypto.createHash("sha256").update(verifyToken).digest("hex");
+
+    return verifyToken;
 }
 
 module.exports = mongoose.model("User", UserSchema);

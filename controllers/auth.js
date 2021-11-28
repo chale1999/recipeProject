@@ -13,9 +13,46 @@ exports.register = async(req, res, next) => {
             firstName, lastName, username, email, password
         });
 
+        try{
+    
+            const verifyToken = user.getEmailVerifyToken();
+    
+            await user.save();
+    
+            const verifyUrl = `https://sheltered-wildwood-67909.herokuapp.com/emailverify/${verifyToken}`;
+    
+            const message = `
+                <h1>Thanks for joining MegaBytes!</h1>
+                <p>Please go to this link to confirm your email</p>
+                <a href=${verifyUrl} clicktracking=off>${verifyUrl}</a>
+            `;
+    
+            try{
+                await sendEmail({
+                    to: user.email,
+                    subject: "Email Verification MegaBytes",
+                    text: message
+                });
+
+                console.log("Email Sent");
+    
+            }catch(error){
+                user.verifyEmailToken = undefined;
+                await user.save();
+                return res.status(500).json({
+                    success : false,
+                    error: "Email Could Not Be Synced",
+                });
+            }
+        }catch(error){
+            return res.status(500).json({
+                success : false,
+                error: error.message,
+            });
+        }
         sendToken(user, 200, res);
     } catch(error){
-        res.status(500).json({
+        return res.status(500).json({
             success : false,
             error: "Username or Email taken.",
         });
@@ -123,6 +160,25 @@ exports.resetpassword = async (req, res, next) => {
     }
 };
 
+
+exports.verifyemail = async (req, res, next) => {
+    const verifyToken = crypto.createHash("sha256").update(req.params.verifyToken).digest("hex");
+
+    try{
+        const user = await Users.findOne({verifyEmailToken: verifyToken});
+
+        if(!user) {
+            res.status(404).json({ success: false, error: "Invalid Token"})
+        }
+
+        user.isVerified = true;
+        
+        await user.save();
+        res.status(201).json({ success: true, data: "Email Successfully Verified."});
+    }catch(error){
+        res.status(500).json({ success: false, error: error.message});
+    }
+};
 
 
 const sendToken = (user, statusCode, res) => {

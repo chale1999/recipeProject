@@ -40,7 +40,7 @@ function App() {
             <Route path="/passwordreset/:resetToken" exact>
               <ResetPasswordScreen/>
             </Route>
-            <Route path="/verify-email" exact>
+            <Route path="/verifyemail/:verifyToken" exact>
               <EmailVerify/>
             </Route>
             <Route path="/profile" exact>
