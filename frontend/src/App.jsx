@@ -28,7 +28,7 @@ function App() {
       <div id="appDiv">
         <Router>
           <Switch>
-            <Route path="/" exact>
+            <Route path="/" exact> 
               <Login />
             </Route>
             <Route path="/register" exact>
