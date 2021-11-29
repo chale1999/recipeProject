@@ -63,7 +63,7 @@ const Login = () =>
     <br/>
         <div id="loginDiv">  
             <div className="container">
-                <img className="center" alt="Mega Bites Logo" src={logo} style={{width: `20vw`}}/>
+                <img className="center" alt="Mega Bites Logo" src={logo} style={{width: `175px`}}/>
                 <form id="loginForm" className="form-control" onSubmit={doLogin}>
                 {error && <span className="error-msg">{error}</span>}
                     <input type="text" id="email" className="form-control" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
