@@ -1,53 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Redirect } from "react-router-dom";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from 'react-router-dom';
-
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 import './Login.css';
 import AppStoreLink from '../../components/AppStoreLink.jsx';
 import logo from '../../components/imgs/sample_logo.png';
 
 const Login = () =>
-{    /*
-    var loginName;
-    var loginPassword;
-    const [message,setMessage] = useState('');
-    */
+{    
+    const history = useHistory();
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const [error,setError] = useState("");
+
+    // was supposed to say if the person has a token dont need to log in again
+    
     const doLogin = async event =>     
     {   
-        
         event.preventDefault();
-        console.log('Testing');
-        /*
-        var obj = {login:loginName.value,password:loginPassword.value};
-        var js = JSON.stringify(obj);
-        var temp = buildPath('api/login');
-        try
-        {     
-            const response = await fetch(temp,
-                {method:'POST',body:js,headers:{'Content-Type': 'application/json'}});
-            var res = JSON.parse(await response.text());
-            if( res.id <= 0 )
-            {
-                setMessage('User/Password combination incorrect');
-            }
-            else
-            {
-                var user = {firstName:res.firstName,lastName:res.lastName,id:res.id}
-                localStorage.setItem('user_data', JSON.stringify(user));
-                setMessage('');
-                window.location.href = '/cards';
-            }
-        }
-        catch(e)
-        {
-            alert(e.toString());
-            return;
-        }  
-        */  
+
+        const config = {
+			header: {
+				"Content-Type": "application/json",
+			},
+		}
+
+		try {
+			const {data} = await axios.post("/api/auth/login", {email, password},
+			config);
+
+		    localStorage.setItem("authToken", data.token);
+            history.push('/home');
+
+			
+		}catch(error) {
+			setError("Error occured");
+		}
+
+        
     };   
 
     /*
@@ -67,16 +60,17 @@ const Login = () =>
     return(
     <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))` }}>  
         <div id="loginDiv">  
-            <div class="container">
-                <img class="center" alt="Mega Bites Logo" src={logo}/>
-                <form id="loginForm" class="form-control" onSubmit={doLogin}>
-                    <input type="text" id="loginName" class="form-control" placeholder="Username" required/><br/>
-                    <input type="password" id="loginPassword" class="form-control" placeholder="Password" required/><br/> 
-                    <input type="submit" id="loginButton" class="button" value = "Login" onClick={doLogin}/>
+            <div className="container">
+                <img className="center" alt="Mega Bites Logo" src={logo}/>
+                <form id="loginForm" className="form-control" onSubmit={doLogin}>
+                {error && <span className="error-msg">{error}</span>}
+                    <input type="text" id="email" className="form-control" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
+                    <input type="password" id="password" className="form-control" placeholder="Enter Password" required value={password} onChange={(e) => setPassword(e.target.value)}/><br/> 
+                    <input type="submit" id="loginButton" className="button" value = "Login"/>
                 </form> 
 
-                <div class="center" id="forgot">
-                    <a href="/">Forgot username or password?</a>
+                <div className="center" id="forgot">
+                    <a href="/forgotpassword">Forgot password?</a>
                 </div>
             </div>           
         </div>
