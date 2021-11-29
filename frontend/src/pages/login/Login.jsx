@@ -59,6 +59,8 @@ const Login = () =>
     */
     return(
     <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))`}}>  
+    <br/>
+    <br/>
         <div id="loginDiv">  
             <div className="container">
                 <img className="center" alt="Mega Bites Logo" src={logo} style={{width: `20vw`}}/>
