@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import './Login.css';
 import AppStoreLink from '../../components/AppStoreLink.jsx';
-import logo from '../../components/imgs/sample_logo.png';
+import logo from '../../components/imgs/MegaBitesLogo_transparent-large.png';
 
 const Login = () =>
 {    
@@ -58,10 +58,10 @@ const Login = () =>
     }
     */
     return(
-    <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))` }}>  
+    <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))`}}>  
         <div id="loginDiv">  
             <div className="container">
-                <img className="center" alt="Mega Bites Logo" src={logo}/>
+                <img className="center" alt="Mega Bites Logo" src={logo} style={{width: `20vw`}}/>
                 <form id="loginForm" className="form-control" onSubmit={doLogin}>
                 {error && <span className="error-msg">{error}</span>}
                     <input type="text" id="email" className="form-control" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
