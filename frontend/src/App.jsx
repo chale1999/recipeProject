@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, /*Redirect,*/ Switch } from 'react-router-dom';
-import bgImg from './components/imgs/food.jpg';
+import bgImg from './components/imgs/food-white.jpg';
 //import './App.css';
 
 import Login from './pages/login/Login.jsx';
@@ -24,6 +24,7 @@ function App() {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       height: '100vh'
+      
        }}>
       <div id="appDiv">
         <Router>
