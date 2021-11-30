@@ -12,7 +12,7 @@ const EmailVerify = ({match}) =>
 	const [error, setError] = useState("");
   	const [success, setSuccess] = useState("");
 
-	const veryifyEmailHandler = async () => {
+	const verifyEmailHandler = async () => {
 	
 		const config = {
 		  header: {
@@ -53,7 +53,7 @@ const EmailVerify = ({match}) =>
 					we just need to make sure you're not a bot. After all, bots don't have tastebuds so who are they to write recipes!</p></div>
 					<div className="col-3"></div>
 				</div>
-				<button onClick = {veryifyEmailHandler}>Okay</button>
+				<button onClick = {verifyEmailHandler}>Okay</button>
 			</div>
 		</div>
 	);
