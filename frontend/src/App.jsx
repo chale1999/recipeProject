@@ -17,6 +17,7 @@ import Results from './pages/searchresults/Results.jsx';
 import Recipe from './pages/viewrecipe/ViewRecipe.jsx';
 import EditRecipe from './pages/editrecipe/EditRecipe.jsx';
 import VerifyDone from './pages/emailverify/VerifyDone.jsx';
+import ViewRecipe from './pages/viewrecipe/ViewRecipe.jsx';
 
 function App() {
   return (
@@ -68,6 +69,9 @@ function App() {
             </Route>
             <Route path="/recipe/edit" exact>
               <EditRecipe/>
+            </Route>
+            <Route path="/recipe/view" exact>
+              <ViewRecipe/>
             </Route>
             <Route path="/verifydone" exact>
               <VerifyDone/>
