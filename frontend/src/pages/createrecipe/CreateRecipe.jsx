@@ -14,9 +14,13 @@ const CreateRecipe = () =>
     const history = useHistory();
     // required section (need to pass into api as json)
     const [recipeName,setrecipeName] = useState(""); 
-    const [ingedients,setIngedients] = useState("");
+    const [temp,setIngedients] = useState("");
     const [directions,setDirections] = useState("");
+
     
+
+   // const ingredients = temp.split('\n');
+    //console.log(test);
 
     // optional section ( if not filled out will just be empty string which is fine to pass into api)
     const [cookTime,setcookTime] = useState("");
@@ -28,14 +32,14 @@ const CreateRecipe = () =>
     const [error,setError] = useState("");
 
 
-    console.log(recipeName);
-    console.log(ingedients);
-    console.log(directions);
-    console.log(cookTime);
-    console.log(prepTime);
-    console.log(servingCount);
-    console.log(desc);
-    console.log(img);
+    //console.log(recipeName);
+    //console.log(directions);
+    //console.log(cookTime);
+    //console.log(ingredients);
+    //console.log(prepTime);
+    //console.log(servingCount);
+    //console.log(desc);
+    //console.log(img);
 
     const doCreateRecipe = async event =>     
     {   
@@ -48,11 +52,11 @@ const CreateRecipe = () =>
         };
 
 		try {
-			const {data} = await axios.post("api/posts", {recipeName, ingedients, directions, cookTime, prepTime, servingCount, desc, img},
+            const ingredients = temp.split('\n');
+			const {data} = await axios.post("api/posts", {recipeName, ingredients, directions, cookTime, prepTime, servingCount, desc, img},
 			config);
 
-            console.log(data);
-            history.push('/home')
+            history.push('/home');
 
 
 		}catch(error) {
@@ -112,7 +116,7 @@ const CreateRecipe = () =>
             <div className="newRecipeIngr">
                 <p className="fieldLabel">Ingredients List</p>
                 <form>
-                    <textarea id="recipeDesc" placeholder="Place each ingredient on a new line." required value={ingedients} onChange={(e) => setIngedients(e.target.value)}/>   
+                    <textarea id="recipeDesc" placeholder="Place each ingredient on a new line." required value={temp} onChange={(e) => setIngedients(e.target.value)}/>   
                 </form>
             </div>
             <hr/>
