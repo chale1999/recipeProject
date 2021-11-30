@@ -42,11 +42,13 @@ const ForgotPassword = () => {
         <h3 className="forgotpassword-screen__title">Forgot Password</h3>
         {error && <span className="error-message">{error}</span>}
         {success && <span className="success-message">{success}</span>}
-        <div className="form-group">
-          <p className="forgotpassword-screen__subtext">
+        <div className="form-text">
+          <span className="forgotpassword-screen__subtext">
             Please enter the email address you register your account with. We
             will send you reset password confirmation to this email
-          </p>
+          </span>
+        </div>
+        <div>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -55,8 +57,7 @@ const ForgotPassword = () => {
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+          /></div>
         <button type="submit" className="btn btn-primary">
           Send Email
         </button>
