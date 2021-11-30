@@ -16,6 +16,7 @@ import EditProfile from './pages/editprofile/EditProfile.jsx';
 import Results from './pages/searchresults/Results.jsx';
 import Recipe from './pages/viewrecipe/ViewRecipe.jsx';
 import EditRecipe from './pages/editrecipe/EditRecipe.jsx';
+import VerifyDone from './pages/emailverify/VerifyDone.jsx';
 
 function App() {
   return (
@@ -67,6 +68,9 @@ function App() {
             </Route>
             <Route path="/recipe/edit" exact>
               <EditRecipe/>
+            </Route>
+            <Route path="/verifydone" exact>
+              <VerifyDone/>
             </Route>
           </Switch>  
         </Router>
