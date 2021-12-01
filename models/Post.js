@@ -20,7 +20,8 @@ const PostSchema = new mongoose.Schema({
         required: [true, "Please Enter the Ingredients List"]
    },
    directions:{
-        type: String,
+        type: Array,
+        default: [],
         required : [true, "Please Enter the Directions for the Recipe."]
     },
    likes:{
