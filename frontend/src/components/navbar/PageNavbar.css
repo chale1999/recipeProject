@@ -25,8 +25,15 @@
     white-space: nowrap;
 }
 
+#navbar__logo{
+    height: 5.5vh;
+    width: 10vw;
+}
+
 #logoContainer {
+    display: flex;
     flex: 4;
+    justify-content: left;
 }
 
 #logoContainer a {

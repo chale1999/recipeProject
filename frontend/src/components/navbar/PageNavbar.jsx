@@ -6,6 +6,8 @@ import FoodBank from '@mui/icons-material/FoodBank';
 import Search from '@mui/icons-material/Search';
 import Notifications from '@mui/icons-material/Notifications';
 import pfp from '../imgs/person.jpg';
+import logo from '../imgs/MegaBitesLogo_transparent-large.png'
+
 function PageNavbar()
 {   
     /*const mystyle = {
@@ -20,7 +22,7 @@ function PageNavbar()
     <div id="navbar">
         <div className="navbar__container">
             <div id="logoContainer">
-                <Link to="/home"><span id="navbar__logo">MegaBites</span></Link>
+                <Link to="/home"><img src={logo} id="navbar__logo"/></Link>
             </div>
 
             <div className="navbar__toggle" id="mobile-menu">
