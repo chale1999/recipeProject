@@ -81,7 +81,7 @@
     font-size: 24px;
 }
 
-.homeFollowed{
+.homefollowedUserContainer{
   display: flex;
   justify-content: left;
   flex-direction: column;

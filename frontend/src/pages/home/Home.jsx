@@ -80,7 +80,7 @@ const Home = () =>
                         </div>
                     </div>
                 </div> 
-                <div className="homeFollowed">
+                <div className="homefollowedUserContainer">
                         <span className="fieldLabel">This is where followed users go.</span>
                     <hr/>
                     <div className="followedUser">
