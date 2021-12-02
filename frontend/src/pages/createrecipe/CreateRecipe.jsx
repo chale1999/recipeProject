@@ -15,7 +15,7 @@ const CreateRecipe = () =>
     // required section (need to pass into api as json)
     const [recipeName,setrecipeName] = useState(""); 
     const [temp,setIngedients] = useState("");
-    const [directions,setDirections] = useState("");
+    const [temptwo,setDirections] = useState("");
 
     
 
@@ -53,6 +53,7 @@ const CreateRecipe = () =>
 
 		try {
             const ingredients = temp.split('\n');
+            const directions = temptwo.split('\n');
 			const {data} = await axios.post("api/posts", {recipeName, ingredients, directions, cookTime, prepTime, servingCount, desc, img},
 			config);
 
@@ -123,7 +124,7 @@ const CreateRecipe = () =>
             <div className="newRecipeProc">
                 <p className="fieldLabel">Procedure</p>
                 <form>
-                    <textarea id="recipeDesc" placeholder="Describe the procedure for creating your recipe! Try to place each step on a new line." required value={directions} onChange={(e) => setDirections(e.target.value)}/>
+                    <textarea id="recipeDesc" placeholder="Describe the procedure for creating your recipe! Try to place each step on a new line." required value={temptwo} onChange={(e) => setDirections(e.target.value)}/>
                 </form>
             </div>
             <button id="submitButton" onClick={doCreateRecipe}>Submit</button>
