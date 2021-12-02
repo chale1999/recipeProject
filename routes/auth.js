@@ -18,6 +18,6 @@ router.route("/forgotpassword").post(forgotpassword);
 router.route("/resetpassword/:resetToken").put(resetpassword);
 
 //verify user email
-router.route("/emailverify/:verifyToken").put(verifyemail);
+router.route("/verifydone/:verifyToken").put(verifyemail);
 
 module.exports = router;

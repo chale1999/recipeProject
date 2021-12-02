@@ -19,7 +19,8 @@ exports.register = async(req, res, next) => {
     
             await user.save();
     
-            const verifyUrl = `https://sheltered-wildwood-67909.herokuapp.com/emailverify/${verifyToken}`;
+            const verifyUrl = `http://sheltered-wildwood-67909.herokuapp.com/verifydone/${verifyToken}`;
+            //const verifyUrl = `http://localhost:3000/verifydone/${verifyToken}`;
     
             const message = `
                 <h1>Thanks for joining MegaBytes!</h1>
@@ -63,25 +64,29 @@ exports.login = async (req, res, next) => {
     const { email, password } = req.body
 
     if(!email || !password){
-        res.status(400).json({success : false, error: "Please provide email and password"});
+        return res.status(400).json({success : false, error: "Please provide email and password"});
     }
 
     try{
         const user = await Users.findOne({email}).select("+password");
 
         if(!user) {
-            res.status(401).json({success: false, error: "Invalid credentials"});
+            return res.status(401).json({success: false, error: "Invalid credentials"});
         }
 
         const isMatch = await user.matchPasswords(password);
 
         if(!isMatch) {
-            res.status(401).json({success: false, error: "Invalid credentials"});
+            return res.status(401).json({success: false, error: "Invalid credentials"});
+        }
+
+        if(user.isVerified == false){
+            return res.status(401).json({success: false, error: "Verify Email First."});
         }
 
         sendToken(user, 200, res);
     }catch(error){
-        res.status(500).json({
+        return res.status(500).json({
             success : false,
             error: error.message,
         });
@@ -95,14 +100,15 @@ exports.forgotpassword = async (req, res, next) => {
         const user = await Users.findOne({email});
 
         if(!user){
-            res.status(404).json({success: false, error: "Email could not be sent"});
+            return res.status(404).json({success: false, error: "Email could not be sent"});
         }
 
         const resetToken = user.getResetPasswordToken();
 
         await user.save();
 
-        const resetUrl = `https://sheltered-wildwood-67909.herokuapp.com/passwordreset/${resetToken}`;
+        const resetUrl = `http://sheltered-wildwood-67909.herokuapp.com/passwordreset/${resetToken}`;
+        //const resetUrl = `http://localhost:3000/passwordreset/${resetToken}`;
 
         const message = `
             <h1>You have requested a password reset</h1>
@@ -117,18 +123,18 @@ exports.forgotpassword = async (req, res, next) => {
                 text: message
             });
     
-            res.status(200).json({ success: true, data:"Email Sent"});
+            return res.status(200).json({ success: true, data:"Email Sent"});
         }catch(error){
             user.getResetPasswordToken = undefined;
             user.getResetPasswordExpire = undefined;
             await user.save();
-            res.status(500).json({
+            return res.status(500).json({
                 success : false,
                 error: "Email Could Not Be Synced",
             });
         }
     }catch(error){
-        res.status(500).json({
+        return res.status(500).json({
             success : false,
             error: error.message,
         });
@@ -146,7 +152,7 @@ exports.resetpassword = async (req, res, next) => {
         });
 
         if(!user) {
-            res.status(404).json({ success: false, error: "Invalid Reset Token"})
+            return res.status(404).json({ success: false, error: "Invalid Reset Token"})
         }
 
         user.password = req.body.password;
@@ -154,9 +160,9 @@ exports.resetpassword = async (req, res, next) => {
         user.getResetPasswordExpire = undefined;
         
         await user.save();
-        res.status(201).json({ success: true, data: "Password Successfully Reset."});
+        return res.status(201).json({ success: true, data: "Password Successfully Reset."});
     }catch(error){
-        res.status(500).json({ success: false, error: error.message});
+        return res.status(500).json({ success: false, error: error.message});
     }
 };
 
@@ -168,20 +174,20 @@ exports.verifyemail = async (req, res, next) => {
         const user = await Users.findOne({verifyEmailToken: verifyToken});
 
         if(!user) {
-            res.status(404).json({ success: false, error: "Invalid Token"})
+            return res.status(404).json({ success: false, error: "Invalid Token"})
         }
 
         user.isVerified = true;
         
         await user.save();
-        res.status(201).json({ success: true, data: "Email Successfully Verified."});
+        return res.status(201).json({ success: true, data: "Email Successfully Verified."});
     }catch(error){
-        res.status(500).json({ success: false, error: error.message});
+        return res.status(500).json({ success: false, error: error.message});
     }
 };
 
 
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken();
-    res.status(statusCode).json({success: true, token});
+    return res.status(statusCode).json({success: true, token});
 }

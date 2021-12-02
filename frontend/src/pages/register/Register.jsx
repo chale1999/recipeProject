@@ -43,7 +43,7 @@ const Register = () =>
 
 			localStorage.setItem("authToken", data.token);
 
-			history.push("/home"); // todo actually get it to redirect to home page. Login is successful 
+			history.push("/verifyemail"); // todo actually get it to redirect to home page. Login is successful 
 
 		}catch(error) {
 			setError("Error has occured");

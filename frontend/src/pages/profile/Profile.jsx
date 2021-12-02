@@ -3,9 +3,10 @@ import './Profile.css';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router';
 import {Link} from 'react-router-dom';
 import pfp from '../../components/imgs/person.jpg';
-import cover from '../../components/imgs/food.jpg';
+import cover from '../../components/imgs/user2.jpg';
 import recipeImage from '../../components/imgs/food.jpg';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -42,7 +43,9 @@ const Profile = () =>
 	}
 
 
-	getProfile();
+	window.onload = function() {
+		getProfile();
+	};
 	return(
 		<div class="profileScreen">
 		  <PageNavbar/>

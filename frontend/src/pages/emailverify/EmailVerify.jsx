@@ -3,36 +3,19 @@ import { useState } from "react";
 import './EmailVerify.css';
 import '../../components/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import axios from "axios";
 import '../../components/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
 
-const EmailVerify = ({match}) =>
+const EmailVerify = () =>
 {
+	const history = useHistory();
 	const [error, setError] = useState("");
   	const [success, setSuccess] = useState("");
 
-	const verifyEmailHandler = async () => {
-	
-		const config = {
-		  header: {
-			"Content-Type": "application/json",
-			"Authentication":`Bearer${localStorage.getItem('authToken')}`
-		  },
-		};
-	
-		try {
-		  const { data } = await axios.put(
-			`/api/auth/emailverify/${match.params.verifyToken}`,
-			config
-		  );
-	
-		  //console.log(data);
-		  setSuccess(data.data);
-		} catch (error) {
-		  setError(error);
-		}
-	  };
+	const goLogin = async () => {
+		history.push('/');
+	};
+
 	return(
 		<div>
 			<div className="container">
@@ -53,7 +36,7 @@ const EmailVerify = ({match}) =>
 					we just need to make sure you're not a bot. After all, bots don't have tastebuds so who are they to write recipes!</p></div>
 					<div className="col-3"></div>
 				</div>
-				<button onClick = {verifyEmailHandler}>Okay</button>
+				<button onClick = {goLogin}>Okay</button>
 			</div>
 		</div>
 	);
