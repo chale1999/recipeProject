@@ -53,7 +53,7 @@ const Home = () =>
     <div>
         <PageNavbar/>
             <div className="homeScreen">
-                <div className="homeStuff1">
+                <div className="homeFeed">
                     <form className="newRecipeButton" onClick={toCreate}>
                         <Create/>
                         <br/>
@@ -80,7 +80,7 @@ const Home = () =>
                         </div>
                     </div>
                 </div> 
-                <div className="homeStuff2">
+                <div className="homeFollowed">
                         <span className="fieldLabel">This is where followed users go.</span>
                     <hr/>
                     <div className="followedUser">
