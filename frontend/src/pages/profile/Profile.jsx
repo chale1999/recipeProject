@@ -66,8 +66,8 @@ const Profile = () =>
 					<Tabs>
     						<TabList>
       							<Tab>My Recipes</Tab>
-      							<Tab>Users You Follow</Tab>
-								<Tab>Users Following You</Tab>
+      							<Tab>Users They Follow</Tab>
+								<Tab>Users Following Them</Tab>
     						</TabList>
     						<TabPanel>
       							<div className="feedArea">
