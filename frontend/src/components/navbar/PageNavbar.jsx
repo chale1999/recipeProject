@@ -10,14 +10,6 @@ import logo from '../imgs/MegaBitesLogo_transparent-large.png'
 
 function PageNavbar()
 {   
-    /*const mystyle = {
-        color: "white",
-        backgroundColor: "lightGreen",
-        padding: "8px",
-        margin: 2,
-        fontfamily: 'Kumbh Sans',
-
-    };*/
     return(  
     <div id="navbar">
         <div className="navbar__container">
@@ -48,7 +40,7 @@ function PageNavbar()
                   <span id="notifCount">1</span>
                 </div>
                 <div className="navItem">
-                  <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
+                  <Link to="/profile/current-user"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
                 </div>
             </div>
         </div> 
