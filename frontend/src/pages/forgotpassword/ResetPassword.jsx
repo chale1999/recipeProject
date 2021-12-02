@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import '../../components/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router";
 
 import "./ResetPasswordScreen.css";
 
-const ResetPasswordScreen = ({match }) => {
+const ResetPasswordScreen = () => {
+
   const history = useHistory();
+  const {resetToken} = useParams();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -30,7 +33,7 @@ const ResetPasswordScreen = ({match }) => {
 
     try {
       const { data } = await axios.put(
-        `/api/auth/passwordreset/${match.params.resetToken}`,
+        `/api/auth/resetpassword/${resetToken}`,
         {
           password,
         },
@@ -41,7 +44,7 @@ const ResetPasswordScreen = ({match }) => {
       setSuccess(data.data);
       history.push('/'); 
     } catch (error) {
-      setError(error.response.data.error);
+      setError("Error Resetting Password");
     }
   };
 
