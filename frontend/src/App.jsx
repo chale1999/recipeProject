@@ -13,6 +13,7 @@ import Home from './pages/home/Home.jsx';
 import Bookmarks from './pages/bookmarks/Bookmarks.jsx';
 import CreateRecipe from './pages/createrecipe/CreateRecipe.jsx';
 import EditProfile from './pages/editprofile/EditProfile.jsx';
+import OwnProfile from './pages/profile/OwnProfile.jsx';
 import Results from './pages/searchresults/Results.jsx';
 import Recipe from './pages/viewrecipe/ViewRecipe.jsx';
 import EditRecipe from './pages/editrecipe/EditRecipe.jsx';
@@ -60,6 +61,9 @@ function App() {
             </Route>
             <Route path="/profile/edit" exact>
               <EditProfile/>
+            </Route>
+            <Route path="/profile/current-user" exact>
+              <OwnProfile/>
             </Route>
             <Route path="/search/results" exact>
               <Results/>
