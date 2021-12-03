@@ -40,7 +40,7 @@ function PageNavbar()
                   <span id="notifCount">1</span>
                 </div>
                 <div className="navItem">
-                  <Link to="/profile/current-user"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
+                  <Link to="/current-user"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
                 </div>
             </div>
         </div> 

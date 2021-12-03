@@ -47,7 +47,7 @@ function App() {
             <Route path="/verifyemail" exact>
               <EmailVerify/>
             </Route>
-            <Route path="/profile" exact>
+            <Route path="/profile/:username" exact>
               <Profile/>
             </Route>
             <Route path="/home" exact>
@@ -59,22 +59,22 @@ function App() {
             <Route path="/create-recipe" exact>
               <CreateRecipe/>
             </Route>
-            <Route path="/profile/edit" exact>
+            <Route path="/edit-profile" exact>
               <EditProfile/>
             </Route>
-            <Route path="/profile/current-user" exact>
+            <Route path="/current-user" exact>
               <OwnProfile/>
             </Route>
             <Route path="/search/results" exact>
               <Results/>
             </Route>
-            <Route path="/recipe" exact>
+            <Route path="/recipe/:id" exact>
               <Recipe/>
             </Route>
-            <Route path="/recipe/edit" exact>
+            <Route path="/edit-recipe" exact>
               <EditRecipe/>
             </Route>
-            <Route path="/recipe/view" exact>
+            <Route path="/view-recipe" exact>
               <ViewRecipe/>
             </Route>
             <Route path="/verifydone/:verifyToken" exact>
