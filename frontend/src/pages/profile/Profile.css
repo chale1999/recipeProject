@@ -2,25 +2,33 @@
 	display: flex;
 	flex-direction: column;
 	flex: 9;
+	justify-content: center;
 	background-color: #ffe1a8;
 }
 
 .profileTop{
+	margin: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	transform: rotate(0.0turn);
+	width: 80vw;
+	height: 80vh;
 }
 
 .profileCover{
+	width: inherit;
+	display: flex;
+	justify-content: center;
 	height: 320px;
 	position: relative;
+	transform: rotate(0.0turn);
 }
 
 .profileCoverImg
 {
-	width: 80vw;
+	transform: rotate(0.0turn);	
+	width: inherit;
 	height: 100%;
 	object-fit: cover;
 	margin: 30px;
@@ -30,13 +38,14 @@
     box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.8);
 }
 
-#pfp
+#pfpDiv
 {
+	transform: rotate(0.0turn);		
 	position: fixed;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	bottom: 25%;
+	top: 75%;
 }
 
 .profileUserImg{
@@ -51,8 +60,6 @@
 
 .profileInfo{
 	background-color: rgba(255, 255, 255, 0.795);
-	width: 80vw;
-	height: 30vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -61,6 +68,8 @@
 	border-bottom-right-radius: 20px;
     -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+	width: inherit;
+	height: 40%;
 }
 
 .profileInfoName{
@@ -104,6 +113,7 @@
 }
 
 .profileBottom{
+	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -124,6 +134,8 @@
 .break{
 	height: 20px;
 	width: 80vw;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .feedItem{

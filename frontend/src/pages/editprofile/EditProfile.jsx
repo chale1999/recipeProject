@@ -87,16 +87,20 @@ const history = useHistory();
 			<div className="profileTop">
 				<div className="profileCover">
 					<img src={cover} className="profileCoverImg"/>
-					<button id="editCover" onClick={editCover}><Create/></button>
+					<div>
+						<button id="editCover" onClick={editCover}><Create/></button>
+					</div>
 					<div id="pfpDiv">
-						<div id="pfpContainer">
-							<img src={pfp} className="profileUserImg"/>
+						<img src={pfp} className="profileUserImg"/>
+						<div>
+							<button id="editPFP" onClick={editPFP}><Create/></button>
 						</div>
-						<button id="editPFP" onClick={editPFP}><Create/></button>
 					</div>
 				</div>
+				
 				<div className="profileInfo">
 					<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
+					<button id="editName" onClick={editName}><Create/></button>
 					<span className="profileInfoDesc">{desc}</span>
 				</div>
 			</div>

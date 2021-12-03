@@ -1,5 +1,6 @@
 button
 {
+	position: fixed;	
 	padding: 5px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.795);
@@ -14,36 +15,19 @@ button:hover
     background-color: #c2c2c2;
 }
 
-.profileUserImg
-{
-	height: 200px;
-	width: 200px;
-	object-fit: cover;
-}
-
-#pfpDIv
-{
-	background-color: red;
-}
-
 #editCover
 {
-	display: flex;
-	position: relative;
-	left: 74.4vw;
-	top: -75px;
+	bottom: 0%;
+	right: 4.8%;
 }
 
-#pfpContainer
-{
-	width: 200px;
-	height: 100px;;
-	background-color: red;
-}
 #editPFP
 {
-	position: relative;
-	left: 100%;
-	display: inline-block;
-	flex: 7;
+	bottom: 15%;
+	right: 0%;
+}
+
+#editName
+{
+	
 }
