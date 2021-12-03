@@ -191,6 +191,22 @@ router.get("/:id", async (req, res) =>{
     
 });
 
+// get all the posts created by a specfic user
+router.get("/getall/:username", async (req, res) =>{
+    try{
+        Post.find({username : req.params.username }, (err, results)=> {
+            if (results) {
+                return res.send(results)
+            } else {
+                return res.send("No recipes are made by this user yet.");
+                }
+        });
+    }catch(err){
+        return res.status(500).json(err);
+    }
+    
+});
+
 
 
 // get a post
