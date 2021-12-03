@@ -1,0 +1,13 @@
+.profile{
+	display: flex;
+	flex-direction: column;
+	flex: 9;
+	background-color: #ffe1a8;
+}
+
+.break{
+	height: 20px;
+	width: 80vw;
+}
+
+

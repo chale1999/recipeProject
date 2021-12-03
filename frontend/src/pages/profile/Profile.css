@@ -136,20 +136,3 @@
 	flex-direction: row;
 	justify-content: space-around;
 }
-
-.profileFollowedUserContainer{
-	display: flex;
-	justify-content: left;
-	flex-direction: column;
-	height: 66vh;
-	width: 70vw;
-	padding: 15px;
-	margin-top: 15px;
-	margin-left: 15px;
-	margin-bottom: 15px;
-	background-color: rgba(255, 255, 255, 0.795);
-	border-radius: 10px;
-	width: 33vw;
-	-webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
-	box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
-  }

@@ -1,9 +1,66 @@
 import React from 'react';
 import './ViewRecipe.css';
 import PageNavbar from '../../components/navbar/PageNavbar.jsx';
-import SamplePic from '../../components/imgs/food.jpg'
+import SamplePic from '../../components/imgs/spoon-and-fork-crossed.jpg'
+import { useParams } from 'react-router';
+import { useHistory } from 'react-router';
+import { useState, useEffect } from 'react';
+import jwt_decode from "jwt-decode";
+import axios from 'axios';
 
 const ViewRecipe = () =>{
+
+    const history = useHistory();
+    const {id} = useParams();
+    console.log(id);
+
+
+    const [username,setUsername] = useState(""); 
+    const [recipeName,setRecipeName] = useState("");
+    const [desc,setDescription] = useState(""); 
+    const [ingredients,setIngredients] = useState([]);
+    const [directions,setDirections] = useState([]);
+    const [prepTime,setPrepTime] = useState("");
+    const [cookTime,setCookTime] = useState("");
+    const [servingCount,setServingCount] = useState("");
+    
+
+    const getPost = async event => {
+		var token = localStorage.getItem("authToken");
+		var decoded = jwt_decode(token);
+
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+
+		try {
+			const {data} = await axios.get(`/api/posts/${id}`,config);
+            setRecipeName(data.recipeName);
+            setUsername(data.username);
+            setDescription(data.desc);
+            setIngredients(data.ingredients);
+            setDirections(data.directions);
+            setPrepTime(data.prepTime);
+            setCookTime(data.cookTime);
+            setServingCount(data.servingCount);
+
+		}catch(error) {
+			console.log(error);
+		}
+
+	};
+
+
+    useEffect(() => {
+        getPost();
+    },[]);
+
+
+
+
     return(
         <div>
             <PageNavbar/>
@@ -14,45 +71,53 @@ const ViewRecipe = () =>{
                         <hr/>
                         <div className="timeField">
                             <p className="fieldLabel">Preparation Time</p>
-                            <span>30 mins.</span>
+                            <span>{prepTime}</span>
                         </div>
                         <br/>
                         <div className="timeField">
                             <p className="fieldLabel">Cooking Time</p>
-                            <span>30 mins.</span>
+                            <span>{cookTime}</span>
                         </div>
                         <br/>
                         <div className="timeField">
                             <p className="fieldLabel">Number of servings</p>
-                            <span>2 servings</span>
+                            <span>{servingCount}</span>
                         </div>
                     </div>
                     <div class="viewRecipeInfo2">
                         <div className="viewRecipeTitle">
                             <p className="fieldLabel">Recipe Title</p>
                             <form>
-                                <span>Sample Title</span>
+                                <span>{recipeName}</span>
                             </form>
                         </div>
                         <hr/>
                         <div className="viewRecipeDesc">
                             <p className="fieldLabel">Recipe Description</p>                
                             <form>
-                                <span>Sample Description</span>
+                                <span>{desc}</span>
                             </form>
                         </div>
                         <hr/>
                         <div className="newRecipeIngr">
                             <p className="fieldLabel">Ingredients List</p>
                             <form>
-                                <span>Sample Ingredients</span>
+                                <ul>
+                                {ingredients.map((p) => (
+									<li>{p}</li>
+								))}
+                                </ul>
                             </form>
                         </div>
                         <hr/>
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>
-                                <span>Sample Procedure</span>
+                                <ul>
+                                {directions.map((p) => (
+									<li>{p}</li>
+								))}
+                                </ul>
                             </form>
                         </div>
                     </div>

@@ -4,48 +4,82 @@ import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import { useParams } from 'react-router';
+import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import pfp from '../../components/imgs/person.jpg';
 import cover from '../../components/imgs/user2.jpg';
 import recipeImage from '../../components/imgs/food.jpg';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Icons from '../../components/smallIcon/icon';
 import 'react-tabs/style/react-tabs.css';
+import SmallRecipe from '../../components/smallRecipeIcon/smallRecipeCard';
 
 
 const Profile = () =>
 {
 	const history = useHistory();
+	const {username} = useParams();
+	console.log(username);
+	const [firstName,setFirstName] = useState(""); 
+    const [lastName,setLastName] = useState("");
+    const [desc,setDiscription] = useState("");
+	const [followers,setFollowers] = useState([]);
+	const [following, setFollowing] = useState([]);
+	const [posts, setPosts] = useState([]);
+
+
 	const getProfile = async event =>
 	{
 		//event.preventDefault();
-		var token = localStorage.getItem("authToken");
-		var decoded = jwt_decode(token);
-		
-		console.log(decoded);
- 
-		
 		const config = {
-            headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-            },
-        };
-
-		const username = decoded.username;
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
 
 		try {
 			const {data} = await axios.get(`/api/users/${username}`,config);
-			console.log(data); // in data has all the current users data from db!
+			console.log(data);
+			setFirstName(data.firstName);
+			setLastName(data.lastName);
+			setDiscription(data.desc);
+			setFollowers(data.followers);
+			//console.log(followers);
+			setFollowing(data.following);
+			//return data; // in data has all the current users data from db!
 
 		}catch(error) {
 			console.log(error);
 		}
-	}
-
-
-	window.onload = function() {
-		getProfile();
 	};
+
+	const getUserPosts = async event => {
+
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+
+		try {
+			const {data} = await axios.get(`/api/posts/getall/${username}`,config);
+			setPosts(data);
+		}catch(error) {
+			console.log(error);
+		}
+
+	};
+
+	useEffect(() => {
+		getProfile();
+		getUserPosts();
+	}, [])
+
+
+
+
 	return(
 		<div class="profileScreen">
 		  <PageNavbar/>
@@ -56,8 +90,8 @@ const Profile = () =>
 					<img src={pfp} className="profileUserImg"/>
 				</div>
 				<div className="profileInfo">
-					<h4 className="profileInfoName"><b>Sample Name</b></h4>
-					<span className="profileInfoDesc">Hello! My name is Sample Name. I love to cook and specialize in baking!</span>
+					<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
+					<span className="profileInfoDesc">{desc}</span>
 				</div>
 			</div>
 			<div className="break">
@@ -74,71 +108,20 @@ const Profile = () =>
     						</TabList>
     						<TabPanel>
       							<div className="feedArea">
-                        			<div className="feedItem">
-                            			<img id="itemImage" alt = "recipe pic" src={recipeImage}></img>
-                            			<div className="itemInfo">
-                                			<span id="itemTitle">This is a feed item!</span>
-                            			</div>
-                        			</div>
-                        			<div className="feedItem">
-                            			<img id="itemImage" alt = "recipe pic" src={recipeImage}></img>
-                            				<div className="itemInfo">
-                                				<span id="itemTitle">This is a feed item!</span>
-                            				</div>
-                        			</div>
-                        			<div className="feedItem">
-                        	    		<img id="itemImage" alt = "recipe pic" src={recipeImage}></img>
-                        				    <div className="itemInfo">
-                            				    <span id="itemTitle">This is a feed item!</span>
-                            				</div>
-                        			</div>
+								  {posts.map((p) => (
+									<SmallRecipe key = {p._id} posts = {p}/>
+								))}
                     			</div>
     						</TabPanel>
     						<TabPanel>
-							<div className="profileFollowedUserContainer">
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-								<br/>
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-								<br/>
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-								<br/>
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-							</div>
+								{following.map((p) => (
+									<Icons key = {p.username} follower_name = {p}/>
+								))}
     						</TabPanel>
 							<TabPanel>
-							<div className="profileFollowedUserContainer">
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-								<br/>
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-								<br/>
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-								<br/>
-								<div className="followedUser">
-									<Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-									<span>Sample Name</span>
-								</div>
-							</div>
+							{followers.map((p) => (
+										<Icons key = {p.username} follower_name = {p}/>
+								))}
     						</TabPanel>
   						</Tabs>
 					</div>
