@@ -97,6 +97,8 @@ const OwnProfile = () =>
 			<div className="profileTop">
 				<div className="profileCover">
 					<img src={cover} className="profileCoverImg"/>
+				</div>
+				<div id="pfp">
 					<img src={pfp} className="profileUserImg"/>
 				</div>
 				<div className="profileInfo">

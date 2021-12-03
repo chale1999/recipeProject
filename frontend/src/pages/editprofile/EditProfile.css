@@ -1,0 +1,49 @@
+button
+{
+	padding: 5px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.795);
+	-webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+}
+
+button:hover
+{
+	cursor: pointer;
+    transition: 0.2s ease;
+    background-color: #c2c2c2;
+}
+
+.profileUserImg
+{
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+}
+
+#pfpDIv
+{
+	background-color: red;
+}
+
+#editCover
+{
+	display: flex;
+	position: relative;
+	left: 74.4vw;
+	top: -75px;
+}
+
+#pfpContainer
+{
+	width: 200px;
+	height: 100px;;
+	background-color: red;
+}
+#editPFP
+{
+	position: relative;
+	left: 100%;
+	display: inline-block;
+	flex: 7;
+}
