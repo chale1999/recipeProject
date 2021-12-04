@@ -102,8 +102,10 @@ const OwnProfile = () =>
 					</div>
 				</div>
 				<div className="profileInfo">
-					<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
-					<span className="profileInfoDesc">{desc}</span>
+					<div id="infoContainter">
+						<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
+						<span className="profileInfoDesc">Hello!</span>
+					</div>
 					<form className="editProfileButton" onClick={toEditProfile}>
                         <Create/>
                         <br/>

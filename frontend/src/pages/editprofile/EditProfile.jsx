@@ -1,4 +1,6 @@
 import PageNavbar from '../../components/navbar/PageNavbar';
+import ReactDOM from 'react-dom';
+import CheckIcon from '@mui/icons-material/Check';
 import './EditProfile.css';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
@@ -69,6 +71,19 @@ const history = useHistory();
 	const editName = () =>
 	{
 		console.log("edit name!!");
+		var nameElement = document.getElementById('profileName');
+		var editButton = document.getElementById('editName');
+		var name = nameElement.textContent;
+		console.log(name);
+		nameElement.remove();
+		editButton.remove();
+		const nameEditElem = <h4 className="profileInfoName"><form method = "get" onSubmit={check}><input style={{textAlign: 'center'}} type="text" placeholder={name}></input><button type="submit" class="reset-this"><CheckIcon style={{border:'1px solid black', borderRadius: '10px', marginLeft:'5px', height: '38px', width:'38px'}}/></button></form></h4>
+		ReactDOM.render(nameEditElem, document.getElementById('nameDiv'));
+	};
+
+	const check = () =>
+	{
+		console.log("check worked!!");
 	};
 
 	const editBio = () =>
@@ -99,10 +114,22 @@ const history = useHistory();
 				</div>
 				
 				<div className="profileInfo">
-					<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
-					<button id="editName" onClick={editName}><Create/></button>
-					<span className="profileInfoDesc">{desc}</span>
+					<div id="nameDiv">
+						<h4 id="profileName" className="profileInfoName"><b>{firstName} {lastName}</b></h4>
+					</div>
+					<div id="infoContainer">
+						<button id="editName" onClick={editName}><Create/></button>
+					</div>
+					
+					<div id="bio">
+						<h5 id="aboutMe"><b>About Me</b></h5>
+						<div id="bioContents">
+							<span class="profileInfoDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim blandit aaa volutpat maecenas volutpat blandit aliquam etiam erat. Mattis molestie a iaculis at erat pellentesque.</span>
+							<button id="editBio"><Create/></button>
+						</div>
+					</div>
 				</div>
+				
 			</div>
 			<div className="break">
 

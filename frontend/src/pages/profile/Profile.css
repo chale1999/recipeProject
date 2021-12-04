@@ -69,7 +69,12 @@
     -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 	width: inherit;
-	height: 40%;
+	height: 60%;
+}
+
+#infoContainer
+{
+	transform:rotate(0.0turn);
 }
 
 .profileInfoName{
@@ -82,6 +87,7 @@
 	position: relative;
 	top: 85px;
 	font-size: 20px;
+
 }
 
 .editProfileButton{
