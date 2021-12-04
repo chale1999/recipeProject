@@ -41,6 +41,7 @@
 
 #pfpDiv
 {
+white-space: normal;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -90,9 +91,23 @@
 {
 }
 
+#aboutMe
+{
+	text-align: center;
+	height: 25px;
+}
+
 #aboutMeDiv
 {
+	font-size: 20px;
+	position: relative;
 }
+
+#aboutMeContent
+{
+	position: relative;
+}
+
 .profileInfoName{
 	height: fit-content;
 	position: relative;

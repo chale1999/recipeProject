@@ -101,7 +101,9 @@ const OwnProfile = () =>
 						<img src={pfp} className="profileUserImg"/>
 						<span id="name">{firstName} {lastName}</span>
 						<div id="aboutMeDiv">
-							<span id="aboutMe">Hello, World!</span>
+							<span id="aboutMeTitle"><strong>About Me:</strong></span>
+							<br/>
+							<span id="aboutMeContent">Hello my name is dylan and i just love cooking so much</span>
 						</div>
 					</div>
 					
