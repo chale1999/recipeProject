@@ -12,6 +12,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	position: relative;
 	width: 80vw;
 	height: 80vh;
 }
@@ -41,7 +42,7 @@
 #pfpDiv
 {
 	transform: rotate(0.0turn);		
-	position: fixed;
+	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;

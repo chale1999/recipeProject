@@ -27,23 +27,31 @@ button:hover
 	right: 0%;
 }
 
-#name
+#nameDiv
 {
+    display: flex;
+    width: 400px;
+    height: fit-content;
+    position: relative;
+    top: -60px;
 	transform: rotate(0.0turn);
 }
 
-#profileInfoName
+
+
+.profileInfoName
 {
-	position: fixed;
-	top: 70px;
+    flex: 11;
+	position: absolute;
+    width: 400px;
 	font-size: 40px;
-	bottom: 0px;
+    top: 0px;
 }
 
 #editName
 {
-	bottom: -60px;
-	left: 140px;
+    flex: 1;
+    position: static;
 }
 
 #aboutMe
@@ -57,7 +65,7 @@ button:hover
 #bio
 {
 	height: 0px;
-	position: relative;
+	position: absolute;
 	margin-left: 1%;
 	margin-right: 1%;
 	margin-bottom: 3%;
