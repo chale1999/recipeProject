@@ -4,7 +4,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import './EditProfile.css';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-import { useHistory } from 'react-router';
+import { useHistory } from "react-router-dom";
 import {Link} from 'react-router-dom';
 import pfp from '../../components/imgs/person.jpg';
 import cover from '../../components/imgs/cover3.jpg';
@@ -18,13 +18,15 @@ import { useEffect, useState } from 'react';
 
 const EditProfile = () =>
 {
-const history = useHistory();
+	const history = useHistory();
+	const setFullName = useState("");
 	const [firstName,setFirstName] = useState(""); 
     const [lastName,setLastName] = useState("");
     const [desc,setDiscription] = useState("");
 	const [followers,setFollowers] = useState([]);
 	const [following, setFollowing] = useState([]);
 	const [posts, setPosts] = useState([]);
+	const [error,setError] = useState("");
 
 	const getProfile = async event =>
 	{
@@ -77,15 +79,37 @@ const history = useHistory();
 		console.log(name);
 		nameElement.remove();
 		editButton.remove();
-		const nameEditElem = <h4 className="profileInfoName"><form method = "get" onSubmit={check}><input style={{textAlign: 'center'}} type="text" placeholder={name}></input><button type="submit" class="reset-this"><CheckIcon style={{border:'1px solid black', borderRadius: '10px', marginLeft:'5px', height: '38px', width:'38px'}}/></button></form></h4>
+		const nameEditElem = <h4 className="profileInfoName"><form method = "get" onSubmit={doEditName}><input style={{textAlign: 'center'}} type="text" placeholder={name} onChange={(e) => setFirstName(e.target.value.split()[0])}></input><button type="submit" class="reset-this"><CheckIcon style={{border:'1px solid black', borderRadius: '10px', marginLeft:'5px', height: '38px', width:'38px'}}/></button></form></h4>
 		ReactDOM.render(nameEditElem, document.getElementById('nameDiv'));
 	};
 
-	const check = () =>
+	const doEditName = async event =>
 	{
+		event.preventDefault();
+		var token = localStorage.getItem("authToken");
+		var decoded = jwt_decode(token);
+		const username = decoded.username;
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+
+		try {
+			const {data} = await axios.put(`/api/users/${username}`, {firstName, lastName}, config);
+
+			console.log(data);
+			History.push('/home')
+
+
+		}catch(error) {
+			setError(error.response.error);
+			//setError("Error Creating Recipe");
+		}
+
 		console.log("check worked!!");
 	};
-
 	const editBio = () =>
 	{
 		console.log("edit bio!!");

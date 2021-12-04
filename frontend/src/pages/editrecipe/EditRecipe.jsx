@@ -15,7 +15,7 @@ const EditRecipe = () =>
     const history = useHistory();
     // required section (need to pass into api as json)
     const [recipeName,setrecipeName] = useState(""); 
-    const [ingedients,setIngedients] = useState("");
+    const [ingredients,setIngredients] = useState("");
     const [directions,setDirections] = useState("");
     
 
@@ -30,7 +30,7 @@ const EditRecipe = () =>
 
 
     console.log(recipeName);
-    console.log(ingedients);
+    console.log(ingredients);
     console.log(directions);
     console.log(cookTime);
     console.log(prepTime);
@@ -49,7 +49,7 @@ const EditRecipe = () =>
         };
 
 		try {
-			const {data} = await axios.post("api/posts", {recipeName, ingedients, directions, cookTime, prepTime, servingCount, desc, img},
+			const {data} = await axios.post("api/posts", {recipeName, ingredients, directions, cookTime, prepTime, servingCount, desc, img},
 			config);
 
             console.log(data);
@@ -113,7 +113,7 @@ const EditRecipe = () =>
             <div className="newRecipeIngr">
                 <p className="fieldLabel">Ingredients List</p>
                 <form>
-                    <textarea id="recipeDesc" placeholder="Place each ingredient on a new line." required value={ingedients} onChange={(e) => setIngedients(e.target.value)}/>   
+                    <textarea id="recipeDesc" placeholder="Place each ingredient on a new line." required value={ingredients} onChange={(e) => setIngredients(e.target.value)}/>   
                 </form>
             </div>
             <hr/>
