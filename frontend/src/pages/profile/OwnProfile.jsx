@@ -99,12 +99,15 @@ const OwnProfile = () =>
 					<img src={cover} className="profileCoverImg"/>
 					<div id="pfpDiv">
 						<img src={pfp} className="profileUserImg"/>
+						<span id="name">{firstName} {lastName}</span>
+						<div id="aboutMeDiv">
+							<span id="aboutMe">Hello, World!</span>
+						</div>
 					</div>
+					
 				</div>
 				<div className="profileInfo">
 					<div id="infoContainter">
-						<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
-						<span className="profileInfoDesc">Hello!</span>
 					</div>
 					<form className="editProfileButton" onClick={toEditProfile}>
                         <Create/>

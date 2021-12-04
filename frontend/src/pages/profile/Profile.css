@@ -41,12 +41,18 @@
 
 #pfpDiv
 {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 	transform: rotate(0.0turn);		
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	justify-content: center;
 	top: 75%;
+	font-size: 40px;
+	font-weight: bold;
 }
 
 .profileUserImg{
@@ -71,23 +77,35 @@
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 	width: inherit;
 	height: 60%;
-}
+	}
 
 #infoContainer
 {
 	transform:rotate(0.0turn);
+	background-color: red;
+	width: fit-content;
 }
 
+#name
+{
+}
+
+#aboutMeDiv
+{
+}
 .profileInfoName{
+	height: fit-content;
 	position: relative;
-	top: 70px;
 	font-size: 40px;
+	background-color: green;
+	bottom: 100%;
 }
 
 .profileInfoDesc{
 	position: relative;
 	top: 85px;
 	font-size: 20px;
+	color: rgb(0, 0, 0);
 
 }
 
