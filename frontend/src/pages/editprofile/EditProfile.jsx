@@ -73,7 +73,7 @@ const EditProfile = () =>
 	const editName = () =>
 	{
 		console.log("edit name!!");
-		var nameElement = document.getElementById('profileName');
+		var nameElement = document.getElementById('name');
 		var editButton = document.getElementById('editName');
 		var name = nameElement.textContent;
 		console.log(name);
@@ -110,7 +110,7 @@ const EditProfile = () =>
 
 		console.log("check worked!!");
 	};
-	const editBio = () =>
+	const editAboutMe = () =>
 	{
 		console.log("edit bio!!");
 	};
@@ -125,38 +125,34 @@ const EditProfile = () =>
 		  <div className="profile">
 			<div className="profileTop">
 				<div className="profileCover">
-					<img src={cover} className="profileCoverImg"/>
-					<div>
+					<div id="coverDiv">
+						<img src={cover} className="profileCoverImg"/>
 						<button id="editCover" onClick={editCover}><Create/></button>
 					</div>
+				</div>
+				<div className="profileInfo">
 					<div id="pfpDiv">
-						<img src={pfp} className="profileUserImg"/>
-						<div>
+						<div id="actualImg">
+							<img src={pfp} className="profileUserImg"/>
 							<button id="editPFP" onClick={editPFP}><Create/></button>
 						</div>
-					</div>
-				</div>
-				
-				<div className="profileInfo">
-					<div id="nameDiv">
-						<h4 id="profileName" className="profileInfoName"><b>{firstName} {lastName}</b></h4>
-					</div>
-					<div id="infoContainer">
-						<button id="editName" onClick={editName}><Create/></button>
-					</div>
-					
-					<div id="bio">
-						<h5 id="aboutMe"><b>About Me</b></h5>
-						<div id="bioContents">
-							<span class="profileInfoDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim blandit aaa volutpat maecenas volutpat blandit aliquam etiam erat. Mattis molestie a iaculis at erat pellentesque.</span>
-							<button id="editBio"><Create/></button>
+						<div id="nameDiv">
+							<span id="name">{firstName} {lastName}</span>
+							<div id="editNameButtonDiv">
+								<button id="editName" onClick={editName}><Create/></button>
+							</div>
+						</div>
+						<div id="aboutMeDiv">
+							<span id="aboutMeTitle"><strong>About Me:</strong></span>
+							<div id="editAboutMeButtonDiv">
+								<span id="aboutMeContent">A54ub7aCseZpAdEa8w53Z2AM62CdrHLkoAZLIRc5fJv8k9QVio</span>
+								<button id="editAboutMe" onClick={editAboutMe}><Create/></button>
+							</div>
 						</div>
 					</div>
 				</div>
-				
 			</div>
 			<div className="break">
-
 			</div>
 	      </div>
 		</div>

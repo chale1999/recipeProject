@@ -1,6 +1,6 @@
 button
 {
-	position: fixed;	
+	position: absolute;	
 	padding: 5px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.795);
@@ -15,78 +15,105 @@ button:hover
     background-color: #c2c2c2;
 }
 
+#pfpDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#coverDiv
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 #editCover
 {
-	bottom: 0%;
-	right: 4.8%;
+    text-align: right;
+    position: absolute;
+    margin:0 auto;
+    right: 50px;
+    top: 20%;
+}
+
+#actualImg
+{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    transform:rotate(0.0turn);
+    width: fit-content;
+}
+
+#editPFPButtonDiv
+{
+    height: 38px;
+    width: 38px;
+    align-items: center;
 }
 
 #editPFP
 {
-	bottom: 15%;
-	right: 0%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    right: 0;
+    top: 0;
 }
 
 #nameDiv
 {
     display: flex;
-    width: 400px;
-    height: fit-content;
-    position: relative;
-    top: -60px;
-	transform: rotate(0.0turn);
+    justify-content: center;
+    align-items: center;
 }
 
-
-
-.profileInfoName
+#editNameButtonDiv
 {
-    flex: 11;
-	position: absolute;
-    width: 400px;
-	font-size: 40px;
-    top: 0px;
+    height: 38px;
+    width: 38px;
+    align-items: center;
+    margin-left: 10px;
 }
 
 #editName
 {
-    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 38px;
+    width: 38px;
+}
+
+#aboutMeDiv
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#editAboutMe
+{
+    display: flex;
     position: static;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    width: 38px;
 }
 
-#aboutMe
+#editAboutMeButtonDiv
 {
-	position: relative;
-	top: 85px;
-	font-size: 20px;
-	text-align: left;
+    display: flex;
+
 }
 
-#bio
+#aboutMeContent
 {
-	height: 0px;
-	position: absolute;
-	margin-left: 1%;
-	margin-right: 1%;
-	margin-bottom: 3%;
-}
-
-#bioContents
-{
-	height: 0px;
-	display: flex;
-	transform: rotate(0.0turn);
-	position: relative;
-}
-
-#editBio
-{	
-	height: 38px;
-	width: 38px;
-	position: relative;
-	bottom: -90px;
-	margin-left: 5px;
-	resize: none;
+    white-space: nowrap;
 }
 
 .reset-this {
