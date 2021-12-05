@@ -13,6 +13,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Icons from '../../components/smallIcon/icon';
 import 'react-tabs/style/react-tabs.css';
 import SmallRecipe from '../../components/smallRecipeIcon/smallRecipeCard';
+import FollowButton from '../../components/followbutton/FollowButton';
 
 
 const Profile = () =>
@@ -99,6 +100,7 @@ const Profile = () =>
 							<p id="aboutMeContent">{desc}</p>
 						</div>
 					</div>
+					<FollowButton/>
 				</div>
 			</div>
 			<div className="break">
