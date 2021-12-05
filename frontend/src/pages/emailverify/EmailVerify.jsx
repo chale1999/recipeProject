@@ -32,8 +32,8 @@ const EmailVerify = () =>
 				</div>
 				<div className="row">
 					<div className="col-3"></div>
-					<div className="col-4"><p>Please check your inbox as we've sent you a verification email.<br/> Sorry, we know this can be annoying,
-					we just need to make sure you're not a bot. After all, bots don't have tastebuds so who are they to write recipes!</p></div>
+					<div className="col-4"><span>Please check your inbox as we've sent you a verification email.<br/> We just need to make sure you're not a bot. 
+						After all, bots don't have tastebuds! Who are they to write recipes?</span></div>
 					<div className="col-3"></div>
 				</div>
 				<button onClick = {goLogin}>Okay</button>
