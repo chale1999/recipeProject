@@ -1,0 +1,47 @@
+.followUserButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	position: relative;
+	left: 32vw;
+	bottom: 100px;
+    width: 9vw;
+    height: 35px;
+	min-width: 100px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 173, 125, 0.795);
+    -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+}
+
+.followUserButton:hover{
+    cursor: pointer;
+    transition: 0.2s ease;
+    background-color: #c2c2c2;
+}
+
+.followingUserButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	position: relative;
+	left: 32vw;
+	bottom: 100px;
+    width: 9vw;
+    height: 35px;
+	min-width: 100px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.795);
+    -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+}
+
+.followingUserButton:hover{
+    cursor: pointer;
+    transition: 0.2s ease;
+    background-color: #c2c2c2;
+}
