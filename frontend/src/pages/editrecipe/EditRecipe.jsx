@@ -59,9 +59,7 @@ const EditRecipe = () =>
 		}catch(error) {
 			setError(error.response.error);
             //setError("Error Creating Recipe");
-		}
-        
-        
+		}    
     };   
 
     return(
