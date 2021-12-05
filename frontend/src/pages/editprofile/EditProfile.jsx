@@ -83,7 +83,7 @@ const EditProfile = () =>
 		console.log(name);
 		nameElement.remove();
 		editButton.remove();
-		const nameEditElem = <h2 style={{marginTop: '10px'}}><form method="get" onSubmit={doEditName} style={{width: 'fit-content', border:'none'}}><input autoFocus id="nameEditTextBox" autofocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" defaultValue={name} onChange={(e) => setFirstName(e.target.value.split()[0])}></input><button type="submit" class="reset-this"><CheckIcon style={{border:'1px solid black', borderRadius: '10px', marginLeft:'5px', height: '38px', width:'38px'}}/></button></form></h2>
+		const nameEditElem = <h2 style={{marginTop: '10px'}}><form method="get" onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}><input autoFocus id="nameEditTextBox" autofocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" defaultValue={name} onChange={(e) => setFirstName(e.target.value.split()[0])}></input><button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h2>
 	
 		ReactDOM.render(nameEditElem, document.getElementById('nameDiv'));
 		var textbox = document.getElementById("nameEditTextBox");
@@ -126,7 +126,7 @@ const EditProfile = () =>
 		console.log(abtMeText);
 		abtMeElem.remove();
 		abtMeButton.remove();
-		const abtMeEditElem = <h3 style={{marginTop: '10px'}}><form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}><input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text" defaultValue={abtMeText} onChange={(e) => setDescription(e.target.value)}></input><button id="saveAbtMeChange" type="submit" class="reset-this"><CheckIcon style={{border:'1px solid black', borderRadius: '10px', marginLeft:'5px', height: '38px', width:'38px'}}/></button></form></h3>
+		const abtMeEditElem = <h3 style={{marginTop: '10px'}}><form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}><input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text" defaultValue={abtMeText} onChange={(e) => setDescription(e.target.value)}></input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h3>
 		ReactDOM.render(abtMeEditElem, document.getElementById('editAboutMeButtonDiv'));
 		var textbox = document.getElementById("aboutMeEditTextBox");
 		var form = document.getElementById("abtMeForm");
