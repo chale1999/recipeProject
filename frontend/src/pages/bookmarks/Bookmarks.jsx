@@ -11,11 +11,15 @@ import "./Bookmarks.css";
 const Bookmarks = () =>
 {
 	
+	
 	return(
 	<div id="bookmarkPage">
 		<NavBar/>
-		<div id="main">
-			<h3>My Bookmarked Recipes</h3>
+		<div id="container">
+			<div id="bookmarks">
+				<h3>My Bookmarked Recipes</h3>
+				<hr/>
+			</div>
 		</div>
 	</div>
 	);
