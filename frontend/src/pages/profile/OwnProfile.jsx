@@ -97,19 +97,17 @@ const OwnProfile = () =>
 			<div className="profileTop">
 				<div className="profileCover">
 					<img src={cover} className="profileCoverImg"/>
+					
+				</div>
+				<div className="profileInfo">
 					<div id="pfpDiv">
 						<img src={pfp} className="profileUserImg"/>
 						<span id="name">{firstName} {lastName}</span>
 						<div id="aboutMeDiv">
 							<span id="aboutMeTitle"><strong>About Me:</strong></span>
 							<br/>
-							<span id="aboutMeContent">Hello my name is dylan and i just love cooking so much</span>
+							<p id="aboutMeContent">{desc}</p>
 						</div>
-					</div>
-					
-				</div>
-				<div className="profileInfo">
-					<div id="infoContainter">
 					</div>
 					<form className="editProfileButton" onClick={toEditProfile}>
                         <Create/>
