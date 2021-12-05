@@ -2,29 +2,57 @@ import React, { useState } from "react";
 import Add from '@mui/icons-material/Add';
 import Check from '@mui/icons-material/Check';
 import './FollowButton.css';
+import axios from 'axios';
+import { useParams } from 'react-router';
+
+
 
 function FollowButton() {
 
+    const {username} = useParams();
     const [isFollowing, setFollowing] = useState(false);
+    const [followers,setFollowers] = useState([]);
+
+	const followUser = async event => {
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+		 try {
+			const {data} = await axios.put(`/api/users/${username}/follow`, config);
+			setFollowers(data);
+		 } catch(error) {
+			console.log(error);
+		 }
+	};
 
     const followTemplate = (
-        <form className="followUserButton" onClick={() => setFollowing(true)}>
+        <form id="followForm" onClick={() => setFollowing(true)}>
             <Add/>
-            <br/>
-            <span id="followUserButtonText">Follow User</span>
+            <span id="followUserButtonText">Follow</span>
         </form>
     );
+
     const followingTemplate = (
-        <form className="followingUserButton" onClick={() => setFollowing(false)}>
+        <form id="followingForm" onClick={() => setFollowing(false)}>
             <Check/>
-            <br/>
             <span id="followingUserButtonText">Following</span>
         </form>
     );
         
     return(
         <div>
-            {isFollowing ? followingTemplate : followTemplate}
+            {isFollowing ?
+                <button class="followingUserButton" onClick={followUser}>
+                    {followingTemplate}
+                </button>
+            :
+                <button class="followUserButton" onClick={followUser}>
+                    {followTemplate}
+                </button>
+            }
         </div>
     );
 }
