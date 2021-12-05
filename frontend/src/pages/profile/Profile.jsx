@@ -84,14 +84,21 @@ const Profile = () =>
 		<div class="profileScreen">
 		  <PageNavbar/>
 		  <div className="profile">
-			<div className="profileTop">
+		  <div className="profileTop">
 				<div className="profileCover">
 					<img src={cover} className="profileCoverImg"/>
-					<img src={pfp} className="profileUserImg"/>
+					
 				</div>
 				<div className="profileInfo">
-					<h4 className="profileInfoName"><b>{firstName} {lastName}</b></h4>
-					<span className="profileInfoDesc">{desc}</span>
+					<div id="pfpDiv">
+						<img src={pfp} className="profileUserImg"/>
+						<span id="name">{firstName} {lastName}</span>
+						<div id="aboutMeDiv">
+							<span id="aboutMeTitle"><strong>About Me:</strong></span>
+							<br/>
+							<p id="aboutMeContent">{desc}</p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div className="break">
