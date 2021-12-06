@@ -64,7 +64,8 @@
 	object-fit: cover;
 	top: 250px;
 	margin: auto;
-    outline: 3px solid rgb(29, 29, 29);
+    outline: 2px solid rgba(29, 29, 29, 0.5);
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
 }
 
 .profileInfo{
@@ -143,7 +144,7 @@
 .editProfileButton:hover{
     cursor: pointer;
     transition: 0.2s ease;
-    background-color: #c2c2c2;
+    background-color: #F3834E;
 }
 
 .profileBottom{
