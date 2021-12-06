@@ -83,6 +83,18 @@ const ViewRecipe = () =>{
                             <p className="fieldLabel">Number of servings</p>
                             <span>{servingCount}</span>
                         </div>
+                        <br/>
+                        <div className="newRecipeIngr">
+                            <p className="fieldLabel">Ingredients List</p>
+                            <form>
+                                <ul>
+                                {ingredients.map((p) => (
+									<li>{p}</li>
+								))}
+                                </ul>
+                            </form>
+                        </div>
+                        <hr/>
                     </div>
                     <div class="viewRecipeInfo2">
                         <div className="viewRecipeTitle">
@@ -96,17 +108,6 @@ const ViewRecipe = () =>{
                             <p className="fieldLabel">Recipe Description</p>                
                             <form>
                                 <span>{desc}</span>
-                            </form>
-                        </div>
-                        <hr/>
-                        <div className="newRecipeIngr">
-                            <p className="fieldLabel">Ingredients List</p>
-                            <form>
-                                <ul>
-                                {ingredients.map((p) => (
-									<li>{p}</li>
-								))}
-                                </ul>
                             </form>
                         </div>
                         <hr/>
