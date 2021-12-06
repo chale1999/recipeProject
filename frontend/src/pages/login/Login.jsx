@@ -65,14 +65,14 @@ const Login = () =>
 					<img className="center" alt="Mega Bites Logo" src={logo} width="175px" style={{marginTop:'20px'}}/>
 					<form id="loginForm" className="form-control" onSubmit={doLogin}>
 						{error && <span className="error-msg">{error}</span>}
-						<input type="email" className="form-control" placeholder="Email" id="email" required value={email} onChange={(e) => setEmail(e.target.value)}/>
-						<input type="password" className="form-control" placeholder="Password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
+						<input type="email" className="form-control" placeholder="Email" id="email" required value={email} onChange={(e) => setEmail(e.target.value)} autocomplete="off"/>
+						<input type="password" className="form-control" placeholder="Password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)} autocomplete="off"/>
 						<button id="loginButton" type="submit">Login</button>
 					</form>
 				</div>
 			</div>
 			<div id="toSignUp">
-				<span id="linkToSignUp"><strong>Not a MegaBiter?&nbsp;<Link to="/"><em>Sign Up</em></Link></strong></span>
+				<span id="linkToSignUp"><strong>Not a MegaBiter?&nbsp;<Link to="/register"><em>Sign Up</em></Link></strong></span>
 			</div>
 			<AppStoreLink/>
 		</div>
