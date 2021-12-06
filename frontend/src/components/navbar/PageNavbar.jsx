@@ -36,10 +36,6 @@ function PageNavbar()
                     <Link to="/bookmarks"><Bookmark fontSize="large"/></Link>
                 </div>
                 <div className="navItem">
-                  <Notifications fontSize="large"/>
-                  <span id="notifCount">1</span>
-                </div>
-                <div className="navItem">
                   <Link to="/current-user"><img src={pfp} alt="My Profile" id="profilePicture"/></Link>
                 </div>
             </div>
