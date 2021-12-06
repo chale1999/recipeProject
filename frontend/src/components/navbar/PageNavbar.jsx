@@ -15,11 +15,18 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const PageNavbar = () =>
 {   
+    const [searchTerm,setSearchTerm] = useState("");
     const history = useHistory();
     const doLogout = () =>
     {
         localStorage.removeItem("authToken");
         history.push("/");
+    }
+
+    const doSearch = () =>
+    {
+        const url = `/${searchTerm}`;
+        history.push(url);
     }
 
     return(  
@@ -37,8 +44,8 @@ const PageNavbar = () =>
 
             <div id="navBarMiddle">
                 <Search id="searchIcon"/>
-                <form>
-                    <input placeholder="Search" id="searchbar"/>
+                <form onSubmit={doSearch}>
+                    <input placeholder="Search" id="searchbar" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
                     <input type="submit" style={{display: 'none'}}/>
                 </form>
             </div>
