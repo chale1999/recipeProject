@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from "react-router-dom";
-import {
-  Link
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import './Login.css';
-import AppStoreLink from '../../components/AppStoreLink.jsx';
+import AppStoreLink from '../../components/AppStoreLink/AppStoreLink.jsx';
 import logo from '../../components/imgs/MegaBitesLogo_transparent-large.png';
+import foodBGImg from '../../components/imgs/food-white.jpg';
 
 const Login = () =>
 {    
@@ -58,35 +57,26 @@ const Login = () =>
     }
     */
     return(
-    <div id="loginAll" style={{ backgroundImage: `url(require("./imgs/food.jpg"))`}}>  
-    <br/>
-    <br/>
-        <div id="loginDiv">  
-            <div className="container">
-                <img className="center" alt="Mega Bites Logo" src={logo} style={{width: `175px`}}/>
-                <form id="loginForm" className="form-control" onSubmit={doLogin}>
-                {error && <span className="error-msg">{error}</span>}
-                    <input type="text" id="email" className="form-control" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
-                    <input type="password" id="password" className="form-control" placeholder="Enter Password" required value={password} onChange={(e) => setPassword(e.target.value)}/><br/> 
-                    <input type="submit" id="loginButton" className="button" value = "Login"/>
-                </form> 
-
-                <div className="center" id="forgot">
-                    <a href="/forgotpassword">Forgot password?</a>
-                </div>
-            </div>           
-        </div>
-        <br/>
-        <div id="signUp">
-            <p id="signUpText">Not a MegaBiter?&nbsp;<Link to="/register" id="signUpLink"><em><strong>Sign Up</strong></em></Link></p>
-        </div>
-        <br/>
-        <div id="createAccount">
-
-        </div>
-
-        <AppStoreLink/>
-    </div>
+    <div id="loginAll" style={{backgroundImage:`url(${foodBGImg})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', height: '100vh'}}>
+		<div id="loginContent">
+			
+			<div id="loginDiv">
+				<div className="container">
+					<img className="center" alt="Mega Bites Logo" src={logo} width="175px" style={{marginTop:'20px'}}/>
+					<form id="loginForm" className="form-control" onSubmit={doLogin}>
+						{error && <span className="error-msg">{error}</span>}
+						<input type="email" className="form-control" placeholder="Email" id="email" required value={email} onChange={(e) => setEmail(e.target.value)}/>
+						<input type="password" className="form-control" placeholder="Password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
+						<button id="loginButton" type="submit">Login</button>
+					</form>
+				</div>
+			</div>
+			<div id="toSignUp">
+				<span id="linkToSignUp"><strong>Not a MegaBiter?&nbsp;<Link to="/"><em>Sign Up</em></Link></strong></span>
+			</div>
+			<AppStoreLink/>
+		</div>
+	</div>
     );
 };
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from "react";
-import './EmailVerify.css';
-import '../../components/bootstrap.min.css';
+import "./EmailVerify.css";
 import { Link } from "react-router-dom";
-import '../../components/bootstrap.min.css';
 import { useHistory } from "react-router-dom";
+import logo from '../../components/imgs/MegaBitesLogo_transparent-large.png';
 
 const EmailVerify = () =>
 {
@@ -17,26 +16,19 @@ const EmailVerify = () =>
 	};
 
 	return(
-		<div>
-			<div className="container">
+		<div id="emailVerify">
 				{error && <span className="error-message">{error} </span>}
 				{success && (
 				<span className="success-message">
 				<Link to="/">Login</Link>
 				</span>
 				)}
-				<div className="row">
-					<div className="col"><h2>Welcome to the tasiest place online!</h2></div>
+			<div id="content">
+				<div id="message">
+					<img alt="Mega Bites Logo" src={logo} style={{width: '175px', marginBottom: '5%', padding:'10px', borderRadius: '20px'}}/>
+					<h2 style={{marginBottom: '5%'}}>Welcome to the tasiest place online!</h2>
+					<p>Please check your inbox as we've sent you a verification email. We just need to make sure you're not a bot. After all, bots don't have tastebuds! Who are they to write recipes? (Don't tell them I said that!)</p>
 				</div>
-				<div className="row">
-				</div>
-				<div className="row">
-					<div className="col-3"></div>
-					<div className="col-4"><span>Please check your inbox as we've sent you a verification email.<br/> We just need to make sure you're not a bot. 
-						After all, bots don't have tastebuds! Who are they to write recipes?</span></div>
-					<div className="col-3"></div>
-				</div>
-				<button onClick = {goLogin}>Okay</button>
 			</div>
 		</div>
 	);

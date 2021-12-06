@@ -1,6 +1,6 @@
-button, label
+.editButton
 {
-	position: absolute;	
+    position: absolute;	
 	padding: 5px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.795);
@@ -8,11 +8,16 @@ button, label
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 }
 
-button:hover, label:hover
+.editButton:hover
 {
 	cursor: pointer;
     transition: 0.2s ease;
     background-color: rgba(243, 131, 78, .8);
+}
+
+#profileScreen
+{
+    height: 100vh;
 }
 
 #aboutMeEditTextBox:focus, #abtMeForm:focus

@@ -22,13 +22,6 @@ import ViewRecipe from './pages/viewrecipe/ViewRecipe.jsx';
 
 function App() {
   return (
-    <div id="background" style={{  
-      backgroundImage: `url(${bgImg})`, // commented out for now due to errors I was getting
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      height: '100vh'
-      
-       }}>
       <div id="appDiv">
         <Router>
           <Switch>
@@ -83,7 +76,7 @@ function App() {
           </Switch>  
         </Router>
        </div>
-    </div>
+
   );
 }
 

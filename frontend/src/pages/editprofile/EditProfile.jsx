@@ -83,7 +83,7 @@ const EditProfile = () =>
 		console.log(name);
 		nameElement.remove();
 		editButton.remove();
-		const nameEditElem = <h2 style={{marginTop: '10px'}}><form method="get" onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}><input autoFocus id="nameEditTextBox" autofocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" defaultValue={name} onChange={(e) => setFirstName(e.target.value.split()[0])}></input><button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h2>
+		const nameEditElem = <h2 style={{marginTop: '10px'}}><form method="get" onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}><input autoFocus id="nameEditTextBox" autofocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" defaultValue={name} onChange={(e) => setFirstName(e.target.value.split()[0])}></input><button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h2>
 	
 		ReactDOM.render(nameEditElem, document.getElementById('nameDiv'));
 		var textbox = document.getElementById("nameEditTextBox");
@@ -126,7 +126,7 @@ const EditProfile = () =>
 		console.log(abtMeText);
 		abtMeElem.remove();
 		abtMeButton.remove();
-		const abtMeEditElem = <h3 style={{marginTop: '10px'}}><form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}><input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text" defaultValue={abtMeText} onChange={(e) => setDescription(e.target.value)}></input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h3>
+		const abtMeEditElem = <h3 style={{marginTop: '10px'}}><form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}><input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text" defaultValue={abtMeText} onChange={(e) => setDescription(e.target.value)}></input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h3>
 		ReactDOM.render(abtMeEditElem, document.getElementById('editAboutMeButtonDiv'));
 		var textbox = document.getElementById("aboutMeEditTextBox");
 		var form = document.getElementById("abtMeForm");
@@ -177,7 +177,7 @@ const EditProfile = () =>
 				<div className="profileCover">
 					<div id="coverDiv">
 						<img src={cover} className="profileCoverImg"/>
-						<label id="editCover" for="coverUpload" onClick={editCover} style={{outline:'1px solid black', width:'38px', height:'38px', display: 'flex', alignItems:'center', justifyContent: 'center'}}><Create/></label>
+						<label class="editButton" id="editCover" for="coverUpload" onClick={editCover} style={{outline:'1px solid black', width:'38px', height:'38px', display: 'flex', alignItems:'center', justifyContent: 'center'}}><Create/></label>
 						<input type="file" id="coverUpload" style={{display:'none'}}></input>
 					</div>
 				</div>
@@ -185,20 +185,21 @@ const EditProfile = () =>
 					<div id="pfpDiv">
 						<div id="actualImg">
 							<img src={pfp} className="profileUserImg"/>
-							<label id="editPFP" for="pfpUpload" onClick={editPFP}  style={{outline:'1px solid black', width:'38px', height:'38px', display: 'flex', alignItems:'center'}}><Create id="editPfpIcon"/></label>
+							<label class="editButton" id="editPFP" for="pfpUpload" onClick={editPFP}  style={{outline:'1px solid black', width:'38px', height:'38px', display: 'flex', alignItems:'center'}}><Create id="editPfpIcon"/></label>
 							<input type="file" id="pfpUpload" style={{display:'none'}}></input>
 						</div>
 						<div id="nameDiv">
 							<span id="name">{firstName} {lastName}</span>
 							<div id="editNameButtonDiv">
-								<button id="editName" onClick={editName}><Create/></button>
+								<button class="editButton" id="editName" onClick={editName} style={{border:'1px solid black'}}><Create/></button>
 							</div>
 						</div>
+						<br/>
 						<div id="aboutMeDiv">
 							<span id="aboutMeTitle"><strong>About Me:</strong></span>
 							<div id="editAboutMeButtonDiv">
 								<span id="aboutMeContent" style={{fontSize:'25px'}}>A54ub7aCseZpAdEa8w53Z2AM62CdrHLkoAZLIRc5fJv8k9QVio</span>
-								<button id="editAboutMe" onClick={editAboutMe}><Create/></button>
+								<button class="editButton" id="editAboutMe" onClick={editAboutMe} style={{border:'1px solid black'}}><Create/></button>
 							</div>
 						</div>
 					</div>

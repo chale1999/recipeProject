@@ -1,0 +1,19 @@
+#appLink
+{
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+#appLinkText
+{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#logo
+{
+	width: 175px;
+}

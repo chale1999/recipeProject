@@ -1,68 +1,111 @@
-#megaBiteLogo {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+#loginAll
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#loginContent
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    min-width: 540px;
+    margin-top: -100px;
+}
+
+#loginDiv
+{
+    margin-top: 10px;
+    width: 60%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background-color: #FFFFFF
 }
 
 #loginForm {
-    max-width: 500px;
-    max-height: 700px;
     margin: 0 auto;
     text-align: center;
-    border-style: none;
+    border: none;
+    margin-bottom: 20px;
 }
 
-#loginForm .form-control{
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    height: 25px;
+#loginForm input:focus
+{
+    outline: none;
+}
+
+#loginForm .form-control
+{
+    padding: 10px;
+    height: 35px;
     text-align: left;
     border-radius: 5px;
-    margin-top: 5px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: none;
 }
 
-#loginButton {
-    width: 65%;
-    text-align: center;
-    padding-top: 20px;
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 10px 10px;
+#loginForm input
+{
 }
 
-#loginDiv {
-    width: 300px;
-    margin: 0 auto;
-    justify-content: center;
-    border-style: solid;
-    border-width: 1px;
+#loginUpForm.form-control:focus
+{
+    outline: none;
+}
+
+#loginButton
+{
+    margin-top: 20px;
+    background-color: rgb(243, 131, 78);
+    border: none;
     border-radius: 10px;
-    background-color: #FFFFFF;
-}
-
-#forgot {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
 }
 
-#signUp {
-    width: 300px;
-    height: 0 auto;
-    margin: 0 auto;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
+#loginButton:hover
+{
+    transition: 0.5s;
+    background-color: rgb(255, 102, 28);;
+    color: ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#toSignUp
+{
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+    width: 60%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background-color: #FFFFFF
 }
 
-#signUpText {
-    padding-top: 10px;
+#linkToSignUp
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
 }
 
-#signUpLink {
+#linkToSignUp a
+{
     text-decoration: none;
 }
 
@@ -72,6 +115,8 @@
     text-align: center;
 }
 
+
+
 .container,
 .container-fluid,
 .container-xxl,
@@ -79,13 +124,48 @@
 .container-lg,
 .container-md,
 .container-sm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@-moz-keyframes shimmer {
+		0% {
+				background-position: top left;
+		}
+		100% {
+				background-position: top right;
+		}
+}
+
+@-webkit-keyframes shimmer {
+		0% {
+				background-position: top left;
+		}
+		100% {
+				background-position: top right;
+		}
+}
+
+@-o-keyframes shimmer {
+		0% {
+				background-position: top left;
+		}
+		100% {
+				background-position: top right;
+		}
+}
+
+@keyframes shimmer {
+		0% {
+				background-position: top left;
+		}
+		100% {
+				background-position: top right;
+		}
 }
