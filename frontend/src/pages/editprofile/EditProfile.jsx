@@ -167,7 +167,7 @@ const EditProfile = () =>
 
 	useEffect(() => {
 		getProfile();
-	}, {});
+	}, []);
 
 	return(
 		<div class="profileScreen">
