@@ -48,9 +48,9 @@ export default function SmallRecipe({posts}) {
  
 	
     return(
-        <div className="feedItem">
+        <div id="recipeCard">
             <Link to = {test}> <img id="itemImageTest" alt = "recipe pic" src={recipeImage} height='auto' width = 'auto'></img></Link>
-            <div className="itemInfo">
+            <div id="recipeCardItemInfo">
                 <span id="itemTitle">{recipeName}</span>
             </div>
         </div>

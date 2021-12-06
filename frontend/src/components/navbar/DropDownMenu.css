@@ -1,0 +1,12 @@
+#dropDown
+{
+	position: absolute;
+}
+
+#menu
+{
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+}

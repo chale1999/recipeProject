@@ -97,7 +97,6 @@ const Home = () =>
                         <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
                         <span>Sample Name</span>
                     </div>
-                    <button onClick={doLogout}>Logout</button>
                 </div>
             </div>
     </div>
