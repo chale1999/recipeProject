@@ -11,12 +11,10 @@ import BookmarkButton from '../../components/bookmarkbutton/BookmarkButton';
 import DeleteButton from '../../components/deleteButton/deleteButton';
 
 const ViewRecipe = () =>{
-
     const history = useHistory();
     const {id} = useParams();
-    console.log(id);
+    console.log("recipeId"+id);
 
-    const [delVisible, setDelVisible] = useState(false);
     const [username,setUsername] = useState(""); 
     const [recipeName,setRecipeName] = useState("");
     const [desc,setDescription] = useState(""); 
@@ -25,21 +23,12 @@ const ViewRecipe = () =>{
     const [prepTime,setPrepTime] = useState("");
     const [cookTime,setCookTime] = useState("");
     const [servingCount,setServingCount] = useState("");
-
-    const checkUser = async event => {
-        var token = localStorage.getItem("authToken");
-		var decoded = jwt_decode(token);
-        const logged_in_user = decoded.username;
-        
-        if(logged_in_user === username)
-        {
-            console.log("Delete is visible")
-            setDelVisible(true);
-        }
-    }
-    
+    var delVisible;
+    var logged_in_user;
+    var poster_user;
 
     const getPost = async event => {
+        console.log("getPost");
 		var token = localStorage.getItem("authToken");
 		var decoded = jwt_decode(token);
 
@@ -54,6 +43,7 @@ const ViewRecipe = () =>{
 			const {data} = await axios.get(`/api/posts/${id}`,config);
             setRecipeName(data.recipeName);
             setUsername(data.username);
+            console.log("set poster user as:"+ username + " came in as: "+ data.username);
             setDescription(data.desc);
             setIngredients(data.ingredients);
             setDirections(data.directions);
@@ -61,19 +51,39 @@ const ViewRecipe = () =>{
             setCookTime(data.cookTime);
             setServingCount(data.servingCount);
 
+            var token = localStorage.getItem("authToken");
+		    var decoded = jwt_decode(token);
+            logged_in_user = decoded.username;
+            poster_user = data.username;
+            var viewer_bookmarked = 
+            console.log("decoded user:" + decoded.username);
+            console.log("logged_in_user:" + logged_in_user);
+            console.log("username of poster: " + poster_user);
+
+            if(logged_in_user === poster_user)
+            {
+                
+                console.log("Delete is visible")
+                document.getElementById("bookmarkForm").remove();
+                document.getElementById("deleteButtonDiv").style.display="block";
+                delVisible = true;
+            }
+
+            else
+            {
+                console.log("delete not visible!");
+                delVisible = false;
+            }
+        
 		}catch(error) {
 			console.log(error);
 		}
-
 	};
 
 
     useEffect(() => {
         getPost();
-        checkUser();
     },[]);
-
-
 
 
     return(
@@ -81,11 +91,6 @@ const ViewRecipe = () =>{
             <PageNavbar/>
             <div class="viewRecipePage">
                 <div class="viewRecipeContainer">
-                {delVisible ?
-                        <span></span>
-                :
-                        <DeleteButton/>
-                }
                     <div className="viewRecipeInfo1">
                         <img alt ="pic upload" height="200" src={SamplePic}/>
                         <hr/>
@@ -116,7 +121,8 @@ const ViewRecipe = () =>{
                         </div>
                     </div>
                     <div class="viewRecipeInfo2">
-                        <BookmarkButton/>
+                        <BookmarkButton id="bookmarkButton"/>
+                        <DeleteButton id="deleteButton"/>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
                         </div>
