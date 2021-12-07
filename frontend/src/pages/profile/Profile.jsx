@@ -88,7 +88,6 @@ const Profile = () =>
 		  <div className="profileTop">
 				<div className="profileCover">
 					<img src={cover} className="profileCoverImg"/>
-					
 				</div>
 				<div className="profileInfo">
 					<div id="pfpDiv">
@@ -104,7 +103,6 @@ const Profile = () =>
 				</div>
 			</div>
 			<div className="break">
-
 			</div>
 			<div class="profileBottom">
 				<div className="profileBottomInfo">
