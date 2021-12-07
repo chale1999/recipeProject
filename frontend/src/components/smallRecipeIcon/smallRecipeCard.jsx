@@ -36,10 +36,13 @@ export default function SmallRecipe({posts}) {
 
 		}catch(error) {
 			console.log(error);
-		}
-
+		}		
 	};
 
+	const goToRecipe = () =>
+	{
+		history.push(test);
+	};
 	
 
     useEffect(() => {
@@ -48,8 +51,8 @@ export default function SmallRecipe({posts}) {
  
 	
     return(
-        <div id="recipeCard">
-            <Link to = {test}> <img id="itemImageTest" alt = "recipe pic" src={recipeImage} height='auto' width = 'auto'></img></Link>
+        <div id="recipeCard" onClick={goToRecipe}>
+            <img id="itemImageTest" alt = "recipe pic" src={recipeImage} height='auto' width = 'auto'></img>
             <div id="recipeCardItemInfo">
                 <span id="itemTitle">{recipeName}</span>
             </div>

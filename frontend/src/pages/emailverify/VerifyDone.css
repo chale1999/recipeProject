@@ -1,0 +1,48 @@
+#verifyDonePage
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#noRedirectMessageContainer
+{
+	background-color: white;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#noRedirectMessageContent
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: inherit;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+#noRedirectMessageContent button
+{
+	margin-bottom: 20px;
+    background-color: rgb(243, 131, 78);
+    border: none;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#noRedirectMessageContent button:hover
+{
+	transition: 0.3s;
+    background-color: rgb(255, 102, 28);;
+    color: ;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}

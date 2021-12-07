@@ -96,7 +96,6 @@ const ViewRecipe = () =>{
                                 </ul>
                             </form>
                         </div>
-                        <hr/>
                     </div>
                     <div class="viewRecipeInfo2">
                         <BookmarkAddIcon id="addBookmark"/>
