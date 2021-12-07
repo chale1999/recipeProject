@@ -7,11 +7,13 @@ import { useParams } from 'react-router';
 
 
 
-function FollowButton() {
+function FollowButton(props) {
 
     const {username} = useParams();
     const [isFollowing, setFollowing] = useState(false);
     const [followers,setFollowers] = useState([]);
+
+    //function checkFollowing(props.following)
 
 	const followUser = async event => {
 		const config = {
@@ -27,6 +29,21 @@ function FollowButton() {
 			console.log(error);
 		 }
 	};
+
+    const unfollowUser = async event => {
+        const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+        try {
+			const {data} = await axios.put(`/api/users/${username}/unfollow`, config);
+			setFollowers(data);
+		 } catch(error) {
+			console.log(error);
+		 }
+    };
 
     const followTemplate = (
         <form id="followForm" onClick={() => setFollowing(true)}>
@@ -45,7 +62,7 @@ function FollowButton() {
     return(
         <div>
             {isFollowing ?
-                <button class="followingUserButton" onClick={followUser}>
+                <button class="followingUserButton" onClick={unfollowUser}>
                     {followingTemplate}
                 </button>
             :
