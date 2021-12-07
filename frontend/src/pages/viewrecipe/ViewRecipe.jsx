@@ -113,11 +113,11 @@ const ViewRecipe = () =>{
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>
-                                <ul>
+                                <ol>
                                 {directions.map((p) => (
 									<li>{p}</li>
 								))}
-                                </ul>
+                                </ol>
                             </form>
                         </div>
                     </div>
