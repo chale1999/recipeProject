@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import "./HomeStyle.css";
+import "./Home.css";
 import PageNavbar from "../../components/navbar/PageNavbar.jsx";
 import Create from '@mui/icons-material/Create';
 import { useHistory } from "react-router-dom";
@@ -63,41 +63,39 @@ const Home = () =>
     <div>
         <PageNavbar/>
             <div className="homeScreen">
+                <div id="left-space">
+                </div>
                 <div className="homeFeed">
-                    <form className="newRecipeButton" onClick={toCreate}>
-                        <Create/>
-                        <br/>
-                        <span id="buttonText">Create a new recipe!</span>
-                    </form>
                     <div className="feedArea">
                         {posts.map((p) => (
                             <SmallRecipe key = {p._id} posts = {p}/>
                         ))}
                     </div>
-                </div> 
-                <div className="homefollowedUserContainer">
-                        <span className="fieldLabel">This is where followed users go.</span>
-                    <hr/>
-                    <div className="followedUser">
-                        <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-                        <span>Sample Name</span>
+                </div>
+                <div id="homeRight">
+                    <div className="homefollowedUserContainer">
+                            <span className="fieldLabel">Following</span>
+                        <hr/>
+                        <div className="followedUser">
+                            <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
+                            <span>Sample Name</span>
+                        </div>
+                        <br/>
+                        <div className="followedUser">
+                            <Link to="/profile"><img src={pfptwo} alt="Your profile pic" id="profilePicture"/></Link>
+                            <span>Sample Name</span>
+                        </div>
+                        <br/>
+                        <div className="followedUser">
+                            <Link to="/profile"><img src={pfpthree} alt="Your profile pic" id="profilePicture"/></Link>
+                            <span>Sample Name</span>
+                        </div>
+                        <br/>
+                        <div className="followedUser">
+                            <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
+                            <span>Sample Name</span>
+                        </div>
                     </div>
-                    <br/>
-                    <div className="followedUser">
-                        <Link to="/profile"><img src={pfptwo} alt="Your profile pic" id="profilePicture"/></Link>
-                        <span>Sample Name</span>
-                    </div>
-                    <br/>
-                    <div className="followedUser">
-                        <Link to="/profile"><img src={pfpthree} alt="Your profile pic" id="profilePicture"/></Link>
-                        <span>Sample Name</span>
-                    </div>
-                    <br/>
-                    <div className="followedUser">
-                        <Link to="/profile"><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
-                        <span>Sample Name</span>
-                    </div>
-                    <button onClick={doLogout}>Logout</button>
                 </div>
             </div>
     </div>

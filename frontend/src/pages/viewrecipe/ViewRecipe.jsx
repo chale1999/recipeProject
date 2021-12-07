@@ -7,6 +7,7 @@ import { useHistory } from 'react-router';
 import { useState, useEffect } from 'react';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
+import BookmarkButton from '../../components/bookmarkbutton/BookmarkButton';
 
 const ViewRecipe = () =>{
 
@@ -67,7 +68,7 @@ const ViewRecipe = () =>{
             <div class="viewRecipePage">
                 <div class="viewRecipeContainer">
                     <div className="viewRecipeInfo1">
-                        <img id="image" alt ="pic upload" height="200" src={SamplePic}/>
+                        <img alt ="pic upload" height="200" src={SamplePic}/>
                         <hr/>
                         <div className="timeField">
                             <p className="fieldLabel">Preparation Time</p>
@@ -94,18 +95,15 @@ const ViewRecipe = () =>{
                                 </ul>
                             </form>
                         </div>
-                        <hr/>
                     </div>
                     <div class="viewRecipeInfo2">
+                        <BookmarkButton/>
                         <div className="viewRecipeTitle">
-                            <p className="fieldLabel">Recipe Title</p>
-                            <form>
-                                <span>{recipeName}</span>
-                            </form>
+                            <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
                         </div>
                         <hr/>
                         <div className="viewRecipeDesc">
-                            <p className="fieldLabel">Recipe Description</p>                
+                            <p className="fieldLabel">Description</p>                
                             <form>
                                 <span>{desc}</span>
                             </form>
@@ -114,11 +112,11 @@ const ViewRecipe = () =>{
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>
-                                <ul>
+                                <ol>
                                 {directions.map((p) => (
 									<li>{p}</li>
 								))}
-                                </ul>
+                                </ol>
                             </form>
                         </div>
                     </div>

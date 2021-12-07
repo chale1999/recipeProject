@@ -1,11 +1,12 @@
 import React from 'react';
-import { useState } from "react";
-import './EmailVerify.css';
+import { useState,  useEffect  } from "react";
+import './VerifyDone.css';
 import '../../components/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { useParams } from 'react-router';
 import axios from 'axios';
+import foodBGImg from '../../components/imgs/food-white.jpg';
 
 
 function VerifyDone(){
@@ -45,17 +46,30 @@ function VerifyDone(){
 		}
 	};
 
+	useEffect(() => {
+		verifyEmailHandler();
+    },[]);
+
     return(
-        <div>
-            <h3> Verification Complete. Click the link below to go to the home page.</h3>
-            <button onClick={verifyEmailHandler}>Test Token</button>
-            {error && <span className="error-message">{error} </span>}
-				{success && (
-				<span className="success-message">
-				<Link to="/">Login</Link>
-				</span>
-				)}
+        <div id="verifyDonePage" style={{backgroundImage:`url(${foodBGImg})`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', height: '100vh'}}>
+			<div id="noRedirectMessageContainer">
+				<div id="noRedirectMessageContent">
+					<span style={{marginBottom:'20px'}}>If you aren't redirected automatically, click the button below to return to login.</span>
+					<button id="toLogin" onClick={verifyEmailHandler}>Login</button>
+				</div>
+			</div>
+			            {error && <span className="error-message">{error} </span>}
+			{success &&
+				(
+					<div>
+						<span className="success-message"></span>
+						<Link to="/">Login</Link>
+					</div>
+				)
+			}
         </div>
+
+
     );
 }
 

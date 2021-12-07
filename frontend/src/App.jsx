@@ -58,7 +58,7 @@ function App() {
             <Route path="/current-user" exact>
               <OwnProfile/>
             </Route>
-            <Route path="/search/results" exact>
+            <Route path="/:searchTerm" exact>
               <Results/>
             </Route>
             <Route path="/recipe/:id" exact>

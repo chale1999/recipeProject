@@ -1,6 +1,7 @@
 #navbar {
     background: #f3834e;
-    height: 60px;
+    height: 80px;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +29,7 @@
 
 #navbar__logo{   
     height: auto;
-    width: 120px;
+    width: 150px;
 }
 
 #logoContainer {
@@ -68,14 +69,33 @@
     align-items: center;
     background-color: white;
     border-radius: 15px;
+    outline: 3px solid #BC6942;
+}
+
+#navBarMiddle:hover
+{
+    outline: 4px solid #BC6942;
+    transition: 0.2s;
+}
+
+#navBarMiddle:hover #searchIcon
+{
+    transition: 1s;
+    transform: rotate(1turn);
+}
+
+#searchForm
+{
+    width: 90%;
 }
 
 #searchbar {
     border: none;
-    width: 70%;
+    width: 97.5%;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 15px;
+    height: 95%;
 }
 
 #searchbar:focus{ 
@@ -83,7 +103,8 @@
 }
 
 #searchIcon {
-    font-size: 20px !important;
+    font-size: 24px !important;
+    font-weight: bold;
     margin-left: 10px;
 }
 
@@ -92,6 +113,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    transform: rotate(0.0turn);
 }
 
 .navLink {
@@ -107,6 +129,48 @@
 .navItem {
     margin-right: 15px;
     position: relative;
+}
+
+#bookmarkButton:after, #homeButton:after
+{	
+    content: "";
+    display: block;
+    width: 0%;
+	border-bottom: 1px solid black;
+	margin: 0 auto;
+	margin-top: 3px;
+}
+
+#bookmarkButton:before, #homeButton:before
+{	
+    content: "";
+    display: block;
+    width: 0%;
+	border-bottom: 1px solid black;
+	margin: 0 auto;
+	margin-top: 3px;
+}
+
+#bookmarkButton:hover:after, #homeButton:hover:after
+{	
+    transition: 0.2s;
+    content: "";
+    display: block;
+    width: 100%;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	margin: 0 auto;
+	margin-top: 3px;
+}
+
+#bookmarkButton:hover:before, #homeButton:hover:before
+{	
+    transition: 0.2s;
+    content: "";
+    display: block;
+    width: 100%;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	margin: 0 auto;
+	margin-top: 3px;
 }
 
 #notifCount {
@@ -125,15 +189,135 @@
 }
 
 #profilePicture {
-    width: 44px;
-    height: 44px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     object-fit: cover;
-    outline: 1px solid rgb(64, 64, 64);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    outline: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#profileButton
+{
+  position: relative;
+  display: inline-block;
+}
+
+#dropdown-content-home
+{
+  display: none;
+  position: absolute;
+  align-items: center;
+  background-color: #FFFFFF;
+  min-width: 160px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1;
+  margin-left: -60px;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#homeButton:hover #dropdown-content-home {display: block;}
+
+#dropdown-text-home
+{
+    color: black;
+    text-align: center;
+}
+
+#dropdown-content-bookmark
+{
+  display: none;
+  position: absolute;
+  align-items: center;
+  background-color: #FFFFFF;
+  min-width: 160px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1;
+  margin-left: -60px;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#bookmarkButton:hover #dropdown-content-bookmark {display: block;}
+
+#dropdown-text-bookmark
+{
+    color: black;
+    text-align: center;
+}
+
+#dropdown-content-profile {
+  display: none;
+  position: absolute;
+  align-items: center;
+  background-color: #FFFFFF;
+  min-width: 160px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1;
+  margin-left: -50px;
+  margin-top: 0px;
+  border-radius: 10px;
+  padding: 5px;
+
+}
+
+#dropDownButtons-profile
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dropdown-content-profile a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+#dropdown-content-profile button:hover {background-color: #F7A781;}
+
+#profileButton:hover #dropdown-content-profile
+{
+    transition: 1s;
+    display: block;
+    flex-direction: column;
+}
+
+#profileButton:hover #dropdown-content-profile {display: block;}
+
+#dropdown-content-profile button
+{
+    border: none;
+    padding: 12px 16px;
+    width: 100%;
+    background-color: rgb(246, 243, 241);
+}
+
+#myProfileButton
+{
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 5px;
+}
+
+#logOutButton
+{
+    border-radius: 0px 0px 10px 10px;
+    margin-top: 5px;
 }
 
 .navItem:hover{
     transition: all 0.3s ease;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+.navItem #profilePicture:hover
+{
+    transition: 0.2s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+    outline: 3px solid rgba(255, 255, 255, 0.8);
 }

@@ -86,6 +86,17 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
+#forgot
+{
+    margin-bottom: 10px;
+}
+
+#forgot a
+{
+    text-decoration: none;
+    font-weight: 500;
+}
+
 #toSignUp
 {
     display: flex;

@@ -60,12 +60,12 @@ const Register = () =>
 					<img className="center" alt="Mega Bites Logo" src={logo} width="175px" style={{marginTop:'20px'}}/>
 					<form id="signUpForm" className="form-control" onSubmit={doRegister}>
 						{error && <span className="error-msg">{error}</span>}
-						<input type="text" className="form-control" placeholder="First Name" required id="fname" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
-						<input type="text" className="form-control" placeholder="Last Name" required id="lname" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
-						<input type="text" className="form-control" placeholder="Username" required id="name" value={username} onChange={(e) => setUsername(e.target.value)}/>
-						<input type="email" className="form-control" placeholder="Email" id="email" required value={email} onChange={(e) => setEmail(e.target.value)}/>
-						<input type="password" className="form-control" placeholder="Password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
-						<input type="password" className="form-control" placeholder="Confirm Password" id="confirmPassword" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+						<input type="text" className="form-control" placeholder="First Name" required id="fname" value={firstName} onChange={(e) => setFirstName(e.target.value)} autocomplete="off"/>
+						<input type="text" className="form-control" placeholder="Last Name" required id="lname" value={lastName} onChange={(e) => setLastName(e.target.value)} autocomplete="off"/>
+						<input type="text" className="form-control" placeholder="Username" required id="name" value={username} onChange={(e) => setUsername(e.target.value)} autocomplete="off"/>
+						<input type="email" className="form-control" placeholder="Email" id="email" required value={email} onChange={(e) => setEmail(e.target.value)} autocomplete="off"/>
+						<input type="password" className="form-control" placeholder="Password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)} autocomplete="off"/>
+						<input type="password" className="form-control" placeholder="Confirm Password" id="confirmPassword" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} autocomplete="off"/>
 						<button id="createAccount" type="submit">Create Account</button>
 					</form>
 				</div>

@@ -29,6 +29,7 @@
 
 .viewRecipeInfo2{
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: left;
     width: 55vw;
