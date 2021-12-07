@@ -4,7 +4,8 @@
 .container-xl,
 .container-lg,
 .container-md,
-.container-sm {
+.container-sm
+{
   width: 100%;
   padding-right: var(--bs-gutter-x, 0.75rem);
   padding-left: var(--bs-gutter-x, 0.75rem);
@@ -12,27 +13,37 @@
   margin-left: auto;
 }
 
-.homeScreen{
+.homeScreen
+{
     display: flex;
     justify-content: left;
     background-color: #ffe1a8 ;
     height: 100vh;
 }
 
-.homeFeed{
+#left-space
+{
+    width: 50px;
+}
+
+.homeFeed
+{
+    width: 70vw;
     display: flex;
     justify-content: left;
     flex-direction: column;
 }
 
-.feedArea{
+.feedArea
+{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: left;
   flex-wrap: wrap;
 }
 
-.feedItem{
+.feedItem
+{
     max-width: 33%;
     min-width: 200px;
     margin: 20px;
@@ -42,11 +53,13 @@
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 }
 
-.feedItem:hover{
+.feedItem:hover
+{
   cursor: pointer;
 }
 
-.itemInfo{
+.itemInfo
+{
   display: flex;
   align-items: center;
   justify-content: center;;
@@ -71,7 +84,8 @@
   border-right-style: solid;
 }
 
-.itemTitle{
+.itemTitle
+{
   display: flex;
 }
 
@@ -109,6 +123,7 @@
 }
 
 .homefollowedUserContainer{
+  border: 2px solid rgba(0, 0, 0, 0.50);
   display: flex;
   justify-content: left;
   flex-direction: column;
@@ -118,9 +133,11 @@
   background-color: rgba(255, 255, 255, 0.795);
   border-radius: 10px;
   min-width: 200px;
+  max-width: 250px;
   width: 20vw;
   -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
   box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+  position: fixed;
 }
 
 .followedUser{

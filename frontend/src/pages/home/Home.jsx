@@ -63,6 +63,8 @@ const Home = () =>
     <div>
         <PageNavbar/>
             <div className="homeScreen">
+                <div id="left-space">
+                </div>
                 <div className="homeFeed">
                     <div className="feedArea">
                         {posts.map((p) => (

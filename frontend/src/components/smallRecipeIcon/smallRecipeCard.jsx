@@ -16,6 +16,7 @@ export default function SmallRecipe({posts}) {
 	test = `/recipe/${posts._id}`;
 	const [username,setUsername] = useState(""); 
     const [recipeName,setRecipeName] = useState("");
+	const [userPfp,setpfp] = useState("");
 
     const getPost = async event => {
 		var token = localStorage.getItem("authToken");
@@ -36,22 +37,44 @@ export default function SmallRecipe({posts}) {
 
 		}catch(error) {
 			console.log(error);
-		}
-
+		}		
 	};
 
+
+	const getUser = async event =>
+	{
+		let user;
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+
+			console.log("username \\/");
+			console.log("username: " + posts.username);
+			var usernameVar = posts.username;
+			console.log("username from var: " + usernameVar);
+			await axios.get(`api/users/${usernameVar}`, config).then((getResponse) => {user = getResponse.data;console.log("username from user: " + user.username);setpfp(user.profilePicture);}).catch(function (error) {console.log(error);});		
+	};
+
+	const goToRecipe = () =>
+	{
+		history.push(test);
+	};
 	
 
     useEffect(() => {
 		getPost();
+		getUser();
 	}, []);
  
 	
     return(
-        <div id="recipeCard">
-            <Link to = {test}> <img id="itemImageTest" alt = "recipe pic" src={recipeImage} height='auto' width = 'auto'></img></Link>
+        <div id="recipeCard" onClick={goToRecipe}>
+            <img id="itemImageTest" alt = "recipe pic" src={recipeImage} height='auto' width = 'auto'></img>
             <div id="recipeCardItemInfo">
-                <span id="itemTitle">{recipeName}</span>
+                <span id="itemTitle"><img id="posterPfp" alt="recipe poster's profile picture" src={userPfp} height='33px' width='33px'/>{recipeName}</span>
             </div>
         </div>
     )

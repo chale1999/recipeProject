@@ -7,8 +7,7 @@ import { useHistory } from 'react-router';
 import { useState, useEffect } from 'react';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkButton from '../../components/bookmarkbutton/BookmarkButton';
 
 const ViewRecipe = () =>{
 
@@ -96,10 +95,9 @@ const ViewRecipe = () =>{
                                 </ul>
                             </form>
                         </div>
-                        <hr/>
                     </div>
                     <div class="viewRecipeInfo2">
-                        <BookmarkAddIcon id="addBookmark"/>
+                        <BookmarkButton/>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
                         </div>
@@ -114,11 +112,11 @@ const ViewRecipe = () =>{
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>
-                                <ul>
+                                <ol>
                                 {directions.map((p) => (
 									<li>{p}</li>
 								))}
-                                </ul>
+                                </ol>
                             </form>
                         </div>
                     </div>
