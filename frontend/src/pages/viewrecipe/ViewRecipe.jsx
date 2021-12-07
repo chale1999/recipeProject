@@ -122,7 +122,7 @@ const ViewRecipe = () =>{
                     </div>
                     <div class="viewRecipeInfo2">
                         <BookmarkButton id="bookmarkButton"/>
-                        <DeleteButton id="deleteButton"/>
+                        <DeleteButton id="deleteButton" recipeId={id}/>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
                         </div>
