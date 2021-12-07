@@ -99,7 +99,7 @@ const Profile = () =>
 							<p id="aboutMeContent">{desc}</p>
 						</div>
 					</div>
-					<FollowButton/>
+					<FollowButton  followingList = {following}/>
 				</div>
 			</div>
 			<div className="break">

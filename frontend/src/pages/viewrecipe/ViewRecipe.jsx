@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import BookmarkButton from '../../components/bookmarkbutton/BookmarkButton';
+import DeleteButton from '../../components/deleteButton/deleteButton';
 
 const ViewRecipe = () =>{
 
@@ -15,7 +16,7 @@ const ViewRecipe = () =>{
     const {id} = useParams();
     console.log(id);
 
-
+    const [delVisible, setDelVisible] = useState(false);
     const [username,setUsername] = useState(""); 
     const [recipeName,setRecipeName] = useState("");
     const [desc,setDescription] = useState(""); 
@@ -24,6 +25,18 @@ const ViewRecipe = () =>{
     const [prepTime,setPrepTime] = useState("");
     const [cookTime,setCookTime] = useState("");
     const [servingCount,setServingCount] = useState("");
+
+    const checkUser = async event => {
+        var token = localStorage.getItem("authToken");
+		var decoded = jwt_decode(token);
+        const logged_in_user = decoded.username;
+        
+        if(logged_in_user === username)
+        {
+            console.log("Delete is visible")
+            setDelVisible(true);
+        }
+    }
     
 
     const getPost = async event => {
@@ -57,6 +70,7 @@ const ViewRecipe = () =>{
 
     useEffect(() => {
         getPost();
+        checkUser();
     },[]);
 
 
@@ -67,6 +81,11 @@ const ViewRecipe = () =>{
             <PageNavbar/>
             <div class="viewRecipePage">
                 <div class="viewRecipeContainer">
+                {delVisible ?
+                        <span></span>
+                :
+                        <DeleteButton/>
+                }
                     <div className="viewRecipeInfo1">
                         <img alt ="pic upload" height="200" src={SamplePic}/>
                         <hr/>
