@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "./static/css/main.a0ae939e.chunk.css",
+    "main.js": "./static/js/main.53a56207.chunk.js",
+    "main.js.map": "./static/js/main.53a56207.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.47cb8b21.js",
+    "runtime-main.js.map": "./static/js/runtime-main.47cb8b21.js.map",
+    "static/css/2.27175f2b.chunk.css": "./static/css/2.27175f2b.chunk.css",
+    "static/js/2.364d4602.chunk.js": "./static/js/2.364d4602.chunk.js",
+    "static/js/2.364d4602.chunk.js.map": "./static/js/2.364d4602.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.27175f2b.chunk.css.map": "./static/css/2.27175f2b.chunk.css.map",
+    "static/css/main.a0ae939e.chunk.css.map": "./static/css/main.a0ae939e.chunk.css.map",
+    "static/js/2.364d4602.chunk.js.LICENSE.txt": "./static/js/2.364d4602.chunk.js.LICENSE.txt",
+    "static/media/MegaBitesLogo_transparent-large.b6168a8d.png": "./static/media/MegaBitesLogo_transparent-large.b6168a8d.png",
+    "static/media/cover3.d3ecf0f3.jpg": "./static/media/cover3.d3ecf0f3.jpg",
+    "static/media/cute.854841d8.jpg": "./static/media/cute.854841d8.jpg",
+    "static/media/food-white.7a6ab076.jpg": "./static/media/food-white.7a6ab076.jpg",
+    "static/media/food.08ba4da0.jpg": "./static/media/food.08ba4da0.jpg",
+    "static/media/person.a48da08a.jpg": "./static/media/person.a48da08a.jpg",
+    "static/media/playstorebutton.9f0270e0.png": "./static/media/playstorebutton.9f0270e0.png",
+    "static/media/uploadbutton.ba554740.JPG": "./static/media/uploadbutton.ba554740.JPG",
+    "static/media/user2.9408b661.jpg": "./static/media/user2.9408b661.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47cb8b21.js",
+    "static/css/2.27175f2b.chunk.css",
+    "static/js/2.364d4602.chunk.js",
+    "static/css/main.a0ae939e.chunk.css",
+    "static/js/main.53a56207.chunk.js"
+  ]
+}
