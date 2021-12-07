@@ -47,13 +47,15 @@ function VerifyDone(){
 
     return(
         <div>
-            <h3> Verification Complete. Click the link below to go to the home page.</h3>
             <button onClick={verifyEmailHandler}>Test Token</button>
+			<h3> Verification Complete. Click the link below to go to the home page.</h3>
             {error && <span className="error-message">{error} </span>}
 				{success && (
-				<span className="success-message">
+				<div>
+
+				<span className="success-message"></span>
 				<Link to="/">Login</Link>
-				</span>
+				</div>
 				)}
         </div>
     );

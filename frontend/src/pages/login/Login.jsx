@@ -69,6 +69,7 @@ const Login = () =>
 						<input type="password" className="form-control" placeholder="Password" id="password" required value={password} onChange={(e) => setPassword(e.target.value)} autocomplete="off"/>
 						<button id="loginButton" type="submit">Login</button>
 					</form>
+					<span id="forgot"><Link to="/forgotpassword">Forgot Password?</Link></span>
 				</div>
 			</div>
 			<div id="toSignUp">
