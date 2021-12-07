@@ -52,16 +52,27 @@ const PageNavbar = () =>
             </div>
 
             <div id="navBarRight">
-                <div className="navItem">
-                    <Link id="homeButton" to="/home"><FoodBank style={{fontSize:"40px"}}/></Link>
+                <div className="navItem" id="homeButton">
+                    <Link to="/home"><FoodBank style={{fontSize:"40px"}}/></Link>
+                    <div id="dropdown-content-home">
+                        <div id="dropdown-text-home">
+                            <span>Home</span>
+                        </div>
+                    </div>
                 </div>
                 <div className="navItem" id="bookmarkButton">
                     <Link to="/bookmarks"><Bookmark style={{fontSize:"40px"}}/></Link>
+                    <div id="dropdown-content-bookmark">
+                        <div id="dropdown-text-bookmark">
+                            <span>My Bookmarks</span>
+                        </div>
+                    </div>
+
                 </div>
                 <div className="navItem" id="profileButton">
                     <Link to="/current-user"><img src={pfp} alt="My Profile" id="profilePicture"/></Link>
-                    <div id="dropdown-content">
-                        <div id="dropDownButtons">
+                    <div id="dropdown-content-profile">
+                        <div id="dropDownButtons-profile">
                             <button id="myProfileButton"><Link to="/current-user"><AccountCircleIcon/>&nbsp;My Profile</Link></button>
                             <button><Link to="/edit-profile"><Create/>&nbsp;Edit Profile</Link></button>
                             <button onClick={doLogout} id="logOutButton"><LogoutIcon/>&nbsp;&nbsp;Log Out&nbsp;&nbsp;</button>
