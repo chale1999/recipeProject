@@ -192,3 +192,44 @@
 	flex-direction: row;
 	justify-content: space-around;
 }
+
+#createRecipe
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	border: 2px dashed gray;
+	border-radius: 10px;
+	min-width: 300px;
+	background-color: rgb(246, 246, 246);
+}
+
+#createRecipeText:after
+{
+	content: "";
+    display: block;
+    width: 0%;
+	border-bottom: 1px solid rgb(26, 26, 26);
+	margin: 0 auto;
+	margin-top: 3px;
+}
+
+#createRecipe:hover
+{
+	transition: 0.3s;
+	box-shadow: 0px 0px 10px rgb(26, 26, 26);
+	cursor: pointer;
+}
+
+#createRecipe:hover #createRecipeText:after
+{
+	transition: 0.5s;
+	content: "";
+    display: block;
+    width: 100%;
+	border-bottom: 1px solid rgb(26, 26, 26);
+	margin: 0 auto;
+	margin-top: 3px;
+}

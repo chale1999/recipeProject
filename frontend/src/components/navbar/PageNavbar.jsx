@@ -13,6 +13,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Create from '@mui/icons-material/Create';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+
 const PageNavbar = () =>
 {   
     const [searchTerm,setSearchTerm] = useState("");
@@ -43,8 +44,8 @@ const PageNavbar = () =>
             </div>
 
             <div id="navBarMiddle">
-                <Search id="searchIcon"/>
-                <form onSubmit={doSearch}>
+                <Search id="searchIcon" style={{fontSize: '28px'}}/>
+                <form id="searchForm" onSubmit={doSearch}>
                     <input placeholder="Search" id="searchbar" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
                     <input type="submit" style={{display: 'none'}}/>
                 </form>
@@ -52,10 +53,10 @@ const PageNavbar = () =>
 
             <div id="navBarRight">
                 <div className="navItem">
-                    <Link id="homeButton" to="/home"><FoodBank fontSize="large"/></Link>
+                    <Link id="homeButton" to="/home"><FoodBank style={{fontSize:"40px"}}/></Link>
                 </div>
                 <div className="navItem" id="bookmarkButton">
-                    <Link to="/bookmarks"><Bookmark  fontSize="large" /></Link>
+                    <Link to="/bookmarks"><Bookmark style={{fontSize:"40px"}}/></Link>
                 </div>
                 <div className="navItem" id="profileButton">
                     <Link to="/current-user"><img src={pfp} alt="My Profile" id="profilePicture"/></Link>

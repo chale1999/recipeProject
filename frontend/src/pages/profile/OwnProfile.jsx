@@ -12,6 +12,7 @@ import 'react-tabs/style/react-tabs.css';
 import Create from '@mui/icons-material/Create';
 import Icons from '../../components/smallIcon/icon';
 import SmallRecipe from '../../components/smallRecipeIcon/smallRecipeCard';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useEffect, useState } from 'react';
 
 
@@ -90,6 +91,12 @@ const OwnProfile = () =>
 		history.push("edit-profile");
 	}
 
+	const toCreateRecipe = () =>
+	{
+		let createRecipePath = '/create-recipe';
+		history.push(createRecipePath);
+	}
+
 	return(
 		<div class="profileScreen">
 		  <PageNavbar/>
@@ -130,6 +137,11 @@ const OwnProfile = () =>
     						</TabList>
     						<TabPanel>
       							<div className="feedArea">
+									<div id="createRecipe" onClick={toCreateRecipe}>
+										<AddCircleOutlineIcon sx={{fontSize: '60px'}}/>
+										<Link id="linkToCreateRecipe" to="/create-recipe" style={{display:'none'}}></Link>
+										<span id="createRecipeText" style={{fontSize: '24px', fontWeight: '600'}}>Create a Recipe</span>
+									</div>
 								  {posts.map((p) => (
 									<SmallRecipe key = {p._id} posts = {p}/>
 								))}

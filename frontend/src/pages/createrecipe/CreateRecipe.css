@@ -1,5 +1,7 @@
 .newScreen{    
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     background-color: #ffe1a8 ;
     height: 100vh;
@@ -7,20 +9,35 @@
 
 .newRecipe{
     display: flex;
-    justify-content: space-around;
-    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 15px;
     background-color: #FFFFFF;
     border-radius: 20px;
-    height: 80vh;
-    width: 70vw;
+    height: fit-content;
+    width: fit-content;
     -webkit-box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.8); 
     box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.8);
+}
+
+.newRecipeTitle
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .newRecipeDesc{
     display: flex;
     flex-direction: column;
+}
+
+#image:hover
+{
+    transition: 0.3s;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
 }
 
 .newRecipeImage{
@@ -52,6 +69,7 @@
 .newInfo1{
     display: flex;
     flex-direction: column;
+    margin-right: 50px;
 }
 
 .timeField{
@@ -65,4 +83,40 @@
 #uploadButton{
     height: 10vh;
     width: 10vh;
+}
+
+#submitButton
+{
+    margin-top: 20px;
+    background-color: rgb(243, 131, 78);
+    border: none;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#submitButton:hover
+{
+    transition: 0.3s;
+    background-color: rgb(255, 102, 28);;
+    color: ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.newInfo1 input, .newInfo2 input, .newInfo2 textarea
+{
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#recipeIntake
+{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
 }

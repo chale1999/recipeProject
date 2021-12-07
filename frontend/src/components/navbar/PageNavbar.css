@@ -1,6 +1,6 @@
 #navbar {
     background: #f3834e;
-    height: 60px;
+    height: 80px;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@
 
 #navbar__logo{   
     height: auto;
-    width: 120px;
+    width: 150px;
 }
 
 #logoContainer {
@@ -85,9 +85,14 @@
     transform: rotate(1turn);
 }
 
+#searchForm
+{
+    width: 90%;
+}
+
 #searchbar {
     border: none;
-    width: 70%;
+    width: 97.5%;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 15px;
@@ -99,7 +104,8 @@
 }
 
 #searchIcon {
-    font-size: 20px !important;
+    font-size: 24px !important;
+    font-weight: bold;
     margin-left: 10px;
 }
 
@@ -184,8 +190,8 @@
 }
 
 #profilePicture {
-    width: 44px;
-    height: 44px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
