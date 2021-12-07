@@ -19,46 +19,16 @@ import { useEffect, useState } from 'react';
 const EditProfile = () =>
 {
 	const history = useHistory();
-	const setFullName = useState("");
+	const [isEditName, setEditName] = useState("");
+	const [isEditAbout, setEditAbout] = useState("");
 	const [firstName,setFirstName] = useState(""); 
     const [lastName,setLastName] = useState("");
     const [desc,setDescription] = useState("");
-	const [followers,setFollowers] = useState([]);
-	const [following, setFollowing] = useState([]);
-	const [posts, setPosts] = useState([]);
+
+	const [fullName, setFullName] = useState("");
+
 	const [error,setError] = useState("");
 
-	const getProfile = async event =>
-	{
-		//event.preventDefault();
-		var token = localStorage.getItem("authToken");
-		var decoded = jwt_decode(token);
-		
-		//console.log(decoded);
-
-		
-		const config = {
-			headers: {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-			},
-		};
-
-		const username = decoded.username;
-
-		try {
-			const {data} = await axios.get(`/api/users/${username}`,config);
-			setFirstName(data.firstName);
-			setLastName(data.lastName);
-			setDescription(data.desc);
-			setFollowers(data.followers);
-			//console.log(followers);
-			setFollowing(data.following);
-
-		}catch(error) {
-			console.log(error);
-		}
-	};
 
 	const editCover = () =>
 	{
@@ -74,20 +44,23 @@ const EditProfile = () =>
 		</form>
 	};
 
+	const handleChange=(e) =>{
+		setFullName(e.target.value);
+	}
+
 	const editName = () =>
 	{
 		console.log("edit name!!");
-		var nameElement = document.getElementById('name');
-		var editButton = document.getElementById('editName');
-		var name = nameElement.textContent;
-		console.log(name);
-		nameElement.remove();
-		editButton.remove();
-		const nameEditElem = <h2 style={{marginTop: '10px'}}><form method="get" onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}><input autoFocus id="nameEditTextBox" autofocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" defaultValue={name} onChange={(e) => setFirstName(e.target.value.split()[0])}></input><button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h2>
-	
-		ReactDOM.render(nameEditElem, document.getElementById('nameDiv'));
-		var textbox = document.getElementById("nameEditTextBox");
-		textbox.setAttribute('size', textbox.getAttribute('value').length);
+		//var nameElement = document.getElementById('name');
+		//var editButton = document.getElementById('editName');
+		
+		//var name = nameElement.textContent;
+		//console.log(name);
+		setEditName("edit");
+		//editButton.remove();
+		//render(nameEditElem, document.getElementById('nameDiv'));
+		//var textbox = document.getElementById("nameEditTextBox");
+		//textbox.setAttribute('size', textbox.getAttribute('value').length);
 	};
 
 	const doEditName = async event =>
@@ -103,11 +76,17 @@ const EditProfile = () =>
 			},
 		};
 
+		console.log("Full name is: "+fullName);
+		console.log("first name is: " + fullName.split(' ')[0]);
+		setFirstName(fullName.split(' ')[0]);
+		console.log("last name is: " + fullName.split(' ')[1]);
+		setLastName(fullName.split(' ')[1]);
 		try {
-			const {data} = await axios.put(`/api/users/${username}`, {firstName, lastName}, config);
+			
+			const {data} = await axios.put(`/api/users/${username}`, {firstName:fullName.split(' ')[0], lastName:fullName.split(' ')[1]}, config);
 
-			console.log(data);
-			History.push('/home')
+			//console.log(data);
+			history.push('/home')
 
 		}catch(error) {
 			console.log("bad");
@@ -119,26 +98,26 @@ const EditProfile = () =>
 	const editAboutMe = () =>
 	{
 		console.log("edit bio!!");
-		var abtMeElem = document.getElementById('aboutMeContent');
-		var abtMeButton = document.getElementById('editAboutMe');
-		var abtMeText = abtMeElem.textContent;
-
-		console.log(abtMeText);
-		abtMeElem.remove();
-		abtMeButton.remove();
-		const abtMeEditElem = <h3 style={{marginTop: '10px'}}><form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}><input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text" defaultValue={abtMeText} onChange={(e) => setDescription(e.target.value)}></input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h3>
-		ReactDOM.render(abtMeEditElem, document.getElementById('editAboutMeButtonDiv'));
-		var textbox = document.getElementById("aboutMeEditTextBox");
-		var form = document.getElementById("abtMeForm");
-		var bttn = document.getElementById("saveAbtMeChange");
-		textbox.setAttribute('size', textbox.getAttribute('value').length + 5);
-		textbox.setAttribute('outline-width:', 0);
+		//var abtMeElem = document.getElementById('aboutMeContent');
+		//var abtMeButton = document.getElementById('editAboutMe');
+		//var abtMeText = abtMeElem.textContent;
+		setEditAbout("edit");
+		//console.log(abtMeText);
+		//abtMeElem.remove();
+		//abtMeButton.remove();
+		//const abtMeEditElem = <h3 style={{marginTop: '10px'}}><form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}><input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text" value={desc}onChange={(e) => setDescription(e.target.value)}></input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}><CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/></button></form></h3>
+		//ReactDOM.render(abtMeEditElem, document.getElementById('editAboutMeButtonDiv'));
+		//var textbox = document.getElementById("aboutMeEditTextBox");
+		//var form = document.getElementById("abtMeForm");
+		//var bttn = document.getElementById("saveAbtMeChange");
+		//textbox.setAttribute('size', textbox.getAttribute('value').length + 5);
+		//textbox.setAttribute('outline-width:', 0);
 	};
 
 	const doEditAboutMe = async event =>
 	{
 		console.log("in doEditAboutMe");
-
+		console.log(desc);
 		event.preventDefault();
 		var token = localStorage.getItem("authToken");
 		var decoded = jwt_decode(token);
@@ -151,10 +130,10 @@ const EditProfile = () =>
 		};
 
 		try {
-			const {data} = await axios.put(`/api/users/${username}`, {desc, setDescription}, config);
+			const {data} = await axios.put(`/api/users/${username}`, {desc}, config);
 
 			console.log(data);
-			History.push('/home')
+			history.push('/home')
 
 
 		}catch(error) {
@@ -164,10 +143,6 @@ const EditProfile = () =>
 
 		console.log("check worked!!");
 	};
-
-	useEffect(() => {
-		getProfile();
-	}, []);
 
 	return(
 		<div class="profileScreen">
@@ -189,18 +164,39 @@ const EditProfile = () =>
 							<input type="file" id="pfpUpload" style={{display:'none'}}></input>
 						</div>
 						<div id="nameDiv">
-							<span id="name">{firstName} {lastName}</span>
-							<div id="editNameButtonDiv">
+						<div>
+							{isEditName ?
+								<h2 style={{marginTop: '10px'}}>
+								<form onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}>
+								<input autoFocus id="nameEditTextBox" autoFocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" value={fullName} onChange={(e)=> setFullName(e.target.value)}></input>
+								<button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}>
+								<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
+								</button></form></h2>
+							:
+								<div id="editNameButtonDiv">
 								<button class="editButton" id="editName" onClick={editName} style={{border:'1px solid black'}}><Create/></button>
-							</div>
+								</div>
+							}
+						</div>
 						</div>
 						<br/>
 						<div id="aboutMeDiv">
 							<span id="aboutMeTitle"><strong>About Me:</strong></span>
-							<div id="editAboutMeButtonDiv">
-								<span id="aboutMeContent" style={{fontSize:'25px'}}>A54ub7aCseZpAdEa8w53Z2AM62CdrHLkoAZLIRc5fJv8k9QVio</span>
-								<button class="editButton" id="editAboutMe" onClick={editAboutMe} style={{border:'1px solid black'}}><Create/></button>
-							</div>
+							{isEditAbout ?
+								<h3 style={{marginTop: '10px'}}>
+								<form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}>
+								<input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text"  value={desc} onChange={(e) => setDescription(e.target.value)}>
+								</input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}>
+								<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
+								</button></form></h3>
+
+							:
+								<div id="editAboutMeButtonDiv">
+									<span id="aboutMeContent" style={{fontSize:'25px'}}>{desc}</span>
+									<button class="editButton" id="editAboutMe" onClick={editAboutMe} style={{border:'1px solid black'}}><Create/></button>
+								</div>
+							}
+							
 						</div>
 					</div>
 				</div>
