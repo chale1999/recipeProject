@@ -2,9 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-	position: relative;
-	left: 32vw;
-	bottom: 100px;
     width: 9vw;
     height: 35px;
 	min-width: 100px;
@@ -21,11 +18,9 @@
     justify-content: center;
     align-items: center;
 	position: relative;
-	left: 32vw;
-	bottom: 100px;
-    width: 9vw;
     height: 35px;
 	min-width: 100px;
+    width: fit-content;
     margin: 15px;
     padding: 10px;
     border-radius: 10px;

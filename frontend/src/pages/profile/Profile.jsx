@@ -90,16 +90,34 @@ const Profile = () =>
 					<img src={cover} className="profileCoverImg"/>
 				</div>
 				<div className="profileInfo">
-					<div id="pfpDiv">
-						<img src={pfp} className="profileUserImg"/>
-						<span id="name">{firstName} {lastName}</span>
+					<div id="flexBoxHorizontal">
 						<div id="aboutMeDiv">
-							<span id="aboutMeTitle"><strong>About Me:</strong></span>
-							<br/>
-							<p id="aboutMeText">{desc}</p>
+							<div id="aboutMeContent">
+								<span id="aboutMeTitle" style={{marginBottom: '10px', fontFamily: 'MV Boli', fontSize:'22px'}}><strong>About Me:</strong></span>
+								<p id="aboutMeText" style={{fontFamily: 'MV Boli'}}>{desc}</p>
+							</div>
+						</div>
+						<div id="pfpDiv">
+							<img src={pfp} className="profileUserImg"/>
+							<span id="name">{firstName} {lastName}</span>
+						</div>
+						<div id="rightProfileDiv">
+							<span style={{fontFamily: 'MV Boli'}}>My Kitchen</span>
+							<div id="followerFollowing">
+								<table class="follow">
+									<tr>
+										<th>Sous-Chefs</th>
+										<th>Head-Chefs</th>
+									</tr>
+									<tr>
+										<td>{followers.length}</td>
+										<td>{following.length}</td>
+									</tr>
+								</table>
+							</div>
+							<FollowButton followingList = {following}/>
 						</div>
 					</div>
-					<FollowButton  followingList = {following}/>
 				</div>
 			</div>
 			<div className="break">

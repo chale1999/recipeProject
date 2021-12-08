@@ -25,10 +25,41 @@ const EditProfile = () =>
 	const [firstName,setFirstName] = useState(""); 
     const [lastName,setLastName] = useState("");
     const [desc,setDescription] = useState("");
+	const [followers, setFollowers] = useState([]);
+	const [following, setFollowing] = useState([])
 
 	const [fullName, setFullName] = useState("");
 
 	const [error,setError] = useState("");
+
+	
+	const getProfile = async event =>
+	{
+		let token = localStorage.getItem("authToken");
+		var decoded = jwt_decode(token);
+		const username = decoded.username;
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+
+		try {
+			const {data} = await axios.get(`/api/users/${username}`,config);
+			console.log(data);
+			setFirstName(data.firstName);
+			setLastName(data.lastName);
+			setDescription(data.desc);
+			setFollowers(data.followers);
+			//console.log(followers);
+			setFollowing(data.following);
+			//return data; // in data has all the current users data from db!
+
+		}catch(error) {
+			console.log(error);
+		}
+	};
 	/*
 	const getProfile = async event =>
 	{
@@ -170,6 +201,25 @@ const EditProfile = () =>
 		console.log("check worked!!");
 	};
 
+
+	const showNameEdit = () =>
+	{
+		document.getElementById("nameDisplay").style.display="none";
+		document.getElementById("nameEditForm").style.display="block";
+		console.log("edit name now visible");
+	};
+
+	const showAboutMeEdit = () =>
+	{
+		document.getElementById("aboutMeEditButton").style.display="none";
+		document.getElementById("aboutMeEditForm").style.display="block";
+		console.log("edit about me now visible");
+	};
+
+	useEffect(() => {
+		getProfile();
+	}, [])
+
 	return(
 		<div class="profileScreen">
 		  <PageNavbar/>
@@ -186,13 +236,14 @@ const EditProfile = () =>
 					<div id="flexBoxHorizontal">
 						<div id="aboutMeDiv">
 							<div id="aboutMeContent">
-								<div>
+								<div >
 									<span id="aboutMeTitle" style={{marginBottom: '10px', fontFamily: 'MV Boli', fontSize:'22px', marginRight: '20px'}}><strong>About Me:</strong></span>
-									<button style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right'}}><Create/></button>
+									<button class="editButton" id="aboutMeEditButton" onClick={showAboutMeEdit} style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginBottom: '10px'}}><Create/></button>
 								</div>
 								<div id="aboutMeEditTextArea style={{height: '100%', marginTop: '5px'}}">
-									<form onSubmit={doEditAboutMe}>
-										<textarea data-dynamic maxlength="200" style={{height: '100%', fontSize:'14px', width:'100%'}} onChange={(e) => setDescription(e.target.value)}>{desc}</textarea>
+									<form id="aboutMeEditForm" onSubmit={doEditAboutMe} style={{height: '100%'}}>
+										<button type="submit" style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginBottom: '10px', marginTop:'-30px'}}><CheckIcon/></button>
+										<textarea data-dynamic maxlength="200" style={{minHeight: '100px', fontSize:'14px', width:'100%', backgroundColor:"#FFFADF", border:"1px solid #99A038"}} onChange={(e) => setDescription(e.target.value)}>{desc}</textarea>
 									</form>
 								</div>
 								
@@ -200,7 +251,13 @@ const EditProfile = () =>
 						</div>
 						<div id="pfpDiv">
 							<img src={pfp} className="profileUserImg"/>
-							<span id="name">{firstName} {lastName}</span>
+							<div id= "nameEditForm">
+								<form style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '10px'}}>
+									<input id="nameInput" placeholder="{firstName} {lastName}" style={{textAlign: 'center'}}></input>
+									<button type="submit" style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginLeft: '10px'}}><CheckIcon/></button>
+								</form>
+							</div>
+							<span id="nameDisplay" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{firstName} {lastName}<button class="editButton" onClick={showNameEdit} style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginLeft: '10px'}}><Create/></button></span>
 						</div>
 						<div id="rightProfileDiv">
 						</div>

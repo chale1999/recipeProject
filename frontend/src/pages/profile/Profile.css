@@ -197,6 +197,7 @@
 	border-collapse-top: collapse;
 	border-collapse-bottom: collapse;
 	margin-top: -30px;
+	
 }
 
 #followerFollowing
@@ -258,6 +259,7 @@
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 5px;
+	background-color:#FFF99E;
 }
 
 .editProfileButton p
@@ -271,7 +273,7 @@
 .editProfileButton:hover{
     cursor: pointer;
     transition: 0.2s ease;
-    background-color: #FFF88B;
+    background-color: rgba(255, 173, 125, 0.795);
 }
 
 .profileBottom{

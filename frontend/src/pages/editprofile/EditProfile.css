@@ -1,14 +1,9 @@
 .editButton
 {
-    position: absolute;	
-	padding: 5px;
-	border-radius: 10px;
-	background-color: rgba(255, 255, 255);
-	-webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
-    box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
+    
 }
 
-.-editButton:hover
+.editButton:hover
 {
 	cursor: pointer;
     transition: 0.2s ease;
@@ -72,6 +67,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#nameInput
+{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#nameDisplay
+{
+
+}
+
+#nameEditForm
+{
+    display: none;
+}
+
+#aboutMeEditForm
+{
+    display: none;
 }
 
 #editNameButtonDiv

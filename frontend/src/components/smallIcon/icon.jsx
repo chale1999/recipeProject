@@ -10,6 +10,7 @@ import e from "cors";
 
 export default function Icons({follower_name}) {
     const username = follower_name;
+    console.log("FOLLOWER NAME IN ICON: " + username);
     let test;
     const history = useHistory();
 	const [firstName,setFirstName] = useState(""); 
