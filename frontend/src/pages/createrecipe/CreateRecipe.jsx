@@ -64,6 +64,27 @@ const CreateRecipe = () =>
 		}
     };   
 
+    const recipeImage = document.getElementById("recipeImage"),
+        output = document.getElementById("output");
+    
+    recipeImage.addEventListener("change", function() {
+        changeImage(this);
+    });
+
+    function changeImage(input) {
+        var reader;
+
+        if (input.files && input.files[0]) {
+            reader = new FileReader();
+
+            reader.onload = function(e) {
+            output.setAttribute('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
     return(
     <div>
         <PageNavbar/>
@@ -73,10 +94,10 @@ const CreateRecipe = () =>
                     <div className="newInfo1">
                         <div className="newRecipeImage">
                             <p className="fieldLabel">Upload Image</p>
-                            <label for="recipeImage">
-                                <img id="image" alt ="pic upload" height="200" src={imageUpload}/>
-                            </label>
                             <input id="recipeImage" type="file" accept=".png, .jpg, .jpeg" style={{display:'none'}}/>
+                            <label for="recipeImage">
+                                <img id="output" alt ="pic upload" height="200" src=""/>
+                            </label>
                         </div>
                         <hr/>
                         <div className="newInfo1Row1">
