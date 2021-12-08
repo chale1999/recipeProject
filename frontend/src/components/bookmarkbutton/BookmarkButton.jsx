@@ -12,6 +12,8 @@ function BookmarkButton({username,recipeid}) {
 
 
     const history = useHistory();
+    console.log("Username: " + username);
+    console.log(recipeid)
     const [isBookmarked, setBookmarked] = useState(false);
     const [bookmarkList, setBookmarkList] = useState([]);
 
