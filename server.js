@@ -21,7 +21,7 @@ cloudinary.config({
     api_key: process.env.API_KEY, 
     api_secret: process.env.API_SECRET,
     secure: true
-  });
+});
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewURLParser : true,
@@ -35,7 +35,8 @@ mongoose.connection.on('connected', () =>{
 
 // middlewares
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({ limit: '50mb', extended: true}));
 app.use(helmet());
 app.use(morgan("common"));
 
