@@ -28,7 +28,10 @@ const CreateRecipe = () =>
     const [prepTime,setPrepTime] = useState("");
     const [servingCount,setServingCount] = useState("");
     const [desc,setDesc] = useState("");
-    const [img,setImg] = useState("");
+    
+    const [fileInputState, setFileInputState] = useState('');
+    const [selectedFile, setSelectedFile] = useState("");
+    const [previewSource, setPreviewSource] = useState();
 
     const [error,setError] = useState("");
 
@@ -54,34 +57,40 @@ const CreateRecipe = () =>
 		try {
             const ingredients = temp.split('\n');
             const directions = temptwo.split('\n');
-			const {data} = await axios.post("api/posts", {recipeName, ingredients, directions, cookTime, prepTime, servingCount, desc, img},
+			const {data} = await axios.post("api/posts", {recipeName, ingredients, directions, cookTime, prepTime, servingCount, desc},
 			config);
+            uploadImage(previewSource);
 
             history.push('/home');
 		}catch(error) {
 			setError(error.response.error);
             //setError("Error Creating Recipe");
 		}
-    };   
+    };
 
-    const recipeImage = document.getElementById("recipeImage"),
-        output = document.getElementById("output");
-    
-    recipeImage.addEventListener("change", function() {
-        changeImage(this);
-    });
+    const uploadImage = async (base64EncodedImage) => {
+        console.log(base64EncodedImage);
+        try {
+            await fetch('/api/posts/upload', {
+                method: 'POST',
+                body: JSON.stringify({data: base64EncodedImage}),
+                headers: {'Content-type': 'application/json'}
+            });
+        } catch (error){
+            console.error(error)
+        }
+    }
 
-    function changeImage(input) {
-        var reader;
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        previewFile(file);
+    }
 
-        if (input.files && input.files[0]) {
-            reader = new FileReader();
-
-            reader.onload = function(e) {
-            output.setAttribute('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
+    const previewFile = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
         }
     }
 
@@ -94,10 +103,12 @@ const CreateRecipe = () =>
                     <div className="newInfo1">
                         <div className="newRecipeImage">
                             <p className="fieldLabel">Upload Image</p>
-                            <input id="recipeImage" type="file" accept=".png, .jpg, .jpeg" style={{display:'none'}}/>
-                            <label for="recipeImage">
-                                <img id="output" alt ="pic upload" height="200" src=""/>
-                            </label>
+                            <form onSubmit>
+                                <input id="recipeImage" name="recipeImage" type="file" onChange={handleFileInputChange} value={fileInputState} accept=".png, .jpg, .jpeg" />
+                            </form>
+                            {previewSource && (
+                                    <img id="output" value={fileInputState} alt ="pic upload" height="200" src={previewSource}/>
+                            )}
                         </div>
                         <hr/>
                         <div className="newInfo1Row1">
