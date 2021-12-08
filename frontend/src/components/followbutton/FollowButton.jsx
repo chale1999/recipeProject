@@ -30,6 +30,9 @@ function FollowButton({followingList}) {
             console.log("Is following")
             setFollowing(true);
         }
+        {
+            setFollowing(false);
+        }
         console.log("Is NOT following")
     }
 
@@ -89,8 +92,6 @@ function FollowButton({followingList}) {
         
     return(
         <div>
-            {error && <span className="error-msg">{error}</span>}
-            {success && <span className="success-msg">{success}</span>}
             {isFollowing ?
                 <button class="followingUserButton" onClick={unfollowUser}>
                     {followingTemplate}

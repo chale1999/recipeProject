@@ -96,7 +96,7 @@ const Profile = () =>
 						<div id="aboutMeDiv">
 							<span id="aboutMeTitle"><strong>About Me:</strong></span>
 							<br/>
-							<p id="aboutMeContent">{desc}</p>
+							<p id="aboutMeText">{desc}</p>
 						</div>
 					</div>
 					<FollowButton  followingList = {following}/>
@@ -109,7 +109,7 @@ const Profile = () =>
 					<div className="tabs">
 					<Tabs>
     						<TabList>
-      							<Tab>My Recipes</Tab>
+      							<Tab>{firstName}'s Recipes</Tab>
       							<Tab>Users They Follow</Tab>
 								<Tab>Users Following Them</Tab>
     						</TabList>
@@ -127,7 +127,7 @@ const Profile = () =>
     						</TabPanel>
 							<TabPanel>
 							{followers.map((p) => (
-										<Icons key = {p.username} follower_name = {p}/>
+									<Icons key = {p.username} follower_name = {p}/>
 								))}
     						</TabPanel>
   						</Tabs>

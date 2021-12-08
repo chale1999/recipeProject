@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const bcrpyt = require("bcrypt");
+const Post = require("../models/Post");
 
 const jwt = require('jsonwebtoken');
 
@@ -112,6 +113,97 @@ router.get("/:username", async (req, res) =>{
         return res.status(200).json(other);
     }catch(err){
         return res.status(500).json(err);
+    }
+});
+
+//bookmark
+router.put("/:recipeid/bookmark", async (req, res) => {
+    try{
+        if(req.header('Authorization')&& req.header('Authorization').startsWith("Bearer")) {
+            token = req.header('Authorization').split(" ")[1]
+        }
+
+        if(!token) { 
+            return res.status(401).json({success: false, error: "Not authorized"});
+        }
+
+        const decoded_identifier = jwt.verify(token, process.env.JWT_SECRET);
+
+        const currentUser = await User.findById(decoded_identifier.id);
+
+        if(!currentUser) {
+            return res.status(404).json({success: false, error: "No user found with this id"});
+        }
+        
+        
+        try {
+            
+            const postToBookmark = await Post.findById(req.params.recipeid);
+            
+            if(!postToBookmark){
+                return res.status(500).json("no recipe found with this id");
+            }
+
+            if (!currentUser.bookmarks.includes(req.params.recipeid)) {
+                console.log("gothere")
+                await currentUser.updateOne({ $push: { bookmarks: req.params.recipeid } });
+                return res.status(200).json("bookmark has been added");
+            }
+            else{
+                return res.status(403).json("you already bookmarked this recipe");
+            }
+
+        } catch(err) {
+            return res.status(500).json("Error bookmarking recipe");
+        }
+
+    }catch(error){
+        return res.status(403).json("Issue With Header");
+    }
+});
+
+//remove a bookmark
+router.put("/:recipeid/unbookmark", async (req, res) =>{
+    try{
+        if(req.header('Authorization')&& req.header('Authorization').startsWith("Bearer")) {
+            token = req.header('Authorization').split(" ")[1]
+        }
+
+        if(!token) { 
+            return res.status(401).json({success: false, error: "Not authorized"});
+        }
+
+        const decoded_identifier = jwt.verify(token, process.env.JWT_SECRET);
+
+        const currentUser = await User.findById(decoded_identifier.id);
+
+        if(!currentUser) {
+            return res.status(404).json({success: false, error: "No user found with this id"});
+        }
+        
+        
+        try {
+            
+            const postToBookmark = await Post.findById(req.params.recipeid);
+            
+            if(!postToBookmark){
+                return res.status(500).json("no recipe found with this id");
+            }
+
+            if (currentUser.bookmarks.includes(req.params.recipeid)) {
+                await currentUser.updateOne({ $pull: { bookmarks: req.params.recipeid } });
+                return res.status(200).json("bookmark has been removed");
+            }
+            else{
+                return res.status(403).json("you don't bookmark this recipe");
+            }
+
+        } catch(err) {
+            return res.status(500).json("Error bookmarking recipe");
+        }
+
+    }catch(error){
+        return res.status(403).json("Issue With Header");
     }
 });
 

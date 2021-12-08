@@ -8,7 +8,7 @@
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 }
 
-.editButton:hover
+.-editButton:hover
 {
 	cursor: pointer;
     transition: 0.2s ease;
@@ -24,13 +24,6 @@
 {
     outline: none;
     border: none;
-}
-
-#pfpDiv
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #coverDiv
@@ -98,7 +91,7 @@
     width: 38px;
 }
 
-#aboutMeDiv
+#aboutMeDiv-
 {
     display: flex;
     flex-direction: column;
@@ -121,11 +114,6 @@
     display: flex;
     align-items: center;
 
-}
-
-#aboutMeContent
-{
-    white-space: nowrap;
 }
 
 .reset-this {
@@ -280,4 +268,140 @@
     /* basic modern patch */
     all: initial;
     all: unset;
+}
+
+/* NEW FROM PROFILE REVAMP */
+#flexBoxHorizontal
+{
+	margin-top: 15px;
+	height: fit-content;
+	width: 100%;
+	display: flex;
+	height: fit-content;
+	align-items: center;
+}
+
+#aboutMeDiv
+{
+	background-color: #FFFAAB;
+	height: 80%;
+	font-size: 20px;
+	position: relative;
+	display: flex;
+	justify-content: left;
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.33);
+	flex: 3;
+	padding: 10px;
+	border-radius: 5px;
+    max-width: 30%;
+}
+
+#aboutMeContent
+{
+	padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#pfpDiv
+{
+	white-space: normal;
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	height: fit-content;
+	transform: rotate(0.0turn);		
+	text-align: center;
+	justify-content: center;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 15px;
+	position: relative;
+	top: -180px;
+	flex: 6;
+}
+
+#rightProfileDiv
+{
+	word-wrap: none;
+	height: 80%;
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #FFFAAB;
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.33);
+    max-width: 30%;
+}
+
+#rightProfileDiv span
+{
+	margin-top: 5px;
+	position: relative;
+	width: 100%;
+	padding: 5px;
+	height: fit-content;
+}
+
+#rightProfileDiv p:hover
+{
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.follow th
+{
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 10px 10px 0px 0px;
+	border: 1px solid black;
+	position: relative;
+	bottom: -2px;
+}
+
+.follow td
+{
+	padding: 0px;
+	font-size: 30px;
+	border: 1px solid black;
+	border-radius: 0px 0px 10px 10px;
+}
+
+.follow tr
+{
+	border-radius: 0px 0px 10px 10px;
+	border-collapse-top: collapse;
+	border-collapse-bottom: collapse;
+}
+
+.follow
+{
+	margin: 5px;
+	border-top: none;
+	border-radius: 10px;
+	border-collapse: separate;
+	border-collapse-top: collapse;
+	border-collapse-bottom: collapse;
+	margin-top: -30px;
+}
+
+#followerFollowing
+{
+	flex: 8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#aboutMeText
+{
+	word-wrap: break-word;
+	position: relative;
 }

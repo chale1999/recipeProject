@@ -115,7 +115,7 @@ const ViewRecipe = () =>{
                             <form>
                                 <ul>
                                 {ingredients.map((p) => (
-									<li>{p}</li>
+									<label for="custom-checkbox"><li><input id="ingredientCheck" class="custom-checkbox custom-control-input:checkedingredCheckBox" type="checkbox" style={{marginRight: '2px'}}/>{p}</li></label>
 								))}
                                 </ul>
                             </form>
@@ -126,6 +126,7 @@ const ViewRecipe = () =>{
                         <Link to= {editURL}><EditButton id="editButton"/></Link>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
+                            <hr/>
                         </div>
                         <hr/>
                         <div className="viewRecipeDesc">
@@ -133,8 +134,8 @@ const ViewRecipe = () =>{
                             <form>
                                 <span>{desc}</span>
                             </form>
-                        </div>
-                        <hr/>
+                            <hr/>
+                        </div>                       
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>

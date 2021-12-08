@@ -13,11 +13,12 @@
     background-color: #FFFFFF;
     height: fit-content;
     width: 80vw;
-    margin: 10px;
+    margin: 20px;
     padding: 15px;
     border-radius: 20px;
     -webkit-box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.8); 
     box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.8);
+    background-color: rgb(255, 255, 255);
 }
 
 .viewRecipeInfo1{
@@ -25,6 +26,13 @@
     flex-direction: column;
     justify-content: left;
     width: 22vw;
+    padding: 10px;
+    padding-right: 15px;
+    background-color:#FFF3DE;
+    margin-right: 10px;
+    border-radius: 10px;
+    outline: 3px solid rgba(255, 165, 0, 0.69);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.45);
 }
 
 .viewRecipeInfo2{
@@ -49,4 +57,47 @@
 #editButtonDiv
 {
     display: none;
+}
+
+.viewRecipeTitle
+{
+    flex: 2;
+}
+
+.viewRecipeDesc
+{
+    flex: 3;
+}
+
+.newRecipeProc
+{
+    flex: 8;
+}
+
+input[type="checkbox"]
+{
+   width: 15px;
+   height: 15px;
+   min-width: 15px;
+   min-height: 15px;
+   margin: 3px;
+}
+
+.ingredCheckBox:checked
+{
+    background-color: orange!important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: green!important;
+}
+
+ul li
+{
+    display: flex;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+    align-items: center;
+    padding: 2px;
+    margin: 4px;
 }

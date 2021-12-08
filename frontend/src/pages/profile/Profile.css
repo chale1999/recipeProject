@@ -39,22 +39,14 @@
     box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.8);
 }
 
-#pfpDiv
+#flexBoxHorizontal
 {
-	white-space: normal;
-	display: flex;
-	flex-direction: column;
+	margin-top: 15px;
+	height: fit-content;
 	width: 100%;
-	transform: rotate(0.0turn);		
-	position: absolute;
-	margin-top: -260px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	justify-content: center;
-	top: 65%;
-	font-size: 40px;
-	font-weight: bold;
+	display: flex;
+	height: fit-content;
+	align-items: center;
 }
 
 .profileUserImg{
@@ -68,19 +60,20 @@
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
 }
 
-.profileInfo{
+.profileInfo
+{
 	background-color: rgba(255, 255, 255, 0.795);
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
     -webkit-box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 	width: inherit;
 	height: 75vh;
-	}
+	padding-left: 20px;
+	padding-right: 20px;
+}
 
 #infoContainer
 {
@@ -92,16 +85,135 @@
 
 #aboutMeDiv
 {
+	background-color: #FFFAAB;
+	height: 80%;
 	font-size: 20px;
 	position: relative;
+	display: flex;
+	justify-content: left;
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.33);
+	flex: 3;
+	padding: 10px;
+	border-radius: 5px;
+	max-width: 30%;
 }
 
 #aboutMeContent
 {
+	padding: 5px;
+	word-break:break-all;
+	width: 100%;
+}
+
+
+#aboutMeText
+{
+	word-break:break-all;
+}
+
+#pfpDiv
+{
+	white-space: normal;
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	height: fit-content;
+	transform: rotate(0.0turn);		
+	text-align: center;
+	justify-content: center;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 15px;
+	position: relative;
+	top: -180px;
+	flex: 6;
+}
+
+#rightProfileDiv
+{
+	word-wrap: none;
+	height: 80%;
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #FFFAAB;
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.33);
+	max-width: 30%;
+}
+
+#rightProfileDiv span
+{
+	margin-top: 5px;
+	position: relative;
+	width: 100%;
+	padding: 5px;
+	height: fit-content;
+}
+
+#rightProfileDiv p:hover
+{
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.follow th
+{
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 10px 10px 0px 0px;
+	border: 1px solid black;
+	position: relative;
+	bottom: -2px;
+}
+
+.follow td
+{
+	padding: 0px;
+	font-size: 30px;
+	border: 1px solid black;
+	border-radius: 0px 0px 10px 10px;
+}
+
+.follow tr
+{
+	border-radius: 0px 0px 10px 10px;
+	border-collapse-top: collapse;
+	border-collapse-bottom: collapse;
+}
+
+.follow
+{
+	margin: 5px;
+	border-top: none;
+	border-radius: 10px;
+	border-collapse: separate;
+	border-collapse-top: collapse;
+	border-collapse-bottom: collapse;
+	margin-top: -30px;
+}
+
+#followerFollowing
+{
+	flex: 8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#aboutMeText
+{
 	word-wrap: break-word;
-	padding: 15px;
 	position: relative;
 }
+
 
 .profileInfoName{
 	height: fit-content;
@@ -119,7 +231,7 @@
 
 }
 
-.editProfileButton{
+.-editProfileButton-{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,14 +249,29 @@
     box-shadow: 0px 1px 7px rgba(0,0,0,0.37);
 }
 
-#editProfileButtonText{
-    font-size: 1vw;
+.editProfileButton
+{
+	border: 1px solid black;
+	padding: 3px 10px 3px 10px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.editProfileButton p
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0px;
 }
 
 .editProfileButton:hover{
     cursor: pointer;
     transition: 0.2s ease;
-    background-color: #F3834E;
+    background-color: #FFF88B;
 }
 
 .profileBottom{

@@ -6,17 +6,18 @@ import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import recipeImage from '../../components/imgs/spoon-and-fork-crossed.jpg';
-import './smallRecipeCard.css';
+import './bookmarkIcons.css';
 // in this function the {posts} hold the ID passed for one post
-export default function SmallRecipe({posts}) {
+export default function BookmarkIconRecipe({posts}) {
+
     const history = useHistory();
 	let test; 
 
-    console.log(posts._id);
-	test = `/recipe/${posts._id}`;
+    console.log(posts);
+	test = `/recipe/${posts}`;
 	const [username,setUsername] = useState(""); 
     const [recipeName,setRecipeName] = useState("");
-	const [userPfp,setpfp] = useState("");
+	//const [userPfp,setpfp] = useState("");
 
     const getPost = async event => {
 		var token = localStorage.getItem("authToken");
@@ -30,7 +31,7 @@ export default function SmallRecipe({posts}) {
 		};
 
 		try {
-			const {data} = await axios.get(`/api/posts/${posts._id}`,config);
+			const {data} = await axios.get(`/api/posts/${posts}`,config);
             setRecipeName(data.recipeName);
 			
 			console.log(data);
@@ -41,22 +42,6 @@ export default function SmallRecipe({posts}) {
 	};
 
 
-	const getUser = async event =>
-	{
-		let user;
-		const config = {
-			headers: {
-			"Content-Type": "application/json",
-			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-			},
-		};
-
-			console.log("username \\/");
-			console.log("username: " + posts.username);
-			var usernameVar = posts.username;
-			console.log("username from var: " + usernameVar);
-			await axios.get(`api/users/${usernameVar}`, config).then((getResponse) => {user = getResponse.data;console.log("username from user: " + user.username);setpfp(user.profilePicture);}).catch(function (error) {console.log(error);});		
-	};
 
 	const goToRecipe = () =>
 	{
@@ -66,7 +51,6 @@ export default function SmallRecipe({posts}) {
 
     useEffect(() => {
 		getPost();
-		getUser();
 	}, []);
  
 	
