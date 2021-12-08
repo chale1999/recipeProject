@@ -5,14 +5,18 @@ import SamplePic from '../../components/imgs/spoon-and-fork-crossed.jpg'
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import BookmarkButton from '../../components/bookmarkbutton/BookmarkButton';
 import DeleteButton from '../../components/deleteButton/deleteButton';
+import EditButton from '../../components/editButton/EditButton';
 
 const ViewRecipe = () =>{
     const history = useHistory();
     const {id} = useParams();
+    const editURL = `/edit-recipe/${id}`;
+    console.log("editURL = " + editURL);
     console.log("recipeId"+id);
 
     const [username,setUsername] = useState(""); 
@@ -64,7 +68,7 @@ const ViewRecipe = () =>{
                 
                 console.log("Delete is visible")
                 document.getElementById("bookmarkForm").remove();
-                document.getElementById("deleteButtonDiv").style.display="block";
+                document.getElementById("editButtonDiv").style.display="block";
                 delVisible = true;
             }
 
@@ -79,11 +83,9 @@ const ViewRecipe = () =>{
 		}
 	};
 
-
     useEffect(() => {
         getPost();
     },[]);
-
 
     return(
         <div>
@@ -121,7 +123,7 @@ const ViewRecipe = () =>{
                     </div>
                     <div class="viewRecipeInfo2">
                         <BookmarkButton id="bookmarkButton"/>
-                        <DeleteButton id="deleteButton" recipeId={id}/>
+                        <Link to= {editURL}><EditButton id="editButton"/></Link>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
                         </div>

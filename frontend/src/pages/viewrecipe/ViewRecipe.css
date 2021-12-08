@@ -35,7 +35,18 @@
     width: 55vw;
 }
 
+.viewRecipeInfo2 a
+{
+    text-decoration: none;
+    color: black;
+}
+
 #deleteButtonDiv
+{
+    display: none;
+}
+
+#editButtonDiv
 {
     display: none;
 }
