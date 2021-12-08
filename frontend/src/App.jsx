@@ -64,7 +64,7 @@ function App() {
             <Route path="/recipe/:id" exact>
               <Recipe/>
             </Route>
-            <Route path="/edit-recipe" exact>
+            <Route path="/edit-recipe/:id" exact>
               <EditRecipe/>
             </Route>
             <Route path="/view-recipe" exact>

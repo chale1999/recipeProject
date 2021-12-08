@@ -55,7 +55,6 @@ const ViewRecipe = () =>{
 		    var decoded = jwt_decode(token);
             logged_in_user = decoded.username;
             poster_user = data.username;
-            var viewer_bookmarked = 
             console.log("decoded user:" + decoded.username);
             console.log("logged_in_user:" + logged_in_user);
             console.log("username of poster: " + poster_user);
