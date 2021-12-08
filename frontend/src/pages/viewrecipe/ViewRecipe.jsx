@@ -122,7 +122,7 @@ const ViewRecipe = () =>{
                         </div>
                     </div>
                     <div class="viewRecipeInfo2">
-                        <BookmarkButton id="bookmarkButton"/>
+                        <BookmarkButton id="bookmarkButton" username={username} recipeid={id}/>
                         <Link to= {editURL}><EditButton id="editButton"/></Link>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>

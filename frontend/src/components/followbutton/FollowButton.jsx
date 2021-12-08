@@ -30,6 +30,9 @@ function FollowButton({followingList}) {
             console.log("Is following")
             setFollowing(true);
         }
+        {
+            setFollowing(false);
+        }
         console.log("Is NOT following")
     }
 
