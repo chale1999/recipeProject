@@ -86,7 +86,7 @@ const EditProfile = () =>
 			const {data} = await axios.put(`/api/users/${username}`, {firstName:fullName.split(' ')[0], lastName:fullName.split(' ')[1]}, config);
 
 			//console.log(data);
-			history.push('/home')
+			history.push('/current-user')
 
 		}catch(error) {
 			console.log("bad");
@@ -133,7 +133,7 @@ const EditProfile = () =>
 			const {data} = await axios.put(`/api/users/${username}`, {desc}, config);
 
 			console.log(data);
-			history.push('/home')
+			history.push('/current-user')
 
 
 		}catch(error) {
@@ -167,14 +167,18 @@ const EditProfile = () =>
 						<div>
 							{isEditName ?
 								<h2 style={{marginTop: '10px'}}>
-								<form onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}>
-								<input autoFocus id="nameEditTextBox" autoFocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" value={fullName} onChange={(e)=> setFullName(e.target.value)}></input>
-								<button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}>
-								<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
-								</button></form></h2>
+									<form onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}>
+										<input autoFocus id="nameEditTextBox" autoFocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" value={fullName} onChange={(e)=> setFullName(e.target.value)}></input>
+										<button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}>
+											<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
+										</button>
+									</form>
+								</h2>
 							:
 								<div id="editNameButtonDiv">
-								<button class="editButton" id="editName" onClick={editName} style={{border:'1px solid black'}}><Create/></button>
+									<button class="editButton" id="editName" onClick={editName} style={{border:'1px solid black'}}>
+										<Create/>
+									</button>
 								</div>
 							}
 						</div>
@@ -184,16 +188,20 @@ const EditProfile = () =>
 							<span id="aboutMeTitle"><strong>About Me:</strong></span>
 							{isEditAbout ?
 								<h3 style={{marginTop: '10px'}}>
-								<form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}>
-								<input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text"  value={desc} onChange={(e) => setDescription(e.target.value)}>
-								</input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}>
-								<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
-								</button></form></h3>
+									<form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}>
+										<input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text"  value={desc} onChange={(e) => setDescription(e.target.value)}></input>
+										<button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}>
+											<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
+										</button>
+									</form>
+								</h3>
 
 							:
 								<div id="editAboutMeButtonDiv">
 									<span id="aboutMeContent" style={{fontSize:'25px'}}>{desc}</span>
-									<button class="editButton" id="editAboutMe" onClick={editAboutMe} style={{border:'1px solid black'}}><Create/></button>
+										<button class="editButton" id="editAboutMe" onClick={editAboutMe} style={{border:'1px solid black'}}>
+											<Create/>
+										</button>
 								</div>
 							}
 							
