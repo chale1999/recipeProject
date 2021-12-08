@@ -9,11 +9,19 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const privateRoute = require("./routes/private");
+const cloudinary = require('cloudinary').v2;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 dotenv.config();
 app.set('PORT', (process.env.PORT || 5000));
+
+cloudinary.config({ 
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET,
+    secure: true
+  });
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewURLParser : true,

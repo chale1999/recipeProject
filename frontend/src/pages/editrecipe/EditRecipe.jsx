@@ -16,8 +16,11 @@ const EditRecipe = () =>
 {
     const history = useHistory();
     const {id} = useParams();
+    let url  = `/recipe/${id}`;
     // required section (need to pass into api as json)
     const [recipeName,setRecipeName] = useState(""); 
+    const [temp1,setTemp1] = useState("");
+    const [temp2,setTemp2] = useState("");
     const [ingredients,setIngredients] = useState([]);
     const [directions,setDirections] = useState([]);
     const [cookTime,setCookTime] = useState("");
@@ -44,9 +47,8 @@ const EditRecipe = () =>
             setRecipeName(data.recipeName);
             setDescription(data.desc);
                
-            setIngredients(splitArrAddNewline(data.ingredients));
-            console.log("ingreds: " + ingredients);
-            setDirections(splitArrAddNewlineDirect(data.directions));
+            setTemp1(splitArrAddNewline(data.ingredients));
+            setTemp2(splitArrAddNewlineDirect(data.directions));
             setPrepTime(data.prepTime);
             setCookTime(data.cookTime);
             setServingCount(data.servingCount);
@@ -57,21 +59,16 @@ const EditRecipe = () =>
 
     const splitArrAddNewline = (arr) =>
     {
-        var arr_newline = arr.join('\r\n');
+        var arr_newline = arr.join('\n');
         console.log(arr_newline);
         return arr_newline;
     };
 
     const splitArrAddNewlineDirect = (arr) =>
     {
-        var arr_newline = arr.join('\r\n');
+        var arr_newline = arr.join('\n');
         return arr_newline;
     };
-
-    const descOnChange = (val) =>
-    {
-        setDescription(val);
-    };  
 
     require( [ "dynamic-textarea" ], function( dynamicTextarea ) {
         console.log("refresh");
@@ -81,6 +78,39 @@ const EditRecipe = () =>
     useEffect(() => {
         getPost();
     },[]); 
+
+
+    const updateChanges = async event =>
+    {
+        event.preventDefault();
+
+        var token = localStorage.getItem("authToken");
+		var decoded = jwt_decode(token);
+        
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
+
+       try {
+            //console.log("Updated name: "+ recipeName);
+            //console.log("Updated desc: "+ desc);
+    
+            const ingredients = temp1.split('\n');
+
+            const directions = temp2.split('\n');
+
+
+		    const {data} = await axios.put(`/api/posts/${id}`,{recipeName, desc, ingredients, directions, prepTime,cookTime, servingCount},config);
+            history.push(url);
+           
+		}catch(error) {
+			console.log(error.message);
+		}
+        
+    }
 
     return(
         <div>
@@ -135,19 +165,19 @@ const EditRecipe = () =>
                         <div className="newRecipeIngr">
                             <p className="fieldLabel">Ingredients List</p>
                             <form>
-                                <textarea data-dynamic id="editRecipeIngreds" placeholder="Place each ingredient on a new line." required value={ingredients} onChange={(e) => setIngredients(e.target.value)}/>   
+                                <textarea data-dynamic id="editRecipeIngreds" placeholder="Place each ingredient on a new line." required value={temp1} onChange={(e) => setTemp1(e.target.value)}/>   
                             </form>
                         </div>
                         <hr/>
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>
-                                <textarea data-dynamic id="editRecipeDirects" placeholder="Describe the procedure for creating your recipe! Place each step on a new line." required value={directions} onChange={(e) => setDirections(e.target.value)}/>
+                                <textarea data-dynamic id="editRecipeDirects" placeholder="Describe the procedure for creating your recipe! Place each step on a new line." required value={temp2} onChange={(e) => setTemp2(e.target.value)}/>
                             </form>
                         </div>            
                     </div>
                 </div>
-                <button id="submitButton">Submit</button>
+                <button id="submitButton" onClick={updateChanges}>Submit</button>
             </div>
        </div>
    </div>

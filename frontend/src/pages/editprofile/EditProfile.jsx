@@ -112,7 +112,7 @@ const EditProfile = () =>
 			const {data} = await axios.put(`/api/users/${username}`, {firstName:fullName.split(' ')[0], lastName:fullName.split(' ')[1]}, config);
 
 			//console.log(data);
-			history.push('/home')
+			history.push('/current-user')
 
 		}catch(error) {
 			console.log("bad");
@@ -159,7 +159,7 @@ const EditProfile = () =>
 			const {data} = await axios.put(`/api/users/${username}`, {desc}, config);
 
 			console.log(data);
-			history.push('/home')
+			history.push('/current-user')
 
 
 		}catch(error) {
