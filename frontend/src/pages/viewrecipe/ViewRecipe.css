@@ -34,3 +34,8 @@
     justify-content: left;
     width: 55vw;
 }
+
+#deleteButtonDiv
+{
+    display: none;
+}

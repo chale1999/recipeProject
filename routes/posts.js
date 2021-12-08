@@ -127,7 +127,7 @@ router.delete("/:id", async (req, res) =>{
         }
 
         try{ // user now found with decoded id so find post
-            const postDel = await Post.findById(user.username); 
+            const postDel = await Post.findById(req.params.id); 
             if(postDel.username === user.username){
                 await postDel.deleteOne();
                 return res.status(200).json({Success: true ,Error: "Post Deleted"});

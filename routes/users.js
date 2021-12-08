@@ -152,7 +152,7 @@ router.put("/:username/follow", async (req, res) =>{
         }
 
     }catch(error){
-        return res.status(403).json("Not authorized");
+        return res.status(403).json("Issue With Header");
     }
 });
 
@@ -194,7 +194,7 @@ router.put("/:username/unfollow", async (req, res) =>{
         }
 
     }catch(error){
-        return res.status(403).json("Not Authorized");
+        return res.status(403).json("Issue with header");
     }
 });
 

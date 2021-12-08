@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import PageNavbar from "../../components/navbar/PageNavbar.jsx";
 import imageUpload from "../../components/imgs/uploadbutton.JPG";
 import setRef from "@mui/utils/setRef";
+import dynamictextarea from 'dynamic-textarea';
 
 
 
@@ -106,21 +107,21 @@ const CreateRecipe = () =>
                         <div className="newRecipeDesc">
                             <p className="fieldLabel">Recipe Description</p>                
                             <form>
-                                <textarea id="recipeDesc" placeholder="Describe your recipe in 150 words!" maxLength="150" value={desc} onChange={(e) => setDesc(e.target.value)}/>
+                                <textarea data-dynamic id="recipeDesc" placeholder="Describe your recipe in 150 words!" maxLength="150" value={desc} onChange={(e) => setDesc(e.target.value)}/>
                             </form>
                         </div>
                         <hr/>
                         <div className="newRecipeIngr">
                             <p className="fieldLabel">Ingredients List</p>
                             <form>
-                                <textarea id="recipeDesc" placeholder="Place each ingredient on a new line." required value={temp} onChange={(e) => setIngedients(e.target.value)}/>   
+                                <textarea data-dynamic id="recipeDesc" placeholder="Place each ingredient on a new line." required value={temp} onChange={(e) => setIngedients(e.target.value)}/>   
                             </form>
                         </div>
                         <hr/>
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>
-                                <textarea id="recipeDesc" placeholder="Describe the procedure for creating your recipe! Place each step on a new line." required value={temptwo} onChange={(e) => setDirections(e.target.value)}/>
+                                <textarea data-dynamic id="recipeDesc" placeholder="Describe the procedure for creating your recipe! Place each step on a new line." required value={temptwo} onChange={(e) => setDirections(e.target.value)}/>
                             </form>
                         </div>            
                     </div>
