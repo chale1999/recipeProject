@@ -21,6 +21,11 @@
     background-color: rgb(255, 255, 255);
 }
 
+#posterLink:hover
+{
+    cursor: pointer;
+}
+
 .viewRecipeInfo1{
     display: flex;
     flex-direction: column;

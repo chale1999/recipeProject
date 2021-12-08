@@ -7,7 +7,7 @@ import Bookmark from '@mui/icons-material/Bookmark';
 import FoodBank from '@mui/icons-material/FoodBank';
 import Search from '@mui/icons-material/Search';
 import Notifications from '@mui/icons-material/Notifications';
-import pfp from '../imgs/person.jpg';
+import pfp from '../imgs/default_profile_picture.png';
 import logo from '../imgs/MegaBitesLogo_transparent-large.png';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Create from '@mui/icons-material/Create';

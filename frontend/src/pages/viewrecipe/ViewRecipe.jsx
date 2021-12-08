@@ -83,6 +83,11 @@ const ViewRecipe = () =>{
 		}
 	};
 
+    const linkToPoster = () =>
+    {
+        history.push(`/profile/${username}`);
+    };
+
     useEffect(() => {
         getPost();
     },[]);
@@ -126,6 +131,7 @@ const ViewRecipe = () =>{
                         <Link to= {editURL}><EditButton id="editButton"/></Link>
                         <div className="viewRecipeTitle">
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
+                            <p id="posterLink"onClick={linkToPoster}>Created by:&nbsp;{username}</p>
                             <hr/>
                         </div>
                         <hr/>

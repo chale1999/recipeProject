@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import {Link} from 'react-router-dom';
-import pfp from '../../components/imgs/person.jpg';
+import pfp from '../../components/imgs/default_profile_picture.png';
 import cover from '../../components/imgs/cover3.jpg';
 import recipeImage from '../../components/imgs/food.jpg';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -134,7 +134,8 @@ const EditProfile = () =>
 		};
 
 		console.log("Full name is: "+fullName);
-		console.log("first name is: " + fullName.split(' ')[0]);
+		console.log("first name is: " + fullName.split('\n'));
+
 		setFirstName(fullName.split(' ')[0]);
 		console.log("last name is: " + fullName.split(' ')[1]);
 		setLastName(fullName.split(' ')[1]);
@@ -212,6 +213,7 @@ const EditProfile = () =>
 	const showAboutMeEdit = () =>
 	{
 		document.getElementById("aboutMeEditButton").style.display="none";
+		document.getElementById("aboutMeText").style.display="none";
 		document.getElementById("aboutMeEditForm").style.display="block";
 		console.log("edit about me now visible");
 	};
@@ -236,14 +238,15 @@ const EditProfile = () =>
 					<div id="flexBoxHorizontal">
 						<div id="aboutMeDiv">
 							<div id="aboutMeContent">
-								<div >
+								<div>
 									<span id="aboutMeTitle" style={{marginBottom: '10px', fontFamily: 'MV Boli', fontSize:'22px', marginRight: '20px'}}><strong>About Me:</strong></span>
+									<p id="aboutMeText" style={{fontFamily: 'MV Boli'}}>{desc}</p>
 									<button class="editButton" id="aboutMeEditButton" onClick={showAboutMeEdit} style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginBottom: '10px'}}><Create/></button>
 								</div>
 								<div id="aboutMeEditTextArea style={{height: '100%', marginTop: '5px'}}">
 									<form id="aboutMeEditForm" onSubmit={doEditAboutMe} style={{height: '100%'}}>
 										<button type="submit" style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginBottom: '10px', marginTop:'-30px'}}><CheckIcon/></button>
-										<textarea data-dynamic maxlength="200" style={{minHeight: '100px', fontSize:'14px', width:'100%', backgroundColor:"#FFFADF", border:"1px solid #99A038"}} onChange={(e) => setDescription(e.target.value)}>{desc}</textarea>
+										<textarea data-dynamic maxlength="200" placeholder={desc} style={{minHeight: '100px', fontSize:'14px', width:'100%', backgroundColor:"#FFFADF", border:"1px solid #99A038"}} onChange={(e) => setDescription(e.target.value)}>{desc}</textarea>
 									</form>
 								</div>
 								
@@ -252,12 +255,12 @@ const EditProfile = () =>
 						<div id="pfpDiv">
 							<img src={pfp} className="profileUserImg"/>
 							<div id= "nameEditForm">
-								<form style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '10px'}}>
-									<input id="nameInput" placeholder="{firstName} {lastName}" style={{textAlign: 'center'}}></input>
+								<form onsubmit={doEditName} style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '10px'}}>
+									<input id="nameInput" placeholder="{firstName} {lastName}" onChange={(e) => setFullName(e.target.value)} style={{textAlign: 'center'}}></input>
 									<button type="submit" style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginLeft: '10px'}}><CheckIcon/></button>
 								</form>
 							</div>
-							<span id="nameDisplay" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{firstName} {lastName}<button class="editButton" onClick={showNameEdit} style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginLeft: '10px'}}><Create/></button></span>
+							<p id="nameDisplay" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{firstName} {lastName}<button class="editButton" onClick={showNameEdit} style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right', marginLeft: '10px'}}><Create/></button></p>
 						</div>
 						<div id="rightProfileDiv">
 						</div>

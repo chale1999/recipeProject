@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import {Link} from 'react-router-dom';
-import pfp from '../../components/imgs/person.jpg';
+import pfp from '../../components/imgs/default_profile_picture.png';
 import cover from '../../components/imgs/cover3.jpg';
 import recipeImage from '../../components/imgs/food.jpg';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';

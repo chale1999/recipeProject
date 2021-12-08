@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import pfp from '../../components/imgs/person.jpg';
+import pfp from '../../components/imgs/default_profile_picture.png';
 import cover from '../../components/imgs/user2.jpg';
 import recipeImage from '../../components/imgs/food.jpg';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
