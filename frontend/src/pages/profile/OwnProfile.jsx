@@ -25,6 +25,8 @@ const OwnProfile = () =>
 	const [followers,setFollowers] = useState([]);
 	const [following, setFollowing] = useState([]);
 	const [posts, setPosts] = useState([]);
+	var followerCount;
+	var followingCount;
 
 	const getProfile = async event =>
 	{
@@ -56,6 +58,9 @@ const OwnProfile = () =>
 		}catch(error) {
 			console.log(error);
 		}
+		
+		followerCount = followers.length;
+		followingCount = following.length;
 	};
 
 
@@ -102,31 +107,50 @@ const OwnProfile = () =>
 		  <PageNavbar/>
 		  <div className="profile">
 			<div className="profileTop">
+				
 				<div className="profileCover">
 					<img src={cover} className="profileCoverImg"/>
-					
 				</div>
+
 				<div className="profileInfo">
-					<div id="pfpDiv">
-						<img src={pfp} className="profileUserImg"/>
-						<span id="name">{firstName} {lastName}</span>
+					<div id="flexBoxHorizontal">
 						<div id="aboutMeDiv">
-							<span id="aboutMeTitle"><strong>About Me:</strong></span>
-							<br/>
-							<p id="aboutMeContent">{desc}</p>
+							<div id="aboutMeContent">
+								<span id="aboutMeTitle" style={{marginBottom: '10px', fontFamily: 'MV Boli', fontSize:'22px'}}><strong>About Me:</strong></span>
+								<p id="aboutMeText" style={{fontFamily: 'MV Boli'}}>{desc}</p>
+							</div>
+						</div>
+						<div id="pfpDiv">
+							<img src={pfp} className="profileUserImg"/>
+							<span id="name">{firstName} {lastName}</span>
+						</div>
+						<div id="rightProfileDiv">
+							<span style={{fontFamily: 'MV Boli'}}>My Kitchen</span>
+							<div id="followerFollowing">
+								<table class="follow">
+									<tr>
+										<th>Sous-Chefs</th>
+										<th>Head-Chefs</th>
+									</tr>
+									<tr>
+										<td>{followers.length}</td>
+										<td>{following.length}</td>
+									</tr>
+								</table>
+							</div>
+							<form className="editProfileButton" onClick={toEditProfile}>
+								<Create/>
+								<p id="editProfileButtonText">Edit Profile</p>
+							</form>
 						</div>
 					</div>
-					<form className="editProfileButton" onClick={toEditProfile}>
-                        <Create/>
-                        <br/>
-                        <span id="editProfileButtonText">Edit</span>
-                    </form>
 				</div>
 			</div>
 			<div className="break">
 
 			</div>
 			<div class="profileBottom">
+				
 				<div className="profileBottomInfo">
 					<div className="tabs">
 						<Tabs>

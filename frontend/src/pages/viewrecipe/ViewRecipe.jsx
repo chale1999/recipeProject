@@ -115,26 +115,26 @@ const ViewRecipe = () =>{
                             <form>
                                 <ul>
                                 {ingredients.map((p) => (
-									<li>{p}</li>
+									<label for="custom-checkbox"><li><input id="ingredientCheck" class="custom-checkbox custom-control-input:checkedingredCheckBox" type="checkbox" style={{marginRight: '2px'}}/>{p}</li></label>
 								))}
                                 </ul>
                             </form>
                         </div>
                     </div>
                     <div class="viewRecipeInfo2">
-                        <BookmarkButton id="bookmarkButton"/>
-                        <Link to= {editURL}><EditButton id="editButton"/></Link>
                         <div className="viewRecipeTitle">
+                            <BookmarkButton id="bookmarkButton"/>
+                            <Link to= {editURL}><EditButton id="editButton"/></Link>
                             <span style={{textAlign: 'center', fontSize: '40px', fontWeight: 'bold'}}>{recipeName}</span>
+                            <hr/>
                         </div>
-                        <hr/>
                         <div className="viewRecipeDesc">
                             <p className="fieldLabel">Description</p>                
                             <form>
                                 <span>{desc}</span>
                             </form>
-                        </div>
-                        <hr/>
+                            <hr/>
+                        </div>                       
                         <div className="newRecipeProc">
                             <p className="fieldLabel">Procedure</p>
                             <form>

@@ -74,7 +74,7 @@ export default function SmallRecipe({posts}) {
         <div id="recipeCard" onClick={goToRecipe}>
             <img id="itemImageTest" alt = "recipe pic" src={recipeImage} height='auto' width = 'auto'></img>
             <div id="recipeCardItemInfo">
-                <span id="itemTitle"><img id="posterPfp" alt="recipe poster's profile picture" src={userPfp} height='33px' width='33px'/>{recipeName}</span>
+                <span id="itemTitle">{recipeName}</span>
             </div>
         </div>
     )

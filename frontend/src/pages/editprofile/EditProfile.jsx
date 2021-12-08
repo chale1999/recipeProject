@@ -15,6 +15,7 @@ import Create from '@mui/icons-material/Create';
 import Icons from '../../components/smallIcon/icon';
 import SmallRecipe from '../../components/smallRecipeIcon/smallRecipeCard';
 import { useEffect, useState } from 'react';
+import dynamictextarea from 'dynamic-textarea';
 
 const EditProfile = () =>
 {
@@ -28,8 +29,33 @@ const EditProfile = () =>
 	const [fullName, setFullName] = useState("");
 
 	const [error,setError] = useState("");
+	/*
+	const getProfile = async event =>
+	{
+		//event.preventDefault();
+		const config = {
+			headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+			},
+		};
 
+		try {
+			const {data} = await axios.get(`/api/users/${username}`,config);
+			console.log(data);
+			setFirstName(data.firstName);
+			setLastName(data.lastName);
+			setDescription(data.desc);
+			setFollowers(data.followers);
+			//console.log(followers);
+			setFollowing(data.following);
+			//return data; // in data has all the current users data from db!
 
+		}catch(error) {
+			console.log(error);
+		}
+	};
+	*/
 	const editCover = () =>
 	{
 		console.log("edit cover!!");
@@ -157,46 +183,26 @@ const EditProfile = () =>
 					</div>
 				</div>
 				<div className="profileInfo">
-					<div id="pfpDiv">
-						<div id="actualImg">
-							<img src={pfp} className="profileUserImg"/>
-							<label class="editButton" id="editPFP" for="pfpUpload" onClick={editPFP}  style={{outline:'1px solid black', width:'38px', height:'38px', display: 'flex', alignItems:'center'}}><Create id="editPfpIcon"/></label>
-							<input type="file" id="pfpUpload" style={{display:'none'}}></input>
-						</div>
-						<div id="nameDiv">
-						<div>
-							{isEditName ?
-								<h2 style={{marginTop: '10px'}}>
-								<form onSubmit={doEditName} style={{width: 'fit-content', border:'none', display:'flex', alignItems:'center', justifyContent:'center'}}>
-								<input autoFocus id="nameEditTextBox" autoFocus style={{textAlign: 'center', width: 'fit-content', border:'none', outlineWidth:'0'}} type="text" value={fullName} onChange={(e)=> setFullName(e.target.value)}></input>
-								<button type="submit" class="reset-this" style={{width:'38px', height: '38px', borderRadius:'10px', display: 'flex', alignItems:'center'}}>
-								<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
-								</button></form></h2>
-							:
-								<div id="editNameButtonDiv">
-								<button class="editButton" id="editName" onClick={editName} style={{border:'1px solid black'}}><Create/></button>
-								</div>
-							}
-						</div>
-						</div>
-						<br/>
+					<div id="flexBoxHorizontal">
 						<div id="aboutMeDiv">
-							<span id="aboutMeTitle"><strong>About Me:</strong></span>
-							{isEditAbout ?
-								<h3 style={{marginTop: '10px'}}>
-								<form id="abtMeForm" method="get" style={{border:'none', display: 'flex'}} onSubmit={doEditAboutMe}>
-								<input autoFocus id="aboutMeEditTextBox" style={{textAlign: 'center', padding:'5px', outline: 'none', border:'none', flex:'11'}} type="text"  value={desc} onChange={(e) => setDescription(e.target.value)}>
-								</input><button id="saveAbtMeChange" type="submit" class="reset-this" style={{width:'38px', height:'38px',borderRadius:'10px', display: 'flex', alignItems:'center'}}>
-								<CheckIcon class="editButton" style={{border:'1px solid black', borderRadius: '10px', height: '38px', width:'38px'}}/>
-								</button></form></h3>
-
-							:
-								<div id="editAboutMeButtonDiv">
-									<span id="aboutMeContent" style={{fontSize:'25px'}}>{desc}</span>
-									<button class="editButton" id="editAboutMe" onClick={editAboutMe} style={{border:'1px solid black'}}><Create/></button>
+							<div id="aboutMeContent">
+								<div>
+									<span id="aboutMeTitle" style={{marginBottom: '10px', fontFamily: 'MV Boli', fontSize:'22px', marginRight: '20px'}}><strong>About Me:</strong></span>
+									<button style={{borderRadius: '10px', display: 'flex',alignItems: 'center', height: '38px', float:'right'}}><Create/></button>
 								</div>
-							}
-							
+								<div id="aboutMeEditTextArea style={{height: '100%', marginTop: '5px'}}">
+									<form onSubmit={doEditAboutMe}>
+										<textarea data-dynamic maxlength="200" style={{height: '100%', fontSize:'14px', width:'100%'}} onChange={(e) => setDescription(e.target.value)}>{desc}</textarea>
+									</form>
+								</div>
+								
+							</div>
+						</div>
+						<div id="pfpDiv">
+							<img src={pfp} className="profileUserImg"/>
+							<span id="name">{firstName} {lastName}</span>
+						</div>
+						<div id="rightProfileDiv">
 						</div>
 					</div>
 				</div>

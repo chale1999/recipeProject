@@ -22,16 +22,20 @@ export default function Icons({follower_name}) {
     {
          test = `/current-user`;
     }
-    else{
+
+    else
+    {
          test = `/profile/${follower_name}`;
     }
+
+    console.log("test = " + test);
     
     //const firstName = follower_name.firstName;
    //const lastName = follower_name.lastName;
 
-   useEffect(() => {
-        const getProfile = async event =>
+   const getProfile = async event =>
         {
+            console.log("GETTING PROFILE");
             //event.preventDefault();
             var token = localStorage.getItem("authToken");
             var decoded = jwt_decode(token);
@@ -52,7 +56,17 @@ export default function Icons({follower_name}) {
                 console.log(error);
             }
         };
+
+   const goToProfile = () =>
+   {
+        console.log("GOING TO PROFILE");
+        history.push(`${test}`);
         getProfile();
+        window.location.reload(true);
+   };
+
+   useEffect(() => {
+       getProfile();
    },[]); // only loads in the data once 
 
 
@@ -63,8 +77,8 @@ export default function Icons({follower_name}) {
 
     return(
         <div className="profileFollowedUserContainer">
-            <div className="followedUser">
-                <Link to= {test}><img src={pfp} alt="Your profile pic" id="profilePicture"/></Link>
+            <div className="followedUser" onClick = {goToProfile}>
+                <img src={pfp} alt="Your profile pic" id="profilePicture"/>
                 <span>{firstName} {lastName}</span>
             </div>
             <br/>
